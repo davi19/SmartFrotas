@@ -15,20 +15,21 @@ public class Conexao {
     
      Class.forName("com.mysql.jdbc.Driver");
         
-     String url="jdbc:mysql://localhost/NomeDB";
+     String url="jdbc:mysql://localhost:3306/frotas";
      String user="root";
      String password="123";
 
             con = DriverManager.getConnection(url, user, password);
             stmt = con.createStatement();
+            
+             //System.out.print(" >>>> DB CONECTADO COM SUCESSO  <<<< ");
 
-
-        } catch (SQLException ex) {
-            System.out.print("Erro"+ ex.getMessage());
-        } catch (ClassNotFoundException ex) {
-            System.out.print("Erro"+ ex.getMessage());
+        } catch (SQLException | ClassNotFoundException ex) {
+            
+            System.out.print("Problemas na conexao com o banco de dados | Erro >"+ ex.getMessage());
+            
         }
 }
-      
+
     
 }
