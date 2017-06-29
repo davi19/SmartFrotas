@@ -21,7 +21,8 @@ public class ControleDeViagemControle {
         
         Conexao c = new Conexao();
         
-        String sentenca = "INSERT INTO Controle VALUES("+p.getCodControle()+",'"+p.getMotorista()+"','"+p.getVeiculo()+"','"+p.getKmSaida()+"','"+p.getKmEntrada()+"','"+p.getDataSaida()+"','"+p.getDataEntrada()+"')";
+        String sentenca = "INSERT INTO Controle VALUES("+p.getCodControle()+",'"+p.getCodMotorista()+"','"+
+        p.getCodVeiculo()+"','"+p.getKmSaida()+"','"+p.getKmEntrada()+"','"+p.getDataSaida()+"','"+p.getDataEntrada()+"')";
         
         c.stmt.execute(sentenca);
         
@@ -44,7 +45,9 @@ public class ControleDeViagemControle {
      
      public void editar(ControleDeViagemModelo p){
     
-        String sentenca = "UPDATE Controle set codMotorista = '"+p.getMotorista()+"', placaVeiculo = '"+p.getVeiculo()+"', KmSaida = '"+p.getKmSaida()+"', KmEntrada = '"+p.getKmEntrada()+"', dataSaida = '"+p.getDataSaida()+"', dataEntrada = '"+p.getDataEntrada()+"' WHERE codControle="+p.getCodControle();
+        String sentenca = "UPDATE Controle set codMotorista = '"+p.getCodMotorista()+"', placaVeiculo = '"
+        +p.getCodVeiculo()+"', KmSaida = '"+p.getKmSaida()+"', KmEntrada = '"+p.getKmEntrada()+"', dataSaida = '"+
+        		p.getDataSaida()+"', dataEntrada = '"+p.getDataEntrada()+"' WHERE codControle="+p.getCodControle();
     	try {
 			new Conexao().stmt.execute(sentenca);
 		} catch (SQLException e) {

@@ -22,7 +22,7 @@ public class AbastecimentoControle {
         
         Conexao c = new Conexao();
         
-        String sentenca = "INSERT INTO Abastecimento VALUES("+p.getCodAbastecimento()+",'"+p.getVeiculo().getPlacaVeiculo()+"','"+p.getQtdAbastecida()+"','"+p.getKmDeAbastecimento()+"','"+p.getKmDeAbastecimentoAnterior()+"','"+p.getDataAbastecimento()+"')";
+        String sentenca = "INSERT INTO Abastecimento VALUES("+p.getCodAbastecimento()+",'"+p.getCodVeiculo()+"','"+p.getQtdAbastecida()+"','"+p.getKmDeAbastecimento()+"','"+p.getKmDeAbastecimentoAnterior()+"','"+p.getDataAbastecimento()+"')";
         
         c.stmt.execute(sentenca);
         
@@ -45,7 +45,7 @@ public class AbastecimentoControle {
         
         public void editar(AbastecimentoModelo p){
     
-        String sentenca = "UPDATE Abastecimento set placaVeiculo = '"+p.getVeiculo().getPlacaVeiculo()+"', quantidadeAbastecida = '"+p.getQtdAbastecida()+"', quilometroAbastecido = '"+p.getKmDeAbastecimento()+"', quilometroDeAbastecimentoAnterior = '"+p.getKmDeAbastecimentoAnterior()+"', dataAbastecimento = '"+p.getDataAbastecimento()+"' WHERE codAbastecimento="+p.getCodAbastecimento();
+        String sentenca = "UPDATE Abastecimento set placaVeiculo = '"+p.getCodVeiculo()+"', quantidadeAbastecida = '"+p.getQtdAbastecida()+"', quilometroAbastecido = '"+p.getKmDeAbastecimento()+"', quilometroDeAbastecimentoAnterior = '"+p.getKmDeAbastecimentoAnterior()+"', dataAbastecimento = '"+p.getDataAbastecimento()+"' WHERE codAbastecimento="+p.getCodAbastecimento();
     	try {
 			new Conexao().stmt.execute(sentenca);
 		} catch (SQLException e) {

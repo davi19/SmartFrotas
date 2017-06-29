@@ -21,7 +21,8 @@ public class MotoristaControle {
         
         Conexao c = new Conexao();
         
-        String sentenca = "INSERT INTO Motorista VALUES("+p.getCodMotorista()+",'"+p.getNome()+"','"+p.getCategoriaCNH()+"','"+p.getNumeroCNH()+"','"+p.getDataDeEmissaoCNH()+"')";
+        String sentenca = "INSERT INTO Motorista VALUES("+p.getCodMotorista()+",'"+p.getNome()+"','"
+        +p.getCategoriaCNH()+"','"+p.getNumeroCNH()+"','"+p.getDataDeEmissaoCNH()+"')";
         
         c.stmt.execute(sentenca);
         
@@ -44,7 +45,9 @@ public class MotoristaControle {
     
     public void editar(MotoristaModelo p){
     
-        String sentenca = "UPDATE Motorista set nomeMotorista = '"+p.getNome()+"', categoriaCNH = '"+p.getCategoriaCNH()+"', numeroCNH = '"+p.getNumeroCNH()+"', dataDeEmissaoCNH = '"+p.getDataDeEmissaoCNH()+"' WHERE codMotorista="+p.getCodMotorista();
+        String sentenca = "UPDATE Motorista set nomeMotorista = '"+p.getNome()+"', categoriaCNH = '"
+        +p.getCategoriaCNH()+"', numeroCNH = '"+p.getNumeroCNH()+"', dataDeEmissaoCNH = '"
+        		+p.getDataDeEmissaoCNH()+"' WHERE codMotorista="+p.getCodMotorista();
     	try {
 			new Conexao().stmt.execute(sentenca);
 		} catch (SQLException e) {

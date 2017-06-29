@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class ControleDeViagemModelo {
 	
-	int kmEntrada, kmSaida, codControle;
+	int kmEntrada, kmSaida, codControle, codMotorista, codVeiculo;//adicionado codMotorista e codVeiculo em 28/06/2017
 	MotoristaModelo motorista;
 	VeiculoModelo veiculo;
 	//String satus; Removido em 27/06/2017
@@ -29,18 +29,6 @@ public class ControleDeViagemModelo {
 	public void setCodControle(int codControle) {
 		this.codControle = codControle;
 	}
-	public MotoristaModelo getMotorista() {
-		return motorista;
-	}
-	public void setMotorista(MotoristaModelo motorista) {
-		this.motorista = motorista;
-	}
-	public VeiculoModelo getVeiculo() {
-		return veiculo;
-	}
-	public void setVeiculo(VeiculoModelo veiculo) {
-		this.veiculo = veiculo;
-	}
 	public Date getDataEntrada() {
 		return dataEntrada;
 	}
@@ -56,6 +44,19 @@ public class ControleDeViagemModelo {
 	
 	public int KmPercorrido(){
 		return kmEntrada - kmSaida;
+	}
+	public int getCodVeiculo() {
+		return veiculo.codVeiculo;
+	}
+	//Editado não precisa cadastrar objeto de veiculo e motorista, somente os codigos do tipo int
+	public void setCodVeiculo(VeiculoModelo veiculo) {
+		this.codVeiculo = veiculo.codVeiculo;
+	}
+	public int getCodMotorista() {
+		return motorista.codMotorista;
+	}
+	public void setCodMotorista(MotoristaModelo motorista) {
+		this.codMotorista = motorista.codMotorista;
 	}
 	
 	public String ConverteData(String dataCalendar)
