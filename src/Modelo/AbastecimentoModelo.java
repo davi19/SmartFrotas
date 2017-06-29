@@ -6,7 +6,8 @@ import java.sql.Date;
 
 public class AbastecimentoModelo {
     
-    int codAbastecimento, kmDeAbastecimento, kmDeAbastecimentoAnterior;////KmDeAbastecimentoAnterior Adicionado em 27/06/2017
+    int codAbastecimento, kmDeAbastecimento, kmDeAbastecimentoAnterior, codVeiculo;//KmDeAbastecimentoAnterior Adicionado em 27/06/2017
+    //~ codVeiculo Adicionado em 29/06/2017
     Date dataAbastecimento;
     float qtdAbastecida;
     VeiculoModelo veiculo;
@@ -42,11 +43,12 @@ public class AbastecimentoModelo {
 	public void setQtdAbastecida(float qtdAbastecida) {
 		this.qtdAbastecida = qtdAbastecida;
 	}
-	public VeiculoModelo getVeiculo() {
-		return veiculo;
+	//Editado não precisa cadastrar objeto de veiculo, somente o codigo do tipo int
+	public int getCodVeiculo() {
+		return veiculo.codVeiculo;
 	}
-	public void setVeiculo(VeiculoModelo veiculo) {
-		this.veiculo = veiculo;
+	public void setCodVeiculo(VeiculoModelo veiculo) {
+		this.codVeiculo = veiculo.codVeiculo;
 	}
 
 }
