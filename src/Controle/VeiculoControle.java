@@ -21,9 +21,7 @@ public class VeiculoControle {
         
         Conexao c = new Conexao();
         
-        String sentenca = "INSERT INTO Veiculo VALUES("+p.getPlacaVeiculo()+",'"+p.getTipoVeiculo()
-        		+"','"+p.getFabricante()+"','"+p.getModelo()+"','"+p.getAnoFabricacao()+"','"
-        		+p.getMediaConsumo()+"','"+p.getCapacidadeTanque()+"','"+p.getCor()+"','"+p.getNumeroChassi()+"')";
+        String sentenca = "INSERT INTO Veiculo VALUES("+p.getPlacaVeiculo()+",'"+p.getTipoVeiculo()+"','"+p.getFabricante()+"','"+p.getModelo()+"','"+p.getAnoFabricacao()+"','"+p.getMediaConsumo()+"','"+p.getCapacidadeTanque()+"','"+p.getCor()+"','"+p.getNumeroChassi()+"')";
         
         c.stmt.execute(sentenca);
         
@@ -46,11 +44,7 @@ public class VeiculoControle {
     
      public void editar(VeiculoModelo p){
     
-        String sentenca = "UPDATE Veiculo set placaVeiculo = '"+p.getPlacaVeiculo()+"', tipoVeiculo = '"+
-        p.getTipoVeiculo()+"', fabricante = '"+p.getFabricante()+"', modelo = '"+p.getModelo()+"', anoFabricacao = '"+
-        		p.getAnoFabricacao()+"', mediaConsumo = '"+p.getMediaConsumo()+"', capacidadeTanque = '"+
-        p.getCapacidadeTanque()+"', cor = '"+p.getCor()+"', numeroChassi = '"+p.getNumeroChassi()+"' WHERE placaVeiculo="+
-        		p.getPlacaVeiculo();
+        String sentenca = "UPDATE Veiculo set placaVeiculo = '"+p.getPlacaVeiculo()+"', tipoVeiculo = '"+p.getTipoVeiculo()+"', fabricante = '"+p.getFabricante()+"', modelo = '"+p.getModelo()+"', anoFabricacao = '"+p.getAnoFabricacao()+"', mediaConsumo = '"+p.getMediaConsumo()+"', capacidadeTanque = '"+p.getCapacidadeTanque()+"', cor = '"+p.getCor()+"', numeroChassi = '"+p.getNumeroChassi()+"' WHERE placaVeiculo="+p.getPlacaVeiculo();
     	try {
 			new Conexao().stmt.execute(sentenca);
 		} catch (SQLException e) {
