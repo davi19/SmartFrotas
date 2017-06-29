@@ -43,7 +43,7 @@ public class AbastecimentoModelo {
 	public void setQtdAbastecida(float qtdAbastecida) {
 		this.qtdAbastecida = qtdAbastecida;
 	}
-	//Editado não precisa cadastrar objeto de veiculo, somente o codigo do tipo int
+	//Editado nao precisa cadastrar objeto de veiculo, somente o codigo do tipo int
 	public int getCodVeiculo() {
 		return veiculo.codVeiculo;
 	}
