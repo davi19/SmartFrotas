@@ -59,10 +59,17 @@ public class ControleDeViagemModelo {
 		this.codMotorista = motorista.codMotorista;
 	}
 	
-	public String ConverteData(String dataCalendar)
+	public String ConverteData_EUA_BR(String dataCalendar)
 	{
 		String aux[] = dataCalendar.split("/");
 		dataCalendar = aux[2] + "-" + aux[1] + "-" + aux[0];
+		return dataCalendar;
+	}
+	
+	public String ConverteData_BR_EUA(String dataCalendar)
+	{
+		String aux[] = dataCalendar.split("-");
+		dataCalendar = aux[2] + "/" + aux[1] + "/" + aux[0];
 		return dataCalendar;
 	}
 	
