@@ -14,42 +14,54 @@ import Util.Conexao;
  */
 public class UsuarioControle {
     
-   public void inserir(UsuarioModelo p){    
-
-    
+     Conexao c = new Conexao();
+     
+   public void inserir(UsuarioModelo p){
+            
+                       
+      String sentenca = "INSERT INTO UsuarioSistema VALUES ('"+p.getLogin()+"','"+p.getSenha()+"','"+p.getNivelPermissao()+"')";
+       
         try{
+             
+             c.stmt.execute(sentenca); 
+             System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+            
+        } catch (SQLException ex){
         
-        Conexao c = new Conexao();
-        
-        String sentenca = "INSERT INTO UsuarioSistema VALUES("+p.getLogin()+",'"+p.getSenha()+"','"+p.getNivelPermissao()+"')";
-        
-        c.stmt.execute(sentenca);
-        
-            } catch (SQLException ex){
-        
-            System.out.print(ex.getMessage());  
-        
-        }
+            //System.out.print(ex.getMessage());  
+             System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+            }
     } 
    
-   public void excluir(UsuarioModelo p){
-    	String sentenca = "DELETE FROM UsuarioSistema WHERE codigo="+p.getLogin();
+   public void excluir(String login){
+       
+    	String sentenca = "DELETE FROM UsuarioSistema WHERE login="+login;
+        
     	try {
-		new Conexao().stmt.execute(sentenca);
+		c.stmt.execute(sentenca);
+                System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
 		
-              } catch (SQLException e) {
-			e.printStackTrace();
-		}
+              } catch (SQLException ex){
+ 
+                System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+        
+        }
     }
    
     public void editar(UsuarioModelo p){
     
         String sentenca = "UPDATE UsuarioSistema set senha = '"+p.getSenha()+"', nivelPermissao = '"+p.getNivelPermissao()+"' WHERE login="+p.getLogin();
-    	try {
-			new Conexao().stmt.execute(sentenca);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+    	
+        try {
+		c.stmt.execute(sentenca);
+                System.out.print(" >>>> ALTERADO COM SUCESSO  <<<< ");
+                 
+		} catch (SQLException ex){
+        
+                //System.out.print(ex.getMessage());
+                System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
+        
+        }
     }
     
      
