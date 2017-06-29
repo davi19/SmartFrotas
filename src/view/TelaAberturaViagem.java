@@ -70,7 +70,7 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
         botaoNovoCadastro.setBackground(new java.awt.Color(204, 204, 204));
         botaoNovoCadastro.setForeground(new java.awt.Color(255, 255, 255));
-        botaoNovoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frotas/view/Icones/Add.png"))); // NOI18N
+        botaoNovoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/Add.png"))); // NOI18N
         botaoNovoCadastro.setBorderPainted(false);
         botaoNovoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,12 +80,12 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
         botaoSalvar.setBackground(new java.awt.Color(204, 204, 204));
         botaoSalvar.setForeground(new java.awt.Color(255, 255, 255));
-        botaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frotas/view/Icones/save-icon.png"))); // NOI18N
+        botaoSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/save-icon.png"))); // NOI18N
         botaoSalvar.setBorderPainted(false);
 
         botaoPesquisar.setBackground(new java.awt.Color(204, 204, 204));
         botaoPesquisar.setForeground(new java.awt.Color(255, 255, 255));
-        botaoPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frotas/view/Icones/Search_find_locate_1542.png"))); // NOI18N
+        botaoPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/Search_find_locate_1542.png"))); // NOI18N
         botaoPesquisar.setBorderPainted(false);
         botaoPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,10 +95,10 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
         botaoEditar.setBackground(new java.awt.Color(204, 204, 204));
         botaoEditar.setForeground(new java.awt.Color(255, 255, 255));
-        botaoEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frotas/view/Icones/edit-validated_40458.png"))); // NOI18N
+        botaoEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/edit-validated_40458.png"))); // NOI18N
         botaoEditar.setBorderPainted(false);
 
-        botaoSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frotas/view/Icones/log_logout_door_1563.png"))); // NOI18N
+        botaoSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/log_logout_door_1563.png"))); // NOI18N
         botaoSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSairActionPerformed(evt);
@@ -107,7 +107,7 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
         botaoExcluir.setBackground(new java.awt.Color(204, 204, 204));
         botaoExcluir.setForeground(new java.awt.Color(255, 255, 255));
-        botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frotas/view/Icones/delete_4219.png"))); // NOI18N
+        botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/delete_4219.png"))); // NOI18N
         botaoExcluir.setBorderPainted(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
