@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package frotas.view;
+package view;
 
 /**
  *
@@ -28,14 +28,12 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
     private void initComponents() {
 
         ComboBoxPlacas = new javax.swing.JComboBox<>();
-        dataSaida = new com.toedter.calendar.JDateChooser();
         labelKmEntrada = new javax.swing.JLabel();
         textoKmSaida = new javax.swing.JTextField();
         textoKmEntrada = new javax.swing.JTextField();
         labelPlacaDoVeiculo = new javax.swing.JLabel();
         labelDataSaida = new javax.swing.JLabel();
         labelDataEntrada = new javax.swing.JLabel();
-        dataEntrada = new com.toedter.calendar.JDateChooser();
         labelKmSaida = new javax.swing.JLabel();
         botaoNovoCadastro = new javax.swing.JButton();
         botaoSalvar = new javax.swing.JButton();
@@ -145,10 +143,7 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
                             .addComponent(labelDataSaida)
                             .addComponent(labelDataEntrada))
                         .addGap(57, 57, 57)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textoKmEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dataSaida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(textoKmEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(330, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -181,21 +176,11 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(textoKmEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(labelDataSaida))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(dataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(labelDataEntrada))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(dataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(labelDataSaida)
+                .addGap(29, 29, 29)
+                .addComponent(labelDataEntrada)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -263,8 +248,6 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
     private javax.swing.JButton botaoPesquisar;
     private javax.swing.JButton botaoSair;
     private javax.swing.JButton botaoSalvar;
-    private com.toedter.calendar.JDateChooser dataEntrada;
-    private com.toedter.calendar.JDateChooser dataSaida;
     private javax.swing.JLabel labelDataEntrada;
     private javax.swing.JLabel labelDataSaida;
     private javax.swing.JLabel labelKmEntrada;
