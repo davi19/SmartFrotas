@@ -30,6 +30,7 @@ public class UsuarioControle {
         
             //System.out.print(ex.getMessage());  
              System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+             
             }
     } 
    

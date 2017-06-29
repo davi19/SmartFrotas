@@ -12,44 +12,57 @@ import Util.Conexao;
  *
  * @author edevaldo
  */
-public class MotoristaControle {      
+public class MotoristaControle {   
+    
+    Conexao c = new Conexao();
     
     public void inserir(MotoristaModelo p){    
-
-    
-        try{
+       
+        String sentenca = "INSERT INTO Motorista VALUES('"+p.getCodMotorista()+"','"+p.getNome()+"','"+p.getCategoriaCNH()+"','"+p.getNumeroCNH()+"','"+p.getDataDeEmissaoCNH()+"')";
         
-        Conexao c = new Conexao();
+         try{
+             
+             c.stmt.execute(sentenca); 
+             System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+            
+        } catch (SQLException ex){
         
-        String sentenca = "INSERT INTO Motorista VALUES("+p.getCodMotorista()+",'"+p.getNome()+"','"+p.getCategoriaCNH()+"','"+p.getNumeroCNH()+"','"+p.getDataDeEmissaoCNH()+"')";
-        
-        c.stmt.execute(sentenca);
-        
-            } catch (SQLException ex){
-        
-            System.out.print(ex.getMessage());  
-        
-        }
+            //System.out.print(ex.getMessage());  
+             System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+             
+            }
     } 
     
-    public void excluir(MotoristaModelo p){
-    	String sentenca = "DELETE FROM Motorista WHERE codMotorista="+p.getCodMotorista();
+    public void excluir(int codMotorista){
+        
+    	String sentenca = "DELETE FROM Motorista WHERE codMotorista="+codMotorista;
+        
     	try {
-		new Conexao().stmt.execute(sentenca);
+		c.stmt.execute(sentenca);
+                System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
 		
-              } catch (SQLException e) {
-			e.printStackTrace();
-		}
+              } catch (SQLException ex){
+ 
+                System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+        
+        }
     }
     
     public void editar(MotoristaModelo p){
     
         String sentenca = "UPDATE Motorista set nomeMotorista = '"+p.getNome()+"', categoriaCNH = '"+p.getCategoriaCNH()+"', numeroCNH = '"+p.getNumeroCNH()+"', dataDeEmissaoCNH = '"+p.getDataDeEmissaoCNH()+"' WHERE codMotorista="+p.getCodMotorista();
-    	try {
-			new Conexao().stmt.execute(sentenca);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+    	
+    try {
+		c.stmt.execute(sentenca);
+                System.out.print(" >>>> ALTERADO COM SUCESSO  <<<< ");
+                 
+		} catch (SQLException ex){
+        
+                //System.out.print(ex.getMessage());
+                System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
+        
+        }
+    
     }
     
 }

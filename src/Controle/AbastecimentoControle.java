@@ -14,43 +14,54 @@ import Util.Conexao;
  */
 public class AbastecimentoControle {
     
+    Conexao c = new Conexao();
     
     public void inserir(AbastecimentoModelo p){    
-
-    
-        try{
+               
+        String sentenca = "INSERT INTO Abastecimento VALUES('"+p.getCodAbastecimento()+"','"+p.getCodVeiculo()+"','"+p.getQtdAbastecida()+"','"+p.getKmDeAbastecimento()+"','"+p.getKmDeAbastecimentoAnterior()+"','"+p.getDataAbastecimento()+"')";
         
-        Conexao c = new Conexao();
+       try{
+             
+             c.stmt.execute(sentenca); 
+             System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+            
+        } catch (SQLException ex){
         
-        String sentenca = "INSERT INTO Abastecimento VALUES("+p.getCodAbastecimento()+",'"+p.getCodVeiculo()+"','"+p.getQtdAbastecida()+"','"+p.getKmDeAbastecimento()+"','"+p.getKmDeAbastecimentoAnterior()+"','"+p.getDataAbastecimento()+"')";
-        
-        c.stmt.execute(sentenca);
-        
-            } catch (SQLException ex){
-        
-            System.out.print(ex.getMessage());  
-        
-        }
+            //System.out.print(ex.getMessage());  
+             System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+             
+            }
     }
     
-        public void excluir(AbastecimentoModelo p){
-    	String sentenca = "DELETE FROM Abastecimento WHERE codAbastecimento="+p.getCodAbastecimento();
-    	try {
-		new Conexao().stmt.execute(sentenca);
+        public void excluir(int codAbastecimento){
+            
+    	String sentenca = "DELETE FROM Abastecimento WHERE codAbastecimento="+codAbastecimento;
+    	
+          try {
+		c.stmt.execute(sentenca);
+                System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
 		
-              } catch (SQLException e) {
-			e.printStackTrace();
-		}
+              } catch (SQLException ex){
+ 
+                System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+        
+        }
     }
         
         public void editar(AbastecimentoModelo p){
     
         String sentenca = "UPDATE Abastecimento set placaVeiculo = '"+p.getCodVeiculo()+"', quantidadeAbastecida = '"+p.getQtdAbastecida()+"', quilometroAbastecido = '"+p.getKmDeAbastecimento()+"', quilometroDeAbastecimentoAnterior = '"+p.getKmDeAbastecimentoAnterior()+"', dataAbastecimento = '"+p.getDataAbastecimento()+"' WHERE codAbastecimento="+p.getCodAbastecimento();
-    	try {
-			new Conexao().stmt.execute(sentenca);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+    	
+          try {
+		c.stmt.execute(sentenca);
+                System.out.print(" >>>> ALTERADO COM SUCESSO  <<<< ");
+                 
+		} catch (SQLException ex){
+        
+                //System.out.print(ex.getMessage());
+                System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
+        
+        }
     }
         
     

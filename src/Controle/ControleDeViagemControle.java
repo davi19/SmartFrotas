@@ -14,42 +14,55 @@ import Util.Conexao;
  */
 public class ControleDeViagemControle {
     
+    Conexao c = new Conexao();
+    
      public void inserir(ControleDeViagemModelo p){    
 
-    
+              
+        String sentenca = "INSERT INTO Controle VALUES('"+p.getCodControle()+"','"+p.getCodMotorista()+"','"+p.getCodVeiculo()+"','"+p.getKmSaida()+"','"+p.getKmEntrada()+"','"+p.getDataSaida()+"','"+p.getDataEntrada()+"')";
+        
         try{
+             
+             c.stmt.execute(sentenca); 
+             System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+            
+        } catch (SQLException ex){
         
-        Conexao c = new Conexao();
-        
-        String sentenca = "INSERT INTO Controle VALUES("+p.getCodControle()+",'"+p.getCodMotorista()+"','"+p.getCodVeiculo()+"','"+p.getKmSaida()+"','"+p.getKmEntrada()+"','"+p.getDataSaida()+"','"+p.getDataEntrada()+"')";
-        
-        c.stmt.execute(sentenca);
-        
-            } catch (SQLException ex){
-        
-            System.out.print(ex.getMessage());  
-        
-        }
+            //System.out.print(ex.getMessage());  
+             System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+             
+            }
     }
      
-     public void excluir(ControleDeViagemModelo p){
-    	String sentenca = "DELETE FROM Controle WHERE codControle="+p.getCodControle();
+     public void excluir(int codControle){
+         
+    	String sentenca = "DELETE FROM Controle WHERE codControle="+codControle;
+        
     	try {
-		new Conexao().stmt.execute(sentenca);
+		c.stmt.execute(sentenca);
+                System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
 		
-              } catch (SQLException e) {
-			e.printStackTrace();
-		}
+              } catch (SQLException ex){
+ 
+                System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+        
+        }
     }
      
      public void editar(ControleDeViagemModelo p){
     
         String sentenca = "UPDATE Controle set codMotorista = '"+p.getCodMotorista()+"', placaVeiculo = '"+p.getCodVeiculo()+"', KmSaida = '"+p.getKmSaida()+"', KmEntrada = '"+p.getKmEntrada()+"', dataSaida = '"+p.getDataSaida()+"', dataEntrada = '"+p.getDataEntrada()+"' WHERE codControle="+p.getCodControle();
-    	try {
-			new Conexao().stmt.execute(sentenca);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+    	
+        try {
+		c.stmt.execute(sentenca);
+                System.out.print(" >>>> ALTERADO COM SUCESSO  <<<< ");
+                 
+		} catch (SQLException ex){
+        
+                //System.out.print(ex.getMessage());
+                System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
+        
+        }
     }
     
     
