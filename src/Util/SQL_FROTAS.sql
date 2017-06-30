@@ -41,7 +41,7 @@ dataDeEmissaoCNH date
 CREATE TABLE UsuarioSistema (
 login varchar(40) PRIMARY KEY,
 senha varchar(10),
-nivelPermissao varchar(20)
+nivelPermissao int
 )
 
 ALTER TABLE Controle ADD FOREIGN KEY(codMotorista) REFERENCES Motorista (codMotorista)
