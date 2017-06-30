@@ -27,7 +27,7 @@ public class AbastecimentoControle {
             
         } catch (SQLException ex){
         
-            //System.out.print(ex.getMessage());  
+             System.out.print(ex.getMessage());  
              System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
              
             }
@@ -50,7 +50,7 @@ public class AbastecimentoControle {
         
         public void editar(AbastecimentoModelo p){
     
-        String sentenca = "UPDATE Abastecimento set placaVeiculo = '"+p.getCodVeiculo()+"', quantidadeAbastecida = '"+p.getQtdAbastecida()+"', quilometroAbastecido = '"+p.getKmDeAbastecimento()+"', quilometroDeAbastecimentoAnterior = '"+p.getKmDeAbastecimentoAnterior()+"', dataAbastecimento = '"+p.getDataAbastecimento()+"' WHERE codAbastecimento="+p.getCodAbastecimento();
+        String sentenca = "UPDATE Abastecimento set codVeiculo = '"+p.getCodVeiculo()+"', quantidadeAbastecida = '"+p.getQtdAbastecida()+"', quilometroAbastecido = '"+p.getKmDeAbastecimento()+"', quilometroDeAbastecimentoAnterior = '"+p.getKmDeAbastecimentoAnterior()+"', dataAbastecimento = '"+p.getDataAbastecimento()+"' WHERE codAbastecimento="+p.getCodAbastecimento();
     	
           try {
 		c.stmt.execute(sentenca);
@@ -58,7 +58,7 @@ public class AbastecimentoControle {
                  
 		} catch (SQLException ex){
         
-                //System.out.print(ex.getMessage());
+                System.out.print(ex.getMessage());
                 System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
         
         }

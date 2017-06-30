@@ -28,7 +28,7 @@ public class ControleDeViagemControle {
             
         } catch (SQLException ex){
         
-            //System.out.print(ex.getMessage());  
+             System.out.print(ex.getMessage());  
              System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
              
             }
@@ -51,7 +51,7 @@ public class ControleDeViagemControle {
      
      public void editar(ControleDeViagemModelo p){
     
-        String sentenca = "UPDATE Controle set codMotorista = '"+p.getCodMotorista()+"', placaVeiculo = '"+p.getCodVeiculo()+"', KmSaida = '"+p.getKmSaida()+"', KmEntrada = '"+p.getKmEntrada()+"', dataSaida = '"+p.getDataSaida()+"', dataEntrada = '"+p.getDataEntrada()+"' WHERE codControle="+p.getCodControle();
+        String sentenca = "UPDATE Controle set codMotorista = '"+p.getCodMotorista()+"', codVeiculo = '"+p.getCodVeiculo()+"', KmSaida = '"+p.getKmSaida()+"', KmEntrada = '"+p.getKmEntrada()+"', dataSaida = '"+p.getDataSaida()+"', dataEntrada = '"+p.getDataEntrada()+"' WHERE codControle="+p.getCodControle();
     	
         try {
 		c.stmt.execute(sentenca);
@@ -59,7 +59,7 @@ public class ControleDeViagemControle {
                  
 		} catch (SQLException ex){
         
-                //System.out.print(ex.getMessage());
+                System.out.print(ex.getMessage());
                 System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
         
         }

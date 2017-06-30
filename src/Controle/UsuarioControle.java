@@ -28,7 +28,7 @@ public class UsuarioControle {
             
         } catch (SQLException ex){
         
-            //System.out.print(ex.getMessage());  
+             System.out.print(ex.getMessage());  
              System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
              
             }
@@ -59,7 +59,7 @@ public class UsuarioControle {
                  
 		} catch (SQLException ex){
         
-                //System.out.print(ex.getMessage());
+                System.out.print(ex.getMessage());
                 System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
         
         }

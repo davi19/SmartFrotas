@@ -18,7 +18,7 @@ public class VeiculoControle {
     
      public void inserir(VeiculoModelo p){    
       
-        String sentenca = "INSERT INTO Veiculo VALUES('"+p.getPlacaVeiculo()+"','"+p.getTipoVeiculo()+"','"+p.getFabricante()+"','"+p.getModelo()+"','"+p.getAnoFabricacao()+"','"+p.getMediaConsumo()+"','"+p.getCapacidadeTanque()+"','"+p.getCor()+"','"+p.getNumeroChassi()+"')";
+        String sentenca = "INSERT INTO Veiculo VALUES('"+p.getPlacaVeiculo()+"','"+p.getTipoVeiculo()+"','"+p.getFabricante()+"','"+p.getModelo()+"','"+p.getCor()+"','"+p.getCodVeiculo()+"','"+p.getAnoFabricacao()+"','"+p.getNumeroChassi()+"','"+p.getCapacidadeTanque()+"','"+p.getMediaConsumo()+"')";
         
         try{
              
@@ -27,7 +27,7 @@ public class VeiculoControle {
             
         } catch (SQLException ex){
         
-            //System.out.print(ex.getMessage());  
+             System.out.print(ex.getMessage());  
              System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
              
             }
@@ -50,7 +50,7 @@ public class VeiculoControle {
     
      public void editar(VeiculoModelo p){
     
-        String sentenca = "UPDATE Veiculo set placaVeiculo = '"+p.getPlacaVeiculo()+"', tipoVeiculo = '"+p.getTipoVeiculo()+"', fabricante = '"+p.getFabricante()+"', modelo = '"+p.getModelo()+"', anoFabricacao = '"+p.getAnoFabricacao()+"', mediaConsumo = '"+p.getMediaConsumo()+"', capacidadeTanque = '"+p.getCapacidadeTanque()+"', cor = '"+p.getCor()+"', numeroChassi = '"+p.getNumeroChassi()+"' WHERE placaVeiculo="+p.getPlacaVeiculo();
+        String sentenca = "UPDATE Veiculo set placaVeiculo = '"+p.getPlacaVeiculo()+"', tipoVeiculo = '"+p.getTipoVeiculo()+"', fabricante = '"+p.getFabricante()+"', modelo = '"+p.getModelo()+"', cor = '"+p.getCor()+"', codVeiculo = '"+p.getCodVeiculo()+"', anoFabricacao = '"+p.getAnoFabricacao()+"', numeroChassi = '"+p.getNumeroChassi()+"', capacidadeTanque = '"+p.getCapacidadeTanque()+"', mediaConsumo = '"+p.getMediaConsumo()+"' WHERE placaVeiculo="+p.getPlacaVeiculo();
     	
        try {
 		c.stmt.execute(sentenca);
@@ -58,7 +58,7 @@ public class VeiculoControle {
                  
 		} catch (SQLException ex){
         
-                //System.out.print(ex.getMessage());
+                System.out.print(ex.getMessage());
                 System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
         
         }
