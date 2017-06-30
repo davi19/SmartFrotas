@@ -22,7 +22,7 @@ public class Conexao {
             con = DriverManager.getConnection(url, user, password);
             stmt = con.createStatement();
             
-             //System.out.print(" >>>> DB CONECTADO COM SUCESSO  <<<< ");
+             System.out.print(" >>>> DB CONECTADO COM SUCESSO  <<<< ");
 
         } catch (SQLException | ClassNotFoundException ex) {
             
