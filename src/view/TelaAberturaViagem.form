@@ -35,7 +35,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="botaoNovoCadastro" min="-2" pref="65" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="botaoPesquisar" min="-2" pref="65" max="-2" attributes="0"/>
@@ -49,23 +49,37 @@
                       <Component id="botaoSair" min="-2" pref="65" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="labelPlacaDoVeiculo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="37" pref="37" max="-2" attributes="0"/>
-                      <Component id="ComboBoxPlacas" min="-2" pref="220" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="labelKmSaida" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="77" pref="77" max="-2" attributes="0"/>
-                      <Component id="textoKmSaida" min="-2" pref="220" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelKmEntrada" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelDataSaida" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelDataEntrada" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelCodigo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="104" max="32767" attributes="0"/>
+                              <Component id="textoCodigo" min="-2" pref="220" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelMotorista" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelKmSaida" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelKmEntrada" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelDataSaida" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelDataEntrada" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelPlacaDoVeiculo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="textoPlaca" max="32767" attributes="0"/>
+                                  <Component id="calendarioDataEntrada" alignment="1" pref="220" max="32767" attributes="0"/>
+                                  <Component id="calendarioDataSaida" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="textoKmSaida" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="textoKmEntrada" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="textoMotorista" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="textoKmEntrada" min="-2" pref="220" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jButton1" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="jButton2" min="-2" pref="27" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace pref="330" max="32767" attributes="0"/>
@@ -85,62 +99,74 @@
                   <Component id="botaoSair" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="labelCodigo" min="-2" max="-2" attributes="0"/>
+                  <Component id="textoCodigo" min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="labelMotorista" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="labelPlacaDoVeiculo" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="ComboBoxPlacas" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="textoMotorista" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="textoPlaca" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jButton2" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="textoKmSaida" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="labelKmSaida" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="textoKmEntrada" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="labelKmEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="calendarioDataSaida" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="labelDataSaida" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                      <Component id="labelKmSaida" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="textoKmSaida" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="calendarioDataEntrada" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="labelDataEntrada" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="labelKmEntrada" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="textoKmEntrada" min="-2" pref="25" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Component id="labelDataSaida" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Component id="labelDataEntrada" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
+              <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JComboBox" name="ComboBoxPlacas">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JLabel" name="labelKmEntrada">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="3"/>
+          <Font name="Arial" size="14" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="KM Entrada:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textoKmSaida">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textoKmEntrada">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoKmEntradaActionPerformed"/>
       </Events>
@@ -148,7 +174,7 @@
     <Component class="javax.swing.JLabel" name="labelPlacaDoVeiculo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="3"/>
+          <Font name="Arial" size="14" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Placa do Ve&#xed;culo:"/>
       </Properties>
@@ -156,7 +182,7 @@
     <Component class="javax.swing.JLabel" name="labelDataSaida">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="3"/>
+          <Font name="Arial" size="14" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Data Sa&#xed;da:"/>
       </Properties>
@@ -164,7 +190,7 @@
     <Component class="javax.swing.JLabel" name="labelDataEntrada">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="3"/>
+          <Font name="Arial" size="14" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Data Entrada:"/>
       </Properties>
@@ -172,7 +198,7 @@
     <Component class="javax.swing.JLabel" name="labelKmSaida">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="3"/>
+          <Font name="Arial" size="14" style="3"/>
         </Property>
         <Property name="text" type="java.lang.String" value="KM Sa&#xed;da:"/>
       </Properties>
@@ -207,6 +233,9 @@
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoSalvarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoPesquisar">
       <Properties>
@@ -262,6 +291,67 @@
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="calendarioDataSaida">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="calendarioDataEntrada">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelMotorista">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Motorista"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelCodigo">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textoPlaca">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textoCodigo">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textoMotorista">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/view/Icones/pesquisar pequeno.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/view/Icones/pesquisar pequeno.png"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

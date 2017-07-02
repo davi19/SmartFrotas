@@ -32,45 +32,52 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelNumeroDaCnh" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelCategoriaDaCnh" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelVencimentoDaCnh" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelCodigoDoMotorista" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="textoNome" min="-2" pref="220" max="-2" attributes="0"/>
-                          <Component id="textoNumeroDaCnh" min="-2" pref="220" max="-2" attributes="0"/>
-                          <Component id="textoCategoriaDaCnh" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                          <Component id="textoVencimentoDaCnh" min="-2" pref="220" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="textoCodigoDoMotorista" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="botaoNovoCadastro" min="-2" pref="65" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="botaoPesquisar" min="-2" pref="65" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="botaoEditar" min="-2" pref="65" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="botaoExcluir" min="-2" pref="65" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="botaoSalvar" min="-2" pref="65" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                      <Component id="botaoNovoCadastro" min="-2" pref="65" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="botaoPesquisar" min="-2" pref="65" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="botaoEditar" min="-2" pref="65" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="botaoExcluir" min="-2" pref="65" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="botaoSalvar" min="-2" pref="65" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="botaoSair" min="-2" pref="65" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="labelCodigoDoMotorista" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="40" max="32767" attributes="0"/>
+                              <Component id="textoCodigoMotorista" min="-2" pref="220" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelNome" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="textoNome" min="-2" pref="220" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelEmissaoDaCNH" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelCategoriaDaCnh" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelNumeroDaCnh" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="textoNumeroCNH" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="comboBoxCategoriaCNH" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="calendarioVencimento" pref="220" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="96" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -86,90 +93,42 @@
                   <Component id="botaoEditar" min="-2" pref="65" max="-2" attributes="0"/>
                   <Component id="botaoSair" min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="textoCodigoDoMotorista" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="labelCodigoDoMotorista" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="textoNumeroDaCnh" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="labelNumeroDaCnh" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="textoCodigoMotorista" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="labelCodigoDoMotorista" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="textoNome" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="labelNome" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelCategoriaDaCnh" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textoCategoriaDaCnh" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="comboBoxCategoriaCNH" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelVencimentoDaCnh" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textoVencimentoDaCnh" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="textoNumeroCNH" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="labelNumeroDaCnh" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="labelEmissaoDaCNH" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="calendarioVencimento" min="-2" pref="30" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="101" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="labelCodigoDoMotorista">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="3"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo do Motorista:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelNome">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="3"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Nome:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelNumeroDaCnh">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="3"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="N&#xfa;mero da CNH:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelCategoriaDaCnh">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="3"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Categoria da CNH:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="labelVencimentoDaCnh">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="14" style="3"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Vencimento da CNH:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="textoCodigoDoMotorista">
-    </Component>
-    <Component class="javax.swing.JTextField" name="textoNumeroDaCnh">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoNumeroDaCnhActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="textoNome">
-    </Component>
-    <Component class="javax.swing.JTextField" name="textoCategoriaDaCnh">
-    </Component>
-    <Component class="javax.swing.JTextField" name="textoVencimentoDaCnh">
-    </Component>
     <Component class="javax.swing.JButton" name="botaoNovoCadastro">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -196,10 +155,13 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/frotas/view/Icones/save-icon.png"/>
+          <Image iconType="3" name="/view/Icones/save-icon.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoSalvarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoPesquisar">
       <Properties>
@@ -210,7 +172,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/frotas/view/Icones/Search_find_locate_1542.png"/>
+          <Image iconType="3" name="/view/Icones/Search_find_locate_1542.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
@@ -227,10 +189,13 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/frotas/view/Icones/edit-validated_40458.png"/>
+          <Image iconType="3" name="/view/Icones/edit-validated_40458.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoEditarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoExcluir">
       <Properties>
@@ -241,20 +206,97 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/frotas/view/Icones/delete_4219.png"/>
+          <Image iconType="3" name="/view/Icones/delete_4219.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoExcluirActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoSair">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/frotas/view/Icones/log_logout_door_1563.png"/>
+          <Image iconType="3" name="/view/Icones/log_logout_door_1563.png"/>
         </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoSairActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelNome">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nome:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelNumeroDaCnh">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="N&#xfa;mero da CNH:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelCategoriaDaCnh">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Categoria da CNH:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelEmissaoDaCNH">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Vencimento da CNH:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textoCodigoMotorista">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textoNumeroCNH">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textoNumeroCNHActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textoNome">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelCodigoDoMotorista">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo do Motorista:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboBoxCategoriaCNH">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="calendarioVencimento">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

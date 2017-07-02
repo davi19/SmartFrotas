@@ -42,6 +42,7 @@ public class TelaInicial extends javax.swing.JFrame {
         subMenuNovoMotorista = new javax.swing.JMenuItem();
         subMenuNovoVeiculo = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -80,7 +81,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(rodape);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frotas/view/Icones/caminhao_1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/caminhao_1.png"))); // NOI18N
 
         menuCadastrar.setText("Cadastrar");
 
@@ -110,6 +111,15 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
         menuCadastrar.add(jMenuItem5);
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem6.setText("Usuário");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        menuCadastrar.add(jMenuItem6);
 
         jMenuBar1.add(menuCadastrar);
 
@@ -188,20 +198,25 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void subMenuNovoVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMenuNovoVeiculoActionPerformed
 
-        TelaCadastroVeiculo frame = new TelaCadastroVeiculo();
-        frame.setVisible(true);
+        TelaCadastroVeiculo telaCadastroVeiculo = new TelaCadastroVeiculo();
+        telaCadastroVeiculo.setVisible(true);
     }//GEN-LAST:event_subMenuNovoVeiculoActionPerformed
 
     private void subMenuNovoMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMenuNovoMotoristaActionPerformed
 
-        TelaCadastroMotorista frame = new TelaCadastroMotorista();
-        frame.setVisible(true);
+        TelaCadastroMotorista telaCadastroMotorista = new TelaCadastroMotorista();
+        telaCadastroMotorista.setVisible(true);
     }//GEN-LAST:event_subMenuNovoMotoristaActionPerformed
 
     private void jMenuItem5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem5MousePressed
-        TelaAberturaViagem frame = new TelaAberturaViagem();
-        frame.setVisible(true);
+        TelaAberturaViagem telaCadastroViagem = new TelaAberturaViagem();
+        telaCadastroViagem.setVisible(true);
     }//GEN-LAST:event_jMenuItem5MousePressed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        TelaCadastroUsuario telaCadastroUsuario = new TelaCadastroUsuario();
+        telaCadastroUsuario.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,6 +267,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenu menuCadastrar;
     private javax.swing.JTextPane rodape;
