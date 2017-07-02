@@ -8,9 +8,9 @@ public class NotificacoesModelo {
 	
 	public boolean VencimentoDeCNH(MotoristaModelo motorista){
 												
-		if(dataHoje.after(motorista.getDataDeEmissaoCNH()))
+		if(dataHoje.after(motorista.getDataDeVencimentoCNH()))
 			return true;//vencida
-		else if(dataHoje.equals(motorista.getDataDeEmissaoCNH()))
+		else if(dataHoje.equals(motorista.getDataDeVencimentoCNH()))
 			return true; // vencida
 		else
 			return false;//liberada
@@ -20,9 +20,9 @@ public class NotificacoesModelo {
 		
 		dataHoje.setMonth(dataHoje.getMonth()+1);
 		
-		if(dataHoje.after(motorista.getDataDeEmissaoCNH()))
+		if(dataHoje.after(motorista.getDataDeVencimentoCNH()))
 			return true;//vencida
-		else if(dataHoje.equals(motorista.getDataDeEmissaoCNH()))
+		else if(dataHoje.equals(motorista.getDataDeVencimentoCNH()))
 			return true; // vencida
 		else
 			return false;//liberada
