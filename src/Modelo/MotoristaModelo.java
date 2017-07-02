@@ -7,17 +7,17 @@ public class MotoristaModelo {
     
 	int codMotorista;
     String numeroCNH, categoriaCNH, nome;
-    Date dataDeEmissaoCNH;
+    Date dataDeVencimentoCNH;
     
     
     public MotoristaModelo(int codMotorista, String numeroCNH,
-			String categoriaCNH, String nome, Date dataDeEmissaoCNH)
+			String categoriaCNH, String nome, Date dataDeVencimentoCNH)
     {
 		this.codMotorista = codMotorista;
 		this.numeroCNH = numeroCNH;
 		this.categoriaCNH = categoriaCNH;
 		this.nome = nome;
-		this.dataDeEmissaoCNH = dataDeEmissaoCNH;
+		this.dataDeVencimentoCNH = dataDeVencimentoCNH;
 	}
 
 	public String getNumeroCNH() {
@@ -52,12 +52,12 @@ public class MotoristaModelo {
         this.nome = nome;
     }
 
-	public Date getDataDeEmissaoCNH() {
-		return dataDeEmissaoCNH;
+	public Date getDataDeVencimentoCNH() {
+		return dataDeVencimentoCNH;
 	}
 
-	public void setDataDeEmissaoCNH(Date dataDeEmissaoCNH) {
-		this.dataDeEmissaoCNH = dataDeEmissaoCNH;
+	public void setDataDeVencimentoCNH(Date dataDeEmissaoCNH) {
+		this.dataDeVencimentoCNH = dataDeEmissaoCNH;
 	}
 
 

@@ -18,7 +18,7 @@ public class MotoristaControle {
     
     public void inserir(MotoristaModelo p){    
        
-        String sentenca = "INSERT INTO Motorista VALUES('"+p.getCodMotorista()+"','"+p.getNome()+"','"+p.getCategoriaCNH()+"','"+p.getNumeroCNH()+"','"+p.getDataDeEmissaoCNH()+"')";
+        String sentenca = "INSERT INTO Motorista VALUES('"+p.getCodMotorista()+"','"+p.getNome()+"','"+p.getCategoriaCNH()+"','"+p.getNumeroCNH()+"','"+p.getDataDeVencimentoCNH()+"')";
         
          try{
              
@@ -50,7 +50,7 @@ public class MotoristaControle {
     
     public void editar(MotoristaModelo p){
     
-        String sentenca = "UPDATE Motorista set nomeMotorista = '"+p.getNome()+"', categoriaCNH = '"+p.getCategoriaCNH()+"', numeroCNH = '"+p.getNumeroCNH()+"', dataDeEmissaoCNH = '"+p.getDataDeEmissaoCNH()+"' WHERE codMotorista="+p.getCodMotorista();
+        String sentenca = "UPDATE Motorista set nomeMotorista = '"+p.getNome()+"', categoriaCNH = '"+p.getCategoriaCNH()+"', numeroCNH = '"+p.getNumeroCNH()+"', dataDeEmissaoCNH = '"+p.getDataDeVencimentoCNH()+"' WHERE codMotorista="+p.getCodMotorista();
     	
     try {
 		c.stmt.execute(sentenca);

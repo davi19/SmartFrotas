@@ -35,7 +35,7 @@ codMotorista int PRIMARY KEY,
 nomeMotorista varchar(40),
 categoriaCNH varchar(3),
 numeroCNH varchar(20),
-dataDeEmissaoCNH date
+dataDeVencimentoCNH date
 )
 
 CREATE TABLE UsuarioSistema (
