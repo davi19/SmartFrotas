@@ -6,6 +6,13 @@ public class UsuarioModelo {
     int nivelPermissao;
     
     
+	public UsuarioModelo(String senha, String login, int nivelPermissao) 
+	{
+		this.senha = senha;
+		this.login = login;
+		this.nivelPermissao = nivelPermissao;
+	}
+	
 	public String getSenha() {
 		return senha;
 	}

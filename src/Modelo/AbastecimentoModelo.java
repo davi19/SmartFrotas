@@ -6,12 +6,20 @@ import java.sql.Date;
 
 public class AbastecimentoModelo {
     
-    int codAbastecimento, kmDeAbastecimento, kmDeAbastecimentoAnterior, codVeiculo;//KmDeAbastecimentoAnterior Adicionado em 27/06/2017
-    //~ codVeiculo Adicionado em 29/06/2017
+    int codAbastecimento, kmDeAbastecimento, kmDeAbastecimentoAnterior, codVeiculo;
     Date dataAbastecimento;
     float qtdAbastecida;
     VeiculoModelo veiculo;
     
+    public AbastecimentoModelo(int codAbastecimento, int kmDeAbastecimento, int codVeiculo,
+    		Date dataAbastecimento, float qtdAbastecida)
+    {
+    	this.codAbastecimento = codAbastecimento;
+    	this.kmDeAbastecimento = kmDeAbastecimento;
+    	this.codVeiculo = codVeiculo;
+    	this.dataAbastecimento = dataAbastecimento;
+    	this.qtdAbastecida = qtdAbastecida;
+    }
     
 	public int getCodAbastecimento() {
 		return codAbastecimento;

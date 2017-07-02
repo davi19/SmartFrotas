@@ -3,10 +3,29 @@ package Modelo;
 public class VeiculoModelo {
     
     String placaVeiculo, tipoVeiculo, fabricante, modelo, cor;
-    int codVeiculo, anoFabricacao, numeroChassi, capacidadeTanque;//CapacidadeTanque Alterado de float pra int em 27/06/2017
+    int codVeiculo, anoFabricacao, numeroChassi, capacidadeTanque;
     float mediaConsumo;
     
-    public String getPlacaVeiculo() {
+    
+    
+    public VeiculoModelo(String placaVeiculo, String tipoVeiculo,
+			String fabricante, String modelo, String cor, int codVeiculo,
+			int anoFabricacao, int numeroChassi, int capacidadeTanque,
+			float mediaConsumo) 
+    {
+		this.placaVeiculo = placaVeiculo;
+		this.tipoVeiculo = tipoVeiculo;
+		this.fabricante = fabricante;
+		this.modelo = modelo;
+		this.cor = cor;
+		this.codVeiculo = codVeiculo;
+		this.anoFabricacao = anoFabricacao;
+		this.numeroChassi = numeroChassi;
+		this.capacidadeTanque = capacidadeTanque;
+		this.mediaConsumo = mediaConsumo;
+	}
+
+	public String getPlacaVeiculo() {
         return placaVeiculo;
     }
 
@@ -84,8 +103,5 @@ public class VeiculoModelo {
 
     public void setCapacidadeTanque(int capacidadeTanque) {
         this.capacidadeTanque = capacidadeTanque;
-    }
-    
-    
-    
+    } 
 }

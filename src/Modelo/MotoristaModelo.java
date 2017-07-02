@@ -5,13 +5,22 @@ import java.sql.Date;
 
 public class MotoristaModelo {
     
-	int codMotorista;//adicionado em 27/06/2017
+	int codMotorista;
     String numeroCNH, categoriaCNH, nome;
     Date dataDeEmissaoCNH;
     
     
+    public MotoristaModelo(int codMotorista, String numeroCNH,
+			String categoriaCNH, String nome, Date dataDeEmissaoCNH)
+    {
+		this.codMotorista = codMotorista;
+		this.numeroCNH = numeroCNH;
+		this.categoriaCNH = categoriaCNH;
+		this.nome = nome;
+		this.dataDeEmissaoCNH = dataDeEmissaoCNH;
+	}
 
-    public String getNumeroCNH() {
+	public String getNumeroCNH() {
         return numeroCNH;
     }
 
