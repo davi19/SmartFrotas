@@ -5,9 +5,9 @@ import java.sql.Date;
 
 public class MotoristaModelo {
     
-	int codMotorista;
-    String numeroCNH, categoriaCNH, nome;
-    Date dataDeVencimentoCNH;
+	private int codMotorista;
+    private String numeroCNH, categoriaCNH, nome;
+    private Date dataDeVencimentoCNH;
     
     
     public MotoristaModelo(int codMotorista, String numeroCNH,

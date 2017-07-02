@@ -2,8 +2,8 @@ package Modelo;
 
 public class UsuarioModelo {
     
-    String senha, login;
-    int nivelPermissao;
+	private String senha, login;
+	private int nivelPermissao;
     
     
 	public UsuarioModelo(String senha, String login, int nivelPermissao) 

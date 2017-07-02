@@ -6,10 +6,10 @@ import java.sql.Date;
 
 public class AbastecimentoModelo {
     
-    int codAbastecimento, kmDeAbastecimento, kmDeAbastecimentoAnterior, codVeiculo;
-    Date dataAbastecimento;
-    float qtdAbastecida;
-    VeiculoModelo veiculo;
+	private int codAbastecimento, kmDeAbastecimento, kmDeAbastecimentoAnterior, codVeiculo;
+	private Date dataAbastecimento;
+	private float qtdAbastecida;
+	private VeiculoModelo veiculo;
     
     public AbastecimentoModelo(int codAbastecimento, int kmDeAbastecimento, int codVeiculo,
     		Date dataAbastecimento, float qtdAbastecida)

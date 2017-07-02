@@ -4,10 +4,10 @@ import java.sql.Date;
 
 public class ControleDeViagemModelo {
 	
-	int kmEntrada, kmSaida, codControle, codMotorista, codVeiculo;
-	MotoristaModelo motorista;
-	VeiculoModelo veiculo;
-	Date dataEntrada, dataSaida;
+	private int kmEntrada, kmSaida, codControle, codMotorista, codVeiculo;
+	private MotoristaModelo motorista;
+	private VeiculoModelo veiculo;
+	private Date dataEntrada, dataSaida;
 	
 
 	public ControleDeViagemModelo(int kmEntrada, int kmSaida, int codControle,

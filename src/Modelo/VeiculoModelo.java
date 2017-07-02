@@ -3,9 +3,9 @@ package Modelo;
 
 public class VeiculoModelo {
     
-    String placaVeiculo, tipoVeiculo, fabricante, modelo, cor;
-    int codVeiculo, anoFabricacao, numeroChassi, capacidadeTanque;
-    float mediaConsumo;
+	private  String placaVeiculo, tipoVeiculo, fabricante, modelo, cor;
+	private int codVeiculo, anoFabricacao, numeroChassi, capacidadeTanque;
+	private float mediaConsumo;
     
     
     public VeiculoModelo(String placaVeiculo, String tipoVeiculo,

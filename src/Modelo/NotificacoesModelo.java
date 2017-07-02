@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class NotificacoesModelo {
 
-	Date dataHoje = new java.sql.Date(new java.util.Date().getTime());
+	private Date dataHoje = new java.sql.Date(new java.util.Date().getTime());
 	
 	public boolean VencimentoDeCNH(MotoristaModelo motorista){
 												
