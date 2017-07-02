@@ -1,11 +1,11 @@
 package Modelo;
 
+
 public class VeiculoModelo {
     
     String placaVeiculo, tipoVeiculo, fabricante, modelo, cor;
     int codVeiculo, anoFabricacao, numeroChassi, capacidadeTanque;
     float mediaConsumo;
-    
     
     
     public VeiculoModelo(String placaVeiculo, String tipoVeiculo,
@@ -105,3 +105,5 @@ public class VeiculoModelo {
         this.capacidadeTanque = capacidadeTanque;
     } 
 }
+
+
