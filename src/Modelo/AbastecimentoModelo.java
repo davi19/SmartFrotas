@@ -52,10 +52,10 @@ public class AbastecimentoModelo {
 		this.qtdAbastecida = qtdAbastecida;
 	}
 	public int getCodVeiculo() {
-		return veiculo.codVeiculo;
+		return veiculo.getCodVeiculo();
 	}
 	public void setCodVeiculo(VeiculoModelo veiculo) {
-		this.codVeiculo = veiculo.codVeiculo;
+		this.codVeiculo = veiculo.getCodVeiculo();
 	}
 
 }

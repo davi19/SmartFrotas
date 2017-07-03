@@ -2,7 +2,7 @@ package Modelo;
 
 import java.sql.Date;
 
-public class ControleDeViagemModelo {
+public class ControleDeViagemModelo implements IKmPercorridoModelo{
 	
 	private int kmEntrada, kmSaida, codControle, codMotorista, codVeiculo;
 	private MotoristaModelo motorista;
@@ -52,21 +52,22 @@ public class ControleDeViagemModelo {
 	public void setDataSaida(Date dataSaida) {
 		this.dataSaida = dataSaida;
 	}
+	public int getCodVeiculo() {
+		return veiculo.getCodVeiculo();
+	}
+	public void setCodVeiculo(VeiculoModelo veiculo) {
+		this.codVeiculo = veiculo.getCodVeiculo();
+	}
+	public int getCodMotorista() {
+		return motorista.getCodMotorista();
+	}
+	public void setCodMotorista(MotoristaModelo motorista) {
+		this.codMotorista = motorista.getCodMotorista();
+	}
+	
 	
 	public int KmPercorrido(){
 		return kmEntrada - kmSaida;
-	}
-	public int getCodVeiculo() {
-		return veiculo.codVeiculo;
-	}
-	public void setCodVeiculo(VeiculoModelo veiculo) {
-		this.codVeiculo = veiculo.codVeiculo;
-	}
-	public int getCodMotorista() {
-		return motorista.codMotorista;
-	}
-	public void setCodMotorista(MotoristaModelo motorista) {
-		this.codMotorista = motorista.codMotorista;
 	}
 	
 	
