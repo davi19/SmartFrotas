@@ -2,6 +2,7 @@ package Util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -17,7 +18,7 @@ public class Conexao {
         
      String url="jdbc:mysql://localhost:3306/frotas";
      String user="root";
-     String password="123";
+     String password="12345";
 
             con = DriverManager.getConnection(url, user, password);
             stmt = con.createStatement();
@@ -30,6 +31,14 @@ public class Conexao {
             
         }
 }
+
+    public PreparedStatement stmt(String sentenca) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public Connection getConexao(){
+        return con;
+    }
 
     
 }

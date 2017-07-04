@@ -31,8 +31,6 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         labelPremissao = new javax.swing.JLabel();
         textoSenha = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         botaoNovoUsuario.setBackground(new java.awt.Color(204, 204, 204));
         botaoNovoUsuario.setForeground(new java.awt.Color(255, 255, 255));
         botaoNovoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/Add.png"))); // NOI18N

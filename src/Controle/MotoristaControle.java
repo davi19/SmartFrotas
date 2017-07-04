@@ -4,65 +4,92 @@
  * and open the template in the editor.
  */
 package Controle;
+
 import Modelo.MotoristaModelo;
 import java.sql.SQLException;
 import Util.Conexao;
+import com.mysql.jdbc.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Vector;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author edevaldo
  */
-public class MotoristaControle {   
-    
+public class MotoristaControle {
+
     Conexao c = new Conexao();
-    
-    public void inserir(MotoristaModelo p){    
-       
-        String sentenca = "INSERT INTO Motorista VALUES('"+p.getCodMotorista()+"','"+p.getNome()+"','"+p.getCategoriaCNH()+"','"+p.getNumeroCNH()+"','"+p.getDataDeVencimentoCNH()+"')";
-        
-         try{
-             
-             c.stmt.execute(sentenca); 
-             System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
-            
-        } catch (SQLException ex){
-        
-             System.out.print(ex.getMessage());  
-             System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
-             
-            }
-    } 
-    
-    public void excluir(int codMotorista){
-        
-    	String sentenca = "DELETE FROM Motorista WHERE codMotorista="+codMotorista;
-        
-    	try {
-		c.stmt.execute(sentenca);
-                System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
-		
-              } catch (SQLException ex){
- 
-                System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
-        
+
+    public void inserir(MotoristaModelo p) {
+
+        String sentenca = "INSERT INTO Motorista (nomeMotorista, categoriaCNH, numeroCNH, dataDeEmissaoCNH) VALUES('" + p.getNome() + "','" + p.getCategoriaCNH() + "','" + p.getNumeroCNH() + "','" + p.getDataDeVencimentoCNH() + "')";
+
+        try {
+
+            c.stmt.execute(sentenca);
+            //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+            JOptionPane.showMessageDialog(null, "Motorista inserido com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (SQLException ex) {
+
+            System.out.print(ex.getMessage());
+            //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+            JOptionPane.showMessageDialog(null, "Erro ao inserir Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    public void editar(MotoristaModelo p){
-    
-        String sentenca = "UPDATE Motorista set nomeMotorista = '"+p.getNome()+"', categoriaCNH = '"+p.getCategoriaCNH()+"', numeroCNH = '"+p.getNumeroCNH()+"', dataDeEmissaoCNH = '"+p.getDataDeVencimentoCNH()+"' WHERE codMotorista="+p.getCodMotorista();
-    	
-    try {
-		c.stmt.execute(sentenca);
-                System.out.print(" >>>> ALTERADO COM SUCESSO  <<<< ");
-                 
-		} catch (SQLException ex){
-        
-                System.out.print(ex.getMessage());
-                System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
-        
+
+    public void excluir(int codMotorista) {
+
+        String sentenca = "DELETE FROM Motorista WHERE codMotorista=" + codMotorista;
+
+        try {
+            c.stmt.execute(sentenca);
+            //System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
+            JOptionPane.showMessageDialog(null, "Motorista excluido com sucesso!", "CONFIRMAÇÃO", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+
+            //System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+            JOptionPane.showMessageDialog(null, "Erro ao excluir Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
+
         }
-    
     }
-    
+
+    public void editar(MotoristaModelo p) {
+
+        String sentenca = "UPDATE Motorista set nomeMotorista = '" + p.getNome() + "', categoriaCNH = '" + p.getCategoriaCNH() + "', numeroCNH = '" + p.getNumeroCNH() + "', dataDeEmissaoCNH = '" + p.getDataDeVencimentoCNH() + "' WHERE codMotorista=" + p.getCodMotorista();
+
+        try {
+            c.stmt.execute(sentenca);
+            JOptionPane.showMessageDialog(null, "Dados do Motorista atualizado com sucesso!", "CONFIRMAÇÃO", JOptionPane.ERROR_MESSAGE);
+
+        } catch (SQLException ex) {
+
+            System.out.print(ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+    }
+
+    public Vector Pesquisar(String pesq) throws Exception {
+
+        Vector tb = new Vector(); // Instanciando um objeto Vector que tem a mesma função que um vetor
+        String sentenca = "select * from motorista where nomeMotorista like'" + pesq + "%'"; //função que pesquisa os NOMES dos motorista que estão no banco que comecem com a letra digitada
+        PreparedStatement ps = c.getConexao().prepareStatement(sentenca); // executa a sentença
+
+        ResultSet rs = ps.executeQuery(); // comando que executa a busca
+
+        while (rs.next()) { // caminha sobre o vetor
+            Vector nl = new Vector();
+            nl.add(rs.getInt("codMotorista")); // adiciona a variavel no vetor
+            nl.add(rs.getString("nomeMotorista"));
+            nl.add(rs.getString("categoriaCNH"));
+            nl.add(rs.getInt("numeroCNH"));
+            nl.add(rs.getDate("dataDeEmissaoCNH"));
+            tb.add(nl); // adiciona o vetor com as variaveis em um outro vetor vazio
+        }
+        return tb; // retorna o vetor
+    }
 }

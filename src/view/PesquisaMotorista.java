@@ -1,33 +1,51 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// JDialog
+
 package view;
 
 import Controle.MotoristaControle;
-import Modelo.MotoristaModelo;
 import java.sql.Date;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author otavio
- */
-public class TelaPesquisarMotorista extends javax.swing.JFrame{
+public class PesquisaMotorista extends javax.swing.JDialog {
 
-   
+    private String codMotorista;
+    private String nomeMotorista;
+    private String categoriaCNH;
+    private String numeroCNH;
+    private Date dataDeEmissaoCNH;  
+    
+    public String getCategoriaCNH() {
+        return categoriaCNH;
+    }
+
+    public String getNumeroCNH() {
+        return numeroCNH;
+    }
+    
+    public Date getDataDeEmissaoCNH() {
+        return dataDeEmissaoCNH;
+    }
+    
+    public String getCodMotorista() {
+        return codMotorista;
+    }
+
+    public String getNomeMotorista() {
+        return nomeMotorista;
+    }
+    
     MotoristaControle motorista;
     TelaCadastroMotorista telaCadastroMotorista;
     
-    public TelaPesquisarMotorista() {
+    public PesquisaMotorista(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         
-        motorista = new MotoristaControle();
+        motorista = new  MotoristaControle();
         telaCadastroMotorista = new TelaCadastroMotorista();
-
+        
     }
 
     /**
@@ -39,15 +57,12 @@ public class TelaPesquisarMotorista extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelPesquisarMotorista = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaMotorista = new javax.swing.JTable();
         textoPesquisaMotorista = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        labelPesquisarMotorista = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        labelPesquisarMotorista.setText("Pesquisar");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tabelaMotorista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -85,17 +100,18 @@ public class TelaPesquisarMotorista extends javax.swing.JFrame{
             }
         });
 
+        labelPesquisarMotorista.setText("Digite o nome do Motorista");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textoPesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(labelPesquisarMotorista)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                    .addComponent(textoPesquisaMotorista))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -105,51 +121,61 @@ public class TelaPesquisarMotorista extends javax.swing.JFrame{
                 .addComponent(labelPesquisarMotorista)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(textoPesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textoPesquisaMotoristaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoPesquisaMotoristaKeyReleased
-        try{
-        
-        Vector cabecalho = new Vector();
-        cabecalho.add("codMotorista");
-        cabecalho.add("nomeMotorista");
-        cabecalho.add("categoriaCNH");
-        cabecalho.add("numeroCNH");
-        cabecalho.add("dataDeEmissaoCNH");
-        
-        if(!textoPesquisaMotorista.getText().equals("")){
-            DefaultTableModel nv = new DefaultTableModel(motorista.Pesquisar(textoPesquisaMotorista.getText()),cabecalho);
-            tabelaMotorista.setModel(nv);
-        }else{
-            DefaultTableModel nv = new DefaultTableModel(new Vector(),cabecalho);
-            tabelaMotorista.setModel(nv);
-        }
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(this, "ERRO AO PESQUISAR" + ex.getMessage());
-        }    
-    }//GEN-LAST:event_textoPesquisaMotoristaKeyReleased
-
     private void tabelaMotoristaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMotoristaMouseClicked
-           
+
+         
         
         int indiceLinha = tabelaMotorista.getSelectedRow();
-        jTextField1.setText(tabelaMotorista.getValueAt(indiceLinha, 1).toString());
+        //jTextField1.setText(tabelaMotorista.getValueAt(indiceLinha, 1).toString());
         
-        telaCadastroMotorista.textoCodigoMotorista.setText(String.valueOf(tabelaMotorista.getValueAt(indiceLinha, 0)));
-        telaCadastroMotorista.textoNome.setText(String.valueOf(tabelaMotorista.getValueAt(indiceLinha, 1).toString()));
-        telaCadastroMotorista.textoNumeroCNH.setText(tabelaMotorista.getValueAt(indiceLinha, 2).toString());
+        codMotorista = tabelaMotorista.getValueAt(indiceLinha, 0).toString();
+        nomeMotorista = tabelaMotorista.getValueAt(indiceLinha, 1).toString();
+        categoriaCNH = tabelaMotorista.getValueAt(indiceLinha, 2).toString();
+        numeroCNH = tabelaMotorista.getValueAt(indiceLinha, 3).toString();
+        dataDeEmissaoCNH = Date.valueOf(tabelaMotorista.getValueAt(indiceLinha, 4).toString());
+        //vencimento.setDate(Integer.parseInt(tabelaMotorista.getValueAt(indiceLinha, 3).toString())); // ERRO AQUI
+        
+        //telaCadastroMotorista.textoNome.setText(String.valueOf(tabelaMotorista.getValueAt(indiceLinha, 1).toString()));
+        //telaCadastroMotorista.textoNumeroCNH.setText(tabelaMotorista.getValueAt(indiceLinha, 2).toString());
         //telaCadastroMotorista.calendarioVencimento.setDateFormatString((tabelaMotorista.getValueAt(indiceLinha, 3).toString()));
         //TelaCadastroMotorista.textoCodigoMotorista.setText(tabelaMotorista.getValueAt(indiceLinha, 1).toString());
-        //dispose();
+        //String auxData = tabelaMotorista.getValueAt(indiceLinha, 4).toString(); FUNCIONANDO
+        //JOptionPane.showMessageDialog(null, auxData);
+        //java.sql.Date javaSqlDate = java.sql.Date.valueOf(auxData); FUNCIONANDO
+        //dataDeEmissaoCNH = javaSqlDate; FUNCIONANDO
+        
+        dispose();
     }//GEN-LAST:event_tabelaMotoristaMouseClicked
+
+    private void textoPesquisaMotoristaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoPesquisaMotoristaKeyReleased
+        try{
+
+            Vector cabecalho = new Vector();
+            cabecalho.add("codMotorista");
+            cabecalho.add("nomeMotorista");
+            cabecalho.add("categoriaCNH");
+            cabecalho.add("numeroCNH");
+            cabecalho.add("dataDeEmissaoCNH");
+
+            if(!textoPesquisaMotorista.getText().equals("")){
+                DefaultTableModel nv = new DefaultTableModel(motorista.Pesquisar(textoPesquisaMotorista.getText()),cabecalho);
+                tabelaMotorista.setModel(nv);
+            }else{
+                DefaultTableModel nv = new DefaultTableModel(new Vector(),cabecalho);
+                tabelaMotorista.setModel(nv);
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(this, "ERRO AO PESQUISAR" + ex.getMessage());
+        }
+    }//GEN-LAST:event_textoPesquisaMotoristaKeyReleased
 
     /**
      * @param args the command line arguments
@@ -168,27 +194,33 @@ public class TelaPesquisarMotorista extends javax.swing.JFrame{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPesquisarMotorista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PesquisaMotorista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPesquisarMotorista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PesquisaMotorista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPesquisarMotorista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PesquisaMotorista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPesquisarMotorista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PesquisaMotorista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPesquisarMotorista().setVisible(true);
+                PesquisaMotorista dialog = new PesquisaMotorista(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelPesquisarMotorista;
     private javax.swing.JTable tabelaMotorista;
     private javax.swing.JTextField textoPesquisaMotorista;

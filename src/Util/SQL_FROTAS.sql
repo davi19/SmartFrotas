@@ -1,7 +1,7 @@
 CREATE TABLE Controle (
 codControle int PRIMARY KEY,
-codMotorista int,
-codVeiculo varchar(20),
+nomeMotorista varchar(20),
+placaVeiculo varchar(20),
 KmSaida int,
 KmEntrada int,
 dataSaida date,
@@ -14,7 +14,6 @@ tipoVeiculo varchar(20),
 fabricante varchar(20),
 modelo varchar(20),
 cor varchar(20),
-codVeiculo int,
 anoFabricacao int,
 numeroChassi int,
 capacidadeTanque int,
@@ -23,7 +22,7 @@ mediaConsumo float
 
 CREATE TABLE Abastecimento (
 codAbastecimento int PRIMARY KEY,
-codVeiculo varchar(20),
+placaVeiculo varchar(20),
 quantidadeAbastecida float,
 quilometroAbastecido int,
 quilometroDeAbastecimentoAnterior int,
@@ -35,7 +34,7 @@ codMotorista int PRIMARY KEY,
 nomeMotorista varchar(40),
 categoriaCNH varchar(3),
 numeroCNH varchar(20),
-dataDeVencimentoCNH date
+dataDeEmissaoCNH date
 )
 
 CREATE TABLE UsuarioSistema (
