@@ -9,6 +9,7 @@ import Modelo.MotoristaModelo;
 import java.sql.SQLException;
 import Util.Conexao;
 import com.mysql.jdbc.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
@@ -23,25 +24,35 @@ public class MotoristaControle {
     Conexao c = new Conexao();
 
     public void inserir(MotoristaModelo p) {
+        
+       if(p.getNome().equals("") || p.getNumeroCNH().equals("")){
+        
+           JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o Motorista \nVerifique se todos os campos foram preenchidos!","ERRO", JOptionPane.ERROR_MESSAGE);
+            
+        }else{
 
-        String sentenca = "INSERT INTO Motorista (nomeMotorista, categoriaCNH, numeroCNH, dataDeEmissaoCNH) VALUES('" + p.getNome() + "','" + p.getCategoriaCNH() + "','" + p.getNumeroCNH() + "','" + p.getDataDeVencimentoCNH() + "')";
+            String sentenca = "INSERT INTO Motorista (nomeMotorista, categoriaCNH, numeroCNH, dataDeVencimento) VALUES('" + p.getNome() + "','" + p.getCategoriaCNH() + "','" + p.getNumeroCNH() + "','" + p.getDataDeVencimentoCNH() + "')";
 
-        try {
+            try {
 
-            c.stmt.execute(sentenca);
-            //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
-            JOptionPane.showMessageDialog(null, "Motorista inserido com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
+                c.stmt.execute(sentenca);
+                //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+                JOptionPane.showMessageDialog(null, "Motorista inserido com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
 
-        } catch (SQLException ex) {
+            } catch (SQLException ex) {
 
-            System.out.print(ex.getMessage());
-            //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
-            JOptionPane.showMessageDialog(null, "Erro ao inserir Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                System.out.print(ex.getMessage());
+                //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+                JOptionPane.showMessageDialog(null, "Erro ao inserir Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
+    
+    
+    
 
     public void excluir(int codMotorista) {
-
+        
         String sentenca = "DELETE FROM Motorista WHERE codMotorista=" + codMotorista;
 
         try {
@@ -58,18 +69,28 @@ public class MotoristaControle {
 
     public void editar(MotoristaModelo p) {
 
-        String sentenca = "UPDATE Motorista set nomeMotorista = '" + p.getNome() + "', categoriaCNH = '" + p.getCategoriaCNH() + "', numeroCNH = '" + p.getNumeroCNH() + "', dataDeEmissaoCNH = '" + p.getDataDeVencimentoCNH() + "' WHERE codMotorista=" + p.getCodMotorista();
+        
+        if(p.getNome().equals("") || p.getNumeroCNH().equals("")){
+        
+            JOptionPane.showMessageDialog(null, "Não foi possível Alterar os dados do Motorista \nVerifique se todos os campos foram preenchidos!","ERRO", JOptionPane.ERROR_MESSAGE);
+            
+        }else{
+                    
+                
+            String sentenca = "UPDATE Motorista set nomeMotorista = '" + p.getNome() + "', categoriaCNH = '" + p.getCategoriaCNH() + "', numeroCNH = '" + p.getNumeroCNH() + "', dataDeEmissaoCNH = '" + p.getDataDeVencimentoCNH() + "' WHERE codMotorista=" + p.getCodMotorista();
 
-        try {
-            c.stmt.execute(sentenca);
-            JOptionPane.showMessageDialog(null, "Dados do Motorista atualizado com sucesso!", "CONFIRMAÇÃO", JOptionPane.ERROR_MESSAGE);
+            try {
+                c.stmt.execute(sentenca);
+                JOptionPane.showMessageDialog(null, "Dados do Motorista atualizado com sucesso!", "CONFIRMAÇÃO", JOptionPane.ERROR_MESSAGE);
 
-        } catch (SQLException ex) {
+            } catch (SQLException ex) {
 
-            System.out.print(ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                System.out.print(ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
 
-        }
+            }
+                
+          }
 
     }
 

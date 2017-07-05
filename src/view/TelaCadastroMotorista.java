@@ -175,8 +175,8 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
                                 .addGap(39, 39, 39)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(textoNumeroCNH)
-                                    .addComponent(comboBoxCategoriaCNH, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(calendarioVencimento, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))))))
+                                    .addComponent(comboBoxCategoriaCNH, 0, 220, Short.MAX_VALUE)
+                                    .addComponent(calendarioVencimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(96, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -212,8 +212,8 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
                         .addComponent(labelEmissaoDaCNH))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(calendarioVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(101, Short.MAX_VALUE))
+                        .addComponent(calendarioVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         pack();
@@ -393,7 +393,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
     private javax.swing.JButton botaoPesquisar;
     private javax.swing.JButton botaoSair;
     private javax.swing.JButton botaoSalvar;
-    public com.toedter.calendar.JDateChooser calendarioVencimento;
+    private com.toedter.calendar.JDateChooser calendarioVencimento;
     public javax.swing.JComboBox<String> comboBoxCategoriaCNH;
     private javax.swing.JLabel labelCategoriaDaCnh;
     private javax.swing.JLabel labelCodigoDoMotorista;
