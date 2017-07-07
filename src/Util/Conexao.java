@@ -16,14 +16,14 @@ public class Conexao {
     
      Class.forName("com.mysql.jdbc.Driver");
         
-     String url="jdbc:mysql://localhost:3306/frotas";
+     String url="jdbc:mysql://localhost/frotas";
      String user="root";
-     String password="12345";
+     String password="";
 
             con = DriverManager.getConnection(url, user, password);
             stmt = con.createStatement();
             
-             System.out.print(" >>>> DB CONECTADO COM SUCESSO  <<<< ");
+            System.out.print(" >>>> DB CONECTADO COM SUCESSO  <<<< ");
 
         } catch (SQLException | ClassNotFoundException ex) {
             
