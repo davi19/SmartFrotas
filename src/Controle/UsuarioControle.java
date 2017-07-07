@@ -57,29 +57,46 @@ public class UsuarioControle {
         
     	try {
 		c.stmt.execute(sentenca);
-                System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
-		
+               //System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
+		 JOptionPane.showMessageDialog(null, "Usuario excluido com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
+               
               } catch (SQLException ex){
  
-                System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
-        
+                //System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+                JOptionPane.showMessageDialog(null, "Erro ao excluir Usuário!", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
    
-    public void editar(UsuarioModelo p){
+    public void editar(UsuarioModelo p) throws SQLException{
     
-        String sentenca = "UPDATE UsuarioSistema set senha = '"+p.getSenha()+"', nivelPermissao = '"+p.getNivelPermissao()+"' WHERE login="+p.getLogin();
-    	
-        try {
-		c.stmt.execute(sentenca);
-                System.out.print(" >>>> ALTERADO COM SUCESSO  <<<< ");
-                 
-		} catch (SQLException ex){
+        String sentenca_consulta = "SELECT * FROM usuariosistema WHERE login = '" + p.getLogin() + "'";
+        PreparedStatement ps = c.getConexao().prepareStatement(sentenca_consulta); // executa a sentença
+        ResultSet rs = ps.executeQuery();
         
-                System.out.print(ex.getMessage());
-                System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
-        
-        }
+        if(rs.next()){ //existe 
+            
+            JOptionPane.showMessageDialog(null, "Erro ao inserir Motorista!\nEssa CNH já está cadastrada no sistema", "ERRO", JOptionPane.ERROR_MESSAGE);
+
+            }else{ 
+
+                String sentenca = "UPDATE UsuarioSistema set senha = '"+p.getSenha()+"', nivelPermissao = '"+p.getNivelPermissao()+"' WHERE login="+p.getLogin();
+
+                try {
+                        c.stmt.execute(sentenca);
+                        //System.out.print(" >>>> ALTERADO COM SUCESSO  <<<< ");
+                        JOptionPane.showMessageDialog(null, "Dados do Usuário atualizado com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
+                        
+                        } catch (SQLException ex){
+
+                        //System.out.print(ex.getMessage());
+                        //System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
+                        JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Usuário!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                }
+            
+    }
+            
+            
+            
     }
     
      
