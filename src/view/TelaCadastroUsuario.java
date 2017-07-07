@@ -3,7 +3,6 @@ package view;
 import Controle.UsuarioControle;
 import Modelo.UsuarioModelo;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -16,7 +15,8 @@ import javax.swing.JOptionPane;
 public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     public TelaCadastroUsuario() {
-        initComponents();
+       
+       initComponents();
         
        botaoEditarUsuario.setEnabled(false);
        botaoExcluirUsuario.setEnabled(false);
@@ -73,6 +73,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         botaoExcluirUsuario.setForeground(new java.awt.Color(255, 255, 255));
         botaoExcluirUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/delete_4219.png"))); // NOI18N
         botaoExcluirUsuario.setBorderPainted(false);
+        botaoExcluirUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirUsuarioActionPerformed(evt);
+            }
+        });
 
         botaoSalvarUsuario.setBackground(new java.awt.Color(204, 204, 204));
         botaoSalvarUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,6 +108,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         labelPremissao.setText("Nivel de Permissão");
 
         textoSenha.setEnabled(false);
+        textoSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoSenhaKeyTyped(evt);
+            }
+        });
 
         textoPermissao.setEnabled(false);
 
@@ -177,6 +187,16 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void botaoPesquisarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarUsuarioActionPerformed
         TelaPesquisarViagens tela = new TelaPesquisarViagens();
         tela.setVisible(true);
+        
+        textoLogin.setEnabled(true);
+        textoSenha.setEnabled(true);
+        textoPermissao.setEnabled(true);
+        
+        botaoSalvarUsuario.setEnabled(false);
+        botaoExcluirUsuario.setEnabled(true);
+        botaoEditarUsuario.setEnabled(true);
+        
+        
     }//GEN-LAST:event_botaoPesquisarUsuarioActionPerformed
 
     private void botaoSairUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairUsuarioActionPerformed
@@ -219,6 +239,41 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         
        
     }//GEN-LAST:event_botaoSalvarUsuarioActionPerformed
+
+    private void botaoExcluirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirUsuarioActionPerformed
+        
+        textoLogin.setText("");
+        textoSenha.setText("");
+        textoPermissao.setSelectedIndex(0);
+        
+        textoLogin.setEnabled(false);
+        textoSenha.setEnabled(false);
+        textoPermissao.setEnabled(false);
+        botaoExcluirUsuario.setEnabled(false);
+        botaoEditarUsuario.setEnabled(false);
+        
+        UsuarioModelo p = new UsuarioModelo(String.valueOf(textoSenha.getPassword()), textoLogin.getText(), (String) textoPermissao.getSelectedItem());     
+
+        UsuarioControle usuario = new UsuarioControle();
+
+        usuario.excluir(p.getLogin());
+        
+        
+    }//GEN-LAST:event_botaoExcluirUsuarioActionPerformed
+
+    private void textoSenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoSenhaKeyTyped
+             
+            boolean teclaCerta = true;
+       
+            char c = evt.getKeyChar();
+            
+             char[] password = textoSenha.getPassword();  
+           String senha = new String(password); 
+            
+            int comprimentoDeCampo = senha.length();
+            
+             if (comprimentoDeCampo == 10) { evt.consume(); }
+    }//GEN-LAST:event_textoSenhaKeyTyped
 
     /**
      * @param args the command line arguments
