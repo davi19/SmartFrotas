@@ -2,8 +2,14 @@ package view;
 
 import Controle.MotoristaControle;
 import Modelo.MotoristaModelo;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class TelaCadastroMotorista extends javax.swing.JFrame {
 
@@ -46,9 +52,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         calendarioVencimento = new com.toedter.calendar.JDateChooser();
 
         setTitle("Cadastro de Motorista");
-        setMaximumSize(new java.awt.Dimension(1000, 800));
         setMinimumSize(new java.awt.Dimension(850, 570));
-        setPreferredSize(new java.awt.Dimension(900, 600));
 
         botaoNovoCadastro.setBackground(new java.awt.Color(204, 204, 204));
         botaoNovoCadastro.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,8 +131,18 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
                 textoNumeroCNHActionPerformed(evt);
             }
         });
+        textoNumeroCNH.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoNumeroCNHKeyTyped(evt);
+            }
+        });
 
         textoNome.setEnabled(false);
+        textoNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoNomeKeyTyped(evt);
+            }
+        });
 
         labelCodigoDoMotorista.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         labelCodigoDoMotorista.setText("Código do Motorista:");
@@ -136,6 +150,11 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         comboBoxCategoriaCNH.setEnabled(false);
 
         calendarioVencimento.setEnabled(false);
+        calendarioVencimento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                calendarioVencimentoKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,15 +178,12 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(labelCodigoDoMotorista)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                                    .addGap(40, 40, 40)
                                     .addComponent(textoCodigoMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(labelNome)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(textoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(labelNome, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labelEmissaoDaCNH)
@@ -177,7 +193,8 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(textoNumeroCNH)
                                     .addComponent(comboBoxCategoriaCNH, 0, 220, Short.MAX_VALUE)
-                                    .addComponent(calendarioVencimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                    .addComponent(calendarioVencimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(textoNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -267,31 +284,40 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
 
+        
+        
+        
+      if(textoNome.getText().equals("") || textoNumeroCNH.getText().equals("") || calendarioVencimento.getDate() == null) {
+          
+         JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+        
+       } else { 
+    
+   
         SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd"); // Usado para formatar o padrão da data dd/MM/yyyy para yyyy/MM/dd 
         String data = dFormat.format(calendarioVencimento.getDate()); // converte a data ja formatada para String
-        MotoristaModelo p = new MotoristaModelo(0, textoNumeroCNH.getText(), (String) comboBoxCategoriaCNH.getSelectedItem(), textoNome.getText(), Date.valueOf(data));
-
-        //textoCodigoMotorista.setText("");
+       
+        MotoristaModelo p = new MotoristaModelo(0, textoNumeroCNH.getText(), (String) comboBoxCategoriaCNH.getSelectedItem(), textoNome.getText(), Date.valueOf(data));     
+             
+        MotoristaControle motorista = new MotoristaControle();
+          try {
+              motorista.inserir(p);
+          } catch (SQLException ex) {
+              Logger.getLogger(TelaCadastroMotorista.class.getName()).log(Level.SEVERE, null, ex);
+          }
+        
         textoNumeroCNH.setText("");
         textoNome.setText("");
         calendarioVencimento.setDate(null);
         comboBoxCategoriaCNH.setSelectedIndex(0);
-/*
-        p.setCodMotorista(Integer.parseInt(textoCodigoMotorista.getText()));
-        p.setNome(textoNome.getText());
-        p.setCategoriaCNH((String) comboBoxCategoriaCNH.getSelectedItem());
-        p.setNumeroCNH(textoNumeroCNH.getText());
-        p.setDataDeEmissaoCNH(Date.valueOf(data));
-*/
-        MotoristaControle motorista = new MotoristaControle();
-
-        motorista.inserir(p);
-
+        
         textoCodigoMotorista.setEnabled(false);
         textoNome.setEnabled(false);
         calendarioVencimento.setEnabled(false);
         comboBoxCategoriaCNH.setEnabled(false);
         textoNumeroCNH.setEnabled(false);
+        
+      }
 
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
@@ -315,7 +341,11 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         
         MotoristaControle motorista = new MotoristaControle();
         
-        motorista.editar(p);
+        try {
+            motorista.editar(p);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroMotorista.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         textoNome.setEnabled(false);
         calendarioVencimento.setEnabled(false);
@@ -348,6 +378,49 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         motorista.excluir(p.getCodMotorista());
 
     }//GEN-LAST:event_botaoExcluirActionPerformed
+
+    private void textoNumeroCNHKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoNumeroCNHKeyTyped
+            
+       boolean teclaCerta = true;
+       
+      char c = evt.getKeyChar();
+
+            if(c<'0' || c>'9'){
+            
+                teclaCerta = false;
+            
+            }
+            
+            int comprimentoDeCampo = textoNumeroCNH.getText().length();
+            
+             if (!teclaCerta || comprimentoDeCampo == 11) { evt.consume(); }
+    }//GEN-LAST:event_textoNumeroCNHKeyTyped
+
+    private void textoNomeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoNomeKeyTyped
+            
+        boolean teclaCerta = true;
+        
+        char c = evt.getKeyChar();
+
+            if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c!=(char)KeyEvent.VK_SPACE) && c!='ç' && c!='á' && c!='Á' && c!='é' && c!='É' && c!='í' && c!='Í' && c!='ó' && c!='Ó' && c!='ã' && c!='õ'){
+                
+                teclaCerta = false;
+            
+            }
+            
+             int comprimentoDeCampo = textoNome.getText().length();
+            
+             if (!teclaCerta || comprimentoDeCampo == 40) { evt.consume(); }
+             
+        //FIM VALIDA CAMPOS 
+    }//GEN-LAST:event_textoNomeKeyTyped
+
+    private void calendarioVencimentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calendarioVencimentoKeyTyped
+            
+            char c = evt.getKeyChar();
+
+            if(c<'0' || c>'9'){evt.consume();}
+    }//GEN-LAST:event_calendarioVencimentoKeyTyped
 
     /**
      * @param args the command line arguments
