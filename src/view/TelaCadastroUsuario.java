@@ -187,6 +187,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         textoLogin.setEnabled(true);
         textoSenha.setEnabled(true);
         textoPermissao.setEnabled(true);
+        botaoSalvarUsuario.setEnabled(true);
         
     }//GEN-LAST:event_botaoNovoUsuarioActionPerformed
 
