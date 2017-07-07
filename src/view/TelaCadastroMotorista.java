@@ -18,6 +18,9 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         initComponents();
         labelCodigoDoMotorista.setVisible(false);
         textoCodigoMotorista.setVisible(false);
+        botaoSalvar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        botaoEditar.setEnabled(false);
         this.comboBoxCategoriaCNH.addItem("A"); // Preenchimento das ComboBox 
         this.comboBoxCategoriaCNH.addItem("B");
         this.comboBoxCategoriaCNH.addItem("C");
@@ -270,6 +273,8 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         comboBoxCategoriaCNH.setEnabled(true);
         textoNumeroCNH.setEnabled(true);
         botaoSalvar.setEnabled(false);
+        botaoExcluir.setEnabled(true);
+        botaoEditar.setEnabled(true);
 
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
@@ -317,6 +322,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         comboBoxCategoriaCNH.setEnabled(false);
         textoNumeroCNH.setEnabled(false);
         
+        
       }
 
     }//GEN-LAST:event_botaoSalvarActionPerformed
@@ -351,6 +357,8 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         calendarioVencimento.setEnabled(false);
         comboBoxCategoriaCNH.setEnabled(false);
         textoNumeroCNH.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        botaoEditar.setEnabled(false);
                 
     }//GEN-LAST:event_botaoEditarActionPerformed
 
@@ -370,6 +378,8 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         calendarioVencimento.setEnabled(false);
         comboBoxCategoriaCNH.setEnabled(false);
         textoNumeroCNH.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        botaoEditar.setEnabled(false);
         
         //p.setCodMotorista(Integer.parseInt(textoCodigoMotorista.getText()));
 
