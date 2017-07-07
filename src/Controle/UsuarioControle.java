@@ -10,6 +10,7 @@ import Util.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import view.TelaInicial;
 
 /**
  *
@@ -19,6 +20,27 @@ public class UsuarioControle {
     
      Conexao c = new Conexao();
      
+     public void login(UsuarioModelo p) throws SQLException{
+     
+        String sentenca_consulta = "SELECT * FROM usuariosistema WHERE login = '" + p.getLogin() + "' AND senha = '" + p.getSenha() + "'" ;
+        PreparedStatement ps = c.getConexao().prepareStatement(sentenca_consulta); // executa a sentença
+        ResultSet rs = ps.executeQuery();
+        
+        if(rs.next()){ //existe 
+            
+           TelaInicial frame = new TelaInicial();
+           frame.setVisible(true);
+               
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "Dados inválido. Tente Novamente", "ERRO", JOptionPane.ERROR_MESSAGE);
+ 
+            
+        }
+        
+        }
+     
+   
    public void inserir(UsuarioModelo p) throws SQLException{
             
         String sentenca_consulta = "SELECT * FROM usuariosistema WHERE login = '" + p.getLogin() + "'";
