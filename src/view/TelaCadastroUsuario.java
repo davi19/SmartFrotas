@@ -291,9 +291,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
              if (comprimentoDeCampo == 20) { evt.consume(); }
     }//GEN-LAST:event_textoLoginKeyTyped
 
-=======
->>>>>>> origin/master
-    /**
+   /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
