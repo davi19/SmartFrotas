@@ -2,11 +2,10 @@ package Modelo;
 
 public class UsuarioModelo {
     
-	private String senha, login;
-	private int nivelPermissao;
+	private String senha, login, nivelPermissao;
+  
     
-    
-	public UsuarioModelo(String senha, String login, int nivelPermissao) 
+	public UsuarioModelo(String senha, String login, String nivelPermissao) 
 	{
 		this.senha = senha;
 		this.login = login;
@@ -25,10 +24,10 @@ public class UsuarioModelo {
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	public int getNivelPermissao() {
+	public String getNivelPermissao() {
 		return nivelPermissao;
 	}
-	public void setNivelPermissao(int nivelPermissao) {
+	public void setNivelPermissao(String nivelPermissao) {
 		this.nivelPermissao = nivelPermissao;
 	}
 

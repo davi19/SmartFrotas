@@ -7,6 +7,9 @@ package Controle;
 import Modelo.UsuarioModelo;
 import java.sql.SQLException;
 import Util.Conexao;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,22 +19,36 @@ public class UsuarioControle {
     
      Conexao c = new Conexao();
      
-   public void inserir(UsuarioModelo p){
+   public void inserir(UsuarioModelo p) throws SQLException{
             
-                       
-      String sentenca = "INSERT INTO UsuarioSistema VALUES ('"+p.getLogin()+"','"+p.getSenha()+"','"+p.getNivelPermissao()+"')";
-       
-        try{
-             
-             c.stmt.execute(sentenca); 
-             System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
-            
-        } catch (SQLException ex){
+        String sentenca_consulta = "SELECT * FROM usuariosistema WHERE login = '" + p.getLogin() + "'";
+        PreparedStatement ps = c.getConexao().prepareStatement(sentenca_consulta); // executa a sentença
+        ResultSet rs = ps.executeQuery();
         
-             System.out.print(ex.getMessage());  
-             System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
-             
-            }
+        if(rs.next()){ //existe 
+            
+        JOptionPane.showMessageDialog(null, "Erro ao inserir Usuário!\nEsse usuário já está cadastrado no sistema", "ERRO", JOptionPane.ERROR_MESSAGE);
+        
+        }else{
+                       
+                String sentenca = "INSERT INTO usuariosistema (login, senha, nivelPermissao) VALUES ('"+p.getLogin()+"','"+p.getSenha()+"','"+p.getNivelPermissao()+"')";
+
+                  try{
+
+                       c.stmt.execute(sentenca); 
+                       //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+                       JOptionPane.showMessageDialog(null, "Usuário inserido com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
+
+
+                  } catch (SQLException ex){
+
+                       //System.out.print(ex.getMessage());  
+                       //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+                       JOptionPane.showMessageDialog(null, "Erro ao inserir Usuário!", "ERRO", JOptionPane.ERROR_MESSAGE);
+ 
+                      }
+                  
+        }
     } 
    
    public void excluir(String login){

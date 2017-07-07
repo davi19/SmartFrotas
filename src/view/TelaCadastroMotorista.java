@@ -288,9 +288,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
     }//GEN-LAST:event_textoNumeroCNHActionPerformed
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
-
-        
-        
+     
         
       if(textoNome.getText().equals("") || textoNumeroCNH.getText().equals("") || calendarioVencimento.getDate() == null) {
           
