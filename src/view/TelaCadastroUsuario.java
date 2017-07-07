@@ -20,6 +20,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         
        botaoEditarUsuario.setEnabled(false);
        botaoExcluirUsuario.setEnabled(false);
+       botaoSalvarUsuario.setEnabled(false);
        
        this.textoPermissao.addItem("PARCIAL"); // Preenchimento das ComboBox
        this.textoPermissao.addItem("TOTAL"); // Preenchimento das ComboBox
