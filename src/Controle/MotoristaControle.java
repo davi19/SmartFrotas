@@ -8,7 +8,6 @@ package Controle;
 import Modelo.MotoristaModelo;
 import java.sql.SQLException;
 import Util.Conexao;
-import com.mysql.jdbc.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
@@ -22,32 +21,46 @@ public class MotoristaControle {
 
     Conexao c = new Conexao();
 
-    public void inserir(MotoristaModelo p) {
+    public void inserir(MotoristaModelo p) throws SQLException {
+        
+        String sentenca_consulta = "SELECT * FROM motorista WHERE numeroCNH = '" + p.getNumeroCNH()+ "'";
+        PreparedStatement ps = c.getConexao().prepareStatement(sentenca_consulta); // executa a sentença
+        ResultSet rs = ps.executeQuery();
+        
+        if(rs.next()){ //existe 
+            
+        JOptionPane.showMessageDialog(null, "Erro ao inserir Motorista!\nEssa CNH já está cadastrada no sistema", "ERRO", JOptionPane.ERROR_MESSAGE);
+        
+        }else{
+            
+        
+                String sentenca = "INSERT INTO motorista (nomeMotorista, categoriaCNH, numeroCNH, dataDeVencimento) VALUES('" + p.getNome() + "','" + p.getCategoriaCNH() + "','" + p.getNumeroCNH() + "','" + p.getDataDeVencimentoCNH() + "')";
 
-        String sentenca = "INSERT INTO Motorista (nomeMotorista, categoriaCNH, numeroCNH, dataDeEmissaoCNH) VALUES('" + p.getNome() + "','" + p.getCategoriaCNH() + "','" + p.getNumeroCNH() + "','" + p.getDataDeVencimentoCNH() + "')";
+                try {
 
-        try {
+                    c.stmt.execute(sentenca);
+                    //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+                    JOptionPane.showMessageDialog(null, "Motorista inserido com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
 
-            c.stmt.execute(sentenca);
-            //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
-            JOptionPane.showMessageDialog(null, "Motorista inserido com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException ex) {
 
-        } catch (SQLException ex) {
-
-            System.out.print(ex.getMessage());
-            //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
-            JOptionPane.showMessageDialog(null, "Erro ao inserir Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                    System.out.print(ex.getMessage());
+                    //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+                    JOptionPane.showMessageDialog(null, "Erro ao inserir Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                }
+        
         }
+        
     }
 
     public void excluir(int codMotorista) {
 
-        String sentenca = "DELETE FROM Motorista WHERE codMotorista=" + codMotorista;
+        String sentenca = "DELETE FROM motorista WHERE codMotorista=" + codMotorista;
 
         try {
             c.stmt.execute(sentenca);
             //System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
-            JOptionPane.showMessageDialog(null, "Motorista excluido com sucesso!", "CONFIRMAÇÃO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Motorista excluido com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
 
             //System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
@@ -56,19 +69,31 @@ public class MotoristaControle {
         }
     }
 
-    public void editar(MotoristaModelo p) {
+    public void editar(MotoristaModelo p) throws SQLException {
+        
+        String sentenca_consulta = "SELECT * FROM motorista WHERE numeroCNH = '" + p.getNumeroCNH()+ "'";
+        PreparedStatement ps = c.getConexao().prepareStatement(sentenca_consulta); // executa a sentença
+        ResultSet rs = ps.executeQuery();
+        
+        if(rs.next()){ //existe 
+            
+            JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Motorista!\nEssa CNH já está cadastrada no sistema", "ERRO", JOptionPane.ERROR_MESSAGE);
+        
+        }else{
 
-        String sentenca = "UPDATE Motorista set nomeMotorista = '" + p.getNome() + "', categoriaCNH = '" + p.getCategoriaCNH() + "', numeroCNH = '" + p.getNumeroCNH() + "', dataDeEmissaoCNH = '" + p.getDataDeVencimentoCNH() + "' WHERE codMotorista=" + p.getCodMotorista();
+            String sentenca = "UPDATE motorista set nomeMotorista = '" + p.getNome() + "', categoriaCNH = '" + p.getCategoriaCNH() + "', numeroCNH = '" + p.getNumeroCNH() + "', dataDeVencimento = '" + p.getDataDeVencimentoCNH() + "' WHERE codMotorista=" + p.getCodMotorista();
 
-        try {
-            c.stmt.execute(sentenca);
-            JOptionPane.showMessageDialog(null, "Dados do Motorista atualizado com sucesso!", "CONFIRMAÇÃO", JOptionPane.ERROR_MESSAGE);
+            try {
+                c.stmt.execute(sentenca);
+                JOptionPane.showMessageDialog(null, "Dados do Motorista atualizado com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
 
-        } catch (SQLException ex) {
+            } catch (SQLException ex) {
 
-            System.out.print(ex.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                System.out.print(ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
 
+            }
+        
         }
 
     }
@@ -87,7 +112,7 @@ public class MotoristaControle {
             nl.add(rs.getString("nomeMotorista"));
             nl.add(rs.getString("categoriaCNH"));
             nl.add(rs.getInt("numeroCNH"));
-            nl.add(rs.getDate("dataDeEmissaoCNH"));
+            nl.add(rs.getDate("dataDeVencimento"));
             tb.add(nl); // adiciona o vetor com as variaveis em um outro vetor vazio
         }
         return tb; // retorna o vetor
