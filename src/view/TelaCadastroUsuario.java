@@ -33,6 +33,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         botaoNovoUsuario = new javax.swing.JButton();
         botaoPesquisarUsuario = new javax.swing.JButton();
         botaoEditarUsuario = new javax.swing.JButton();
@@ -45,6 +46,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         labelPremissao = new javax.swing.JLabel();
         textoSenha = new javax.swing.JPasswordField();
         textoPermissao = new javax.swing.JComboBox<>();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setSize(new java.awt.Dimension(660, 281));
 
@@ -342,6 +345,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JButton botaoPesquisarUsuario;
     private javax.swing.JButton botaoSairUsuario;
     private javax.swing.JButton botaoSalvarUsuario;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel labelLogin;
     private javax.swing.JLabel labelPremissao;
     private javax.swing.JLabel labelSenha;

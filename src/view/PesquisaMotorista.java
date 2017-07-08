@@ -113,9 +113,10 @@ public class PesquisaMotorista extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(labelPesquisarMotorista)
-                        .addGap(0, 612, Short.MAX_VALUE))
-                    .addComponent(textoPesquisaMotorista))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelPesquisarMotorista)
+                            .addComponent(textoPesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 190, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

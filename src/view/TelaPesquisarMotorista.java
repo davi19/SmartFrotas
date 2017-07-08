@@ -47,6 +47,7 @@ public class TelaPesquisarMotorista extends javax.swing.JFrame{
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setType(java.awt.Window.Type.POPUP);
 
         labelPesquisarMotorista.setText("Pesquisar");
 
