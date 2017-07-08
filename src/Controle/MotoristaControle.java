@@ -34,7 +34,7 @@ public class MotoristaControle {
         }else{
             
         
-                String sentenca = "INSERT INTO motorista (nomeMotorista, categoriaCNH, numeroCNH, dataDeVencimento) VALUES('" + p.getNome() + "','" + p.getCategoriaCNH() + "','" + p.getNumeroCNH() + "','" + p.getDataDeVencimentoCNH() + "')";
+                String sentenca = "INSERT INTO motorista (nomeMotorista, categoriaCNH, numeroCNH, dataDeVencimentoCNH) VALUES('" + p.getNome() + "','" + p.getCategoriaCNH() + "','" + p.getNumeroCNH() + "','" + p.getDataDeVencimentoCNH() + "')";
 
                 try {
 
@@ -81,7 +81,7 @@ public class MotoristaControle {
         
         }else{
 
-            String sentenca = "UPDATE motorista set nomeMotorista = '" + p.getNome() + "', categoriaCNH = '" + p.getCategoriaCNH() + "', numeroCNH = '" + p.getNumeroCNH() + "', dataDeVencimento = '" + p.getDataDeVencimentoCNH() + "' WHERE codMotorista=" + p.getCodMotorista();
+            String sentenca = "UPDATE motorista set nomeMotorista = '" + p.getNome() + "', categoriaCNH = '" + p.getCategoriaCNH() + "', numeroCNH = '" + p.getNumeroCNH() + "', dataDeVencimentoCNH = '" + p.getDataDeVencimentoCNH() + "' WHERE codMotorista=" + p.getCodMotorista();
 
             try {
                 c.stmt.execute(sentenca);
