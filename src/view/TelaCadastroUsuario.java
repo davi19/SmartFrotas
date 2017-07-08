@@ -193,8 +193,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoNovoUsuarioActionPerformed
 
     private void botaoPesquisarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarUsuarioActionPerformed
-        TelaPesquisarViagens tela = new TelaPesquisarViagens();
+        PesquisaUsuario tela = new PesquisaUsuario(this,true);
         tela.setVisible(true);
+        
+        textoLogin.setText(tela.getLogin());
+        textoSenha.setText(tela.getSenha());
+        textoPermissao.setSelectedItem(tela.getNivelPermissao());
         
         textoLogin.setEnabled(true);
         textoSenha.setEnabled(true);

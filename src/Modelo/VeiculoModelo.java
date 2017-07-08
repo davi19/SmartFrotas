@@ -4,12 +4,12 @@ package Modelo;
 public class VeiculoModelo {
     
 	private  String placaVeiculo, tipoVeiculo, fabricante, modelo, cor;
-	private int codVeiculo, anoFabricacao, numeroChassi, capacidadeTanque;
+	private int anoFabricacao, numeroChassi, capacidadeTanque;
 	private float mediaConsumo;
     
     
     public VeiculoModelo(String placaVeiculo, String tipoVeiculo,
-			String fabricante, String modelo, String cor, int codVeiculo,
+			String fabricante, String modelo, String cor,
 			int anoFabricacao, int numeroChassi, int capacidadeTanque,
 			float mediaConsumo) 
     {
@@ -18,7 +18,6 @@ public class VeiculoModelo {
 		this.fabricante = fabricante;
 		this.modelo = modelo;
 		this.cor = cor;
-		this.codVeiculo = codVeiculo;
 		this.anoFabricacao = anoFabricacao;
 		this.numeroChassi = numeroChassi;
 		this.capacidadeTanque = capacidadeTanque;
@@ -65,14 +64,6 @@ public class VeiculoModelo {
         this.cor = cor;
     }
 
-    public int getCodVeiculo() {
-        return codVeiculo;
-    }
-
-    public void setCodVeiculo(int codVeiculo) {
-        this.codVeiculo = codVeiculo;
-    }
-
     public int getAnoFabricacao() {
         return anoFabricacao;
     }
@@ -105,9 +96,7 @@ public class VeiculoModelo {
         this.capacidadeTanque = capacidadeTanque;
     } 
 
-    int getplacaVeiculo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
 
 

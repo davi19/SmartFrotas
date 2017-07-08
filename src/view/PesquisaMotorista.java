@@ -14,7 +14,7 @@ public class PesquisaMotorista extends javax.swing.JDialog {
     private String nomeMotorista;
     private String categoriaCNH;
     private String numeroCNH;
-    private Date dataDeEmissaoCNH;  
+    private Date dataDeVencimentoCNH;  
     
     public String getCategoriaCNH() {
         return categoriaCNH;
@@ -24,8 +24,8 @@ public class PesquisaMotorista extends javax.swing.JDialog {
         return numeroCNH;
     }
     
-    public Date getDataDeEmissaoCNH() {
-        return dataDeEmissaoCNH;
+    public Date getDataDeVencimentoCNH() {
+        return dataDeVencimentoCNH;
     }
     
     public String getCodMotorista() {
@@ -42,8 +42,6 @@ public class PesquisaMotorista extends javax.swing.JDialog {
     public PesquisaMotorista(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
-        setLocationRelativeTo(null);
         
         motorista = new  MotoristaControle();
         telaCadastroMotorista = new TelaCadastroMotorista();
@@ -71,7 +69,7 @@ public class PesquisaMotorista extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Código", "Nome", "Categoria da CNH", "Número da CNH", "Data de Vencimento"
+                "Código", "Nome", "Categoria da CNH", "Numero CNH", "Data do Vencimento CNH"
             }
         ) {
             Class[] types = new Class [] {
@@ -110,11 +108,13 @@ public class PesquisaMotorista extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelPesquisarMotorista)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelPesquisarMotorista)
+                        .addGap(0, 538, Short.MAX_VALUE))
                     .addComponent(textoPesquisaMotorista))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,9 +122,9 @@ public class PesquisaMotorista extends javax.swing.JDialog {
                 .addGap(16, 16, 16)
                 .addComponent(labelPesquisarMotorista)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textoPesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textoPesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -132,8 +132,7 @@ public class PesquisaMotorista extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabelaMotoristaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMotoristaMouseClicked
-
-                
+  
         int indiceLinha = tabelaMotorista.getSelectedRow();
         //jTextField1.setText(tabelaMotorista.getValueAt(indiceLinha, 1).toString());
         
@@ -141,7 +140,7 @@ public class PesquisaMotorista extends javax.swing.JDialog {
         nomeMotorista = tabelaMotorista.getValueAt(indiceLinha, 1).toString();
         categoriaCNH = tabelaMotorista.getValueAt(indiceLinha, 2).toString();
         numeroCNH = tabelaMotorista.getValueAt(indiceLinha, 3).toString();
-        dataDeEmissaoCNH = Date.valueOf(tabelaMotorista.getValueAt(indiceLinha, 4).toString());
+        dataDeVencimentoCNH = Date.valueOf(tabelaMotorista.getValueAt(indiceLinha, 4).toString());
         //vencimento.setDate(Integer.parseInt(tabelaMotorista.getValueAt(indiceLinha, 3).toString())); // ERRO AQUI
         
         //telaCadastroMotorista.textoNome.setText(String.valueOf(tabelaMotorista.getValueAt(indiceLinha, 1).toString()));
@@ -160,11 +159,11 @@ public class PesquisaMotorista extends javax.swing.JDialog {
         try{
 
             Vector cabecalho = new Vector();
-            cabecalho.add("Código");
-            cabecalho.add("Nome");
-            cabecalho.add("Categoria da CNH");
-            cabecalho.add("Número da CNH");
-            cabecalho.add("Data de Vencimento");
+            cabecalho.add("codMotorista");
+            cabecalho.add("nomeMotorista");
+            cabecalho.add("categoriaCNH");
+            cabecalho.add("numeroCNH");
+            cabecalho.add("dataDeVencimentoCNH");
 
             if(!textoPesquisaMotorista.getText().equals("")){
                 DefaultTableModel nv = new DefaultTableModel(motorista.Pesquisar(textoPesquisaMotorista.getText()),cabecalho);
@@ -216,11 +215,8 @@ public class PesquisaMotorista extends javax.swing.JDialog {
                     }
                 });
                 dialog.setVisible(true);
-                
             }
         });
-        
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

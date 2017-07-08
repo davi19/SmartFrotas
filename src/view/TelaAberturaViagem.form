@@ -66,19 +66,19 @@
                               </Group>
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="textoPlaca" max="32767" attributes="0"/>
-                                  <Component id="calendarioDataEntrada" alignment="1" pref="220" max="32767" attributes="0"/>
-                                  <Component id="calendarioDataSaida" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="textoPlaca" pref="220" max="32767" attributes="0"/>
                                   <Component id="textoKmSaida" alignment="1" max="32767" attributes="0"/>
                                   <Component id="textoKmEntrada" alignment="1" max="32767" attributes="0"/>
                                   <Component id="textoMotorista" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="calendarioDataSaida" max="32767" attributes="0"/>
+                                  <Component id="calendarioDataEntrada" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton1" min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="jButton2" pref="0" max="32767" attributes="0"/>
+                          <Component id="PesquisaMotorista" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="pesquisaVeiculo" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -113,12 +113,12 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="textoMotorista" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="PesquisaMotorista" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="textoPlaca" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="pesquisaVeiculo" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -139,10 +139,10 @@
                   </Group>
                   <Component id="labelDataSaida" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="calendarioDataEntrada" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="labelDataEntrada" alignment="1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="labelDataEntrada" min="-2" max="-2" attributes="0"/>
+                  <Component id="calendarioDataEntrada" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>
@@ -292,16 +292,6 @@
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="calendarioDataSaida">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-    </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="calendarioDataEntrada">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="labelMotorista">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -333,25 +323,35 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="PesquisaMotorista">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/view/Icones/pesquisar pequeno.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PesquisaMotoristaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="pesquisaVeiculo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/view/Icones/pesquisar pequeno.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesquisaVeiculoActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="calendarioDataSaida">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="calendarioDataEntrada">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

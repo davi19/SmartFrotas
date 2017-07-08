@@ -5,6 +5,11 @@
  */
 package view;
 
+import Controle.ControleDeViagemControle;
+import Modelo.ControleDeViagemModelo;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author otavio
@@ -41,15 +46,15 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         botaoEditar = new javax.swing.JButton();
         botaoSair = new javax.swing.JButton();
         botaoExcluir = new javax.swing.JButton();
-        calendarioDataSaida = new com.toedter.calendar.JDateChooser();
-        calendarioDataEntrada = new com.toedter.calendar.JDateChooser();
         labelMotorista = new javax.swing.JLabel();
         labelCodigo = new javax.swing.JLabel();
         textoPlaca = new javax.swing.JTextField();
         textoCodigo = new javax.swing.JTextField();
         textoMotorista = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        PesquisaMotorista = new javax.swing.JButton();
+        pesquisaVeiculo = new javax.swing.JButton();
+        calendarioDataSaida = new com.toedter.calendar.JDateChooser();
+        calendarioDataEntrada = new com.toedter.calendar.JDateChooser();
 
         setTitle("Abertura de Viagens");
         setMaximumSize(new java.awt.Dimension(1000, 800));
@@ -127,10 +132,6 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/delete_4219.png"))); // NOI18N
         botaoExcluir.setBorderPainted(false);
 
-        calendarioDataSaida.setEnabled(false);
-
-        calendarioDataEntrada.setEnabled(false);
-
         labelMotorista.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         labelMotorista.setText("Motorista");
 
@@ -143,19 +144,23 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
         textoMotorista.setEnabled(false);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/pesquisar pequeno.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        PesquisaMotorista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/pesquisar pequeno.png"))); // NOI18N
+        PesquisaMotorista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                PesquisaMotoristaActionPerformed(evt);
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/pesquisar pequeno.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        pesquisaVeiculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/pesquisar pequeno.png"))); // NOI18N
+        pesquisaVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                pesquisaVeiculoActionPerformed(evt);
             }
         });
+
+        calendarioDataSaida.setEnabled(false);
+
+        calendarioDataEntrada.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,16 +197,16 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
                                     .addComponent(labelPlacaDoVeiculo))
                                 .addGap(37, 37, 37)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textoPlaca)
-                                    .addComponent(calendarioDataEntrada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(calendarioDataSaida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(textoPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                                     .addComponent(textoKmSaida, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(textoKmEntrada, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(textoMotorista))))
+                                    .addComponent(textoMotorista)
+                                    .addComponent(calendarioDataSaida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(calendarioDataEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                            .addComponent(PesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pesquisaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                 .addContainerGap(330, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -228,11 +233,11 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textoMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(PesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(textoPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(pesquisaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -247,9 +252,9 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
                         .addComponent(calendarioDataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(labelDataSaida))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(calendarioDataEntrada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelDataEntrada, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelDataEntrada)
+                    .addComponent(calendarioDataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -274,8 +279,27 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoNovoCadastroActionPerformed
 
     private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
-         TelaPesquisarViagens tela = new TelaPesquisarViagens();
-         tela.setVisible(true);
+        
+        PesquisaViagens tela = new PesquisaViagens(this,true);
+        tela.setVisible(true);
+         
+        textoCodigo.setText(tela.getCodControle());
+        textoMotorista.setText(tela.getNomeMotorista());
+        textoPlaca.setText(tela.getPlacaVeiculo());
+        textoKmSaida.setText(tela.getKmSaida());
+        textoKmEntrada.setText(tela.getKmEntrada());
+        calendarioDataSaida.setDate(tela.getDataSaida());
+        calendarioDataEntrada.setDate(tela.getDataEntrada());
+        
+        textoCodigo.setEnabled(true);
+        textoMotorista.setEnabled(true);
+        textoPlaca.setEnabled(true);
+        textoKmSaida.setEnabled(true);
+        textoKmEntrada.setEnabled(true);
+        calendarioDataSaida.setEnabled(true);
+        calendarioDataEntrada.setEnabled(true);
+        
+        botaoSalvar.setEnabled(false);
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
@@ -283,31 +307,41 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botaoSairActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void PesquisaMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaMotoristaActionPerformed
         
-        TelaPesquisarMotorista telaPesquisarMotorista = new TelaPesquisarMotorista();
-        telaPesquisarMotorista.setVisible(true);
+        PesquisaMotorista telaPesquisaMotorista = new PesquisaMotorista(this,true);
+        telaPesquisaMotorista.setVisible(true);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        textoMotorista.setText(telaPesquisaMotorista.getNomeMotorista());
+        
+    }//GEN-LAST:event_PesquisaMotoristaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void pesquisaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaVeiculoActionPerformed
         
-        TelaPesquisarVeiculo telaPesquisarVeiculo = new TelaPesquisarVeiculo();
-        telaPesquisarVeiculo.setVisible(true);
+        PesquisaVeiculo telaPesquisaVeiculo = new PesquisaVeiculo(this,true);
+        telaPesquisaVeiculo.setVisible(true);
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+        textoPlaca.setText(telaPesquisaVeiculo.getPlacaVeiculo());
+        
+    }//GEN-LAST:event_pesquisaVeiculoActionPerformed
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         
-        
-        textoCodigo.setVisible(false);
-        textoMotorista.setVisible(false);
-        textoPlaca.setVisible(false);
-        textoKmSaida.setVisible(false);
-        textoKmEntrada.setVisible(false);
-        calendarioDataSaida.setVisible(false);
-        calendarioDataEntrada.setVisible(false);
-        
+         SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd"); // Usado para formatar o padrÃ£o da data dd/MM/yyyy para yyyy/MM/dd
+        String dataSaida = dFormat.format(calendarioDataSaida.getDate()); // converte a data ja formatada para String
+        String dataEntrada = dFormat.format(calendarioDataEntrada.getDate());
+        ControleDeViagemModelo p = new ControleDeViagemModelo(Integer.parseInt(textoKmEntrada.getText()),  Integer.parseInt(textoKmSaida.getText()),  Integer.parseInt(textoCodigo.getText()), textoMotorista.getText(),Date.valueOf(dataEntrada),Date.valueOf(dataSaida), textoPlaca.getText());
+        ControleDeViagemControle controleDeViagemControle = new ControleDeViagemControle();
+
+        controleDeViagemControle.inserir(p);
+
+        textoCodigo.setEnabled(false);
+        textoMotorista.setEnabled(false);
+        textoPlaca.setEnabled(false);
+        textoKmSaida.setEnabled(false);
+        textoKmEntrada.setEnabled(false);
+        calendarioDataSaida.setEnabled(false);
+        calendarioDataEntrada.setEnabled(false);
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
     /**
@@ -346,6 +380,7 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton PesquisaMotorista;
     private javax.swing.JButton botaoEditar;
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoNovoCadastro;
@@ -354,8 +389,6 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
     private javax.swing.JButton botaoSalvar;
     private com.toedter.calendar.JDateChooser calendarioDataEntrada;
     private com.toedter.calendar.JDateChooser calendarioDataSaida;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel labelCodigo;
     private javax.swing.JLabel labelDataEntrada;
     private javax.swing.JLabel labelDataSaida;
@@ -363,6 +396,7 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
     private javax.swing.JLabel labelKmSaida;
     private javax.swing.JLabel labelMotorista;
     private javax.swing.JLabel labelPlacaDoVeiculo;
+    private javax.swing.JButton pesquisaVeiculo;
     private javax.swing.JTextField textoCodigo;
     private javax.swing.JTextField textoKmEntrada;
     private javax.swing.JTextField textoKmSaida;

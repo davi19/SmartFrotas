@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import Util.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import view.TelaInicial;
 
@@ -97,7 +98,7 @@ public class UsuarioControle {
         
         if(rs.next()){ //existe 
             
-            JOptionPane.showMessageDialog(null, "Erro ao inserir Motorista!\nEssa CNH já está cadastrada no sistema", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao inserir Usuario!", "ERRO", JOptionPane.ERROR_MESSAGE); // Necessita desse erro para o usuario
 
             }else{ 
 
@@ -117,9 +118,24 @@ public class UsuarioControle {
             
     }
             
-            
-            
     }
     
+    public Vector Pesquisar(String pesq) throws Exception {
+
+        Vector tb = new Vector(); // Instanciando um objeto Vector que tem a mesma funÃ§Ã£o que um vetor
+        String sentenca = "select * from usuariosistema where login like'" + pesq + "%'"; //funÃ§Ã£o que pesquisa os NOMES dos motorista que estÃ£o no banco que comecem com a letra digitada
+        PreparedStatement ps = c.getConexao().prepareStatement(sentenca); // executa a sentenÃ§a
+
+        ResultSet rs = ps.executeQuery(); // comando que executa a busca
+
+        while (rs.next()) { // caminha sobre o vetor
+            Vector nl = new Vector();
+            nl.add(rs.getString("login")); // adiciona a variavel no vetor
+            nl.add(rs.getString("senha"));
+            nl.add(rs.getString("nivelPermissao"));
+            tb.add(nl); // adiciona o vetor com as variaveis em um outro vetor vazio
+        }
+        return tb; // retorna o vetor
+    }
      
 }

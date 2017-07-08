@@ -25,10 +25,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="labelPesquisarVeiculo" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" alignment="0" min="-2" pref="1080" max="-2" attributes="0"/>
-                  <Component id="textoPesquisaVeiculo" alignment="0" min="-2" pref="390" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="textoPesquisaVeiculo" max="32767" attributes="0"/>
+                  <Component id="labelPesquisarVeiculo" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" pref="1077" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -40,9 +40,10 @@
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="labelPesquisarVeiculo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="textoPesquisaVeiculo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="191" max="-2" attributes="0"/>
+              <Component id="textoPesquisaVeiculo" min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="217" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,60 +61,60 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="9" rowCount="0">
                 <Column editable="false" title="Placa" type="java.lang.String"/>
-                <Column editable="false" title="Tipo de Veiculo" type="java.lang.String"/>
+                <Column editable="false" title="Tipo" type="java.lang.String"/>
                 <Column editable="false" title="Fabricante" type="java.lang.String"/>
-                <Column editable="true" title="Modelo" type="java.lang.String"/>
-                <Column editable="true" title="Cor" type="java.lang.Object"/>
-                <Column editable="false" title="Ano Fabrica&#xe7;&#xe3;o" type="java.lang.Object"/>
-                <Column editable="false" title="Chassi" type="java.lang.Integer"/>
-                <Column editable="true" title="Capacidade do Tanque" type="java.lang.Integer"/>
-                <Column editable="false" title="M&#xe9;dia de Consumo" type="java.lang.Float"/>
+                <Column editable="false" title="Modelo" type="java.lang.String"/>
+                <Column editable="false" title="Cor" type="java.lang.String"/>
+                <Column editable="false" title="Ano Fabrica&#xe7;&#xe3;o" type="java.lang.Integer"/>
+                <Column editable="false" title="N&#xba; Chassi" type="java.lang.Integer"/>
+                <Column editable="false" title="Capacidade do Tanque" type="java.lang.Integer"/>
+                <Column editable="false" title="M&#xe9;dia Consumo" type="java.lang.Float"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Placa"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Tipo de Veiculo"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Fabricante"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Modelo"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Cor"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Ano Fabrica&#xe7;&#xe3;o"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Chassi"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Capacidade do Tanque"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="M&#xe9;dia de Consumo"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
@@ -123,14 +124,20 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tabelaVeiculoMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="textoPesquisaVeiculo">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textoPesquisaVeiculoKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="labelPesquisarVeiculo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Digite a Placa do Veiculo"/>
+        <Property name="text" type="java.lang.String" value="Digite a placa do ve&#xed;culo"/>
       </Properties>
     </Component>
   </SubComponents>

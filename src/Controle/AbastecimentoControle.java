@@ -7,6 +7,9 @@ package Controle;
 import Modelo.AbastecimentoModelo;
 import java.sql.SQLException;
 import Util.Conexao;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 
 /**
@@ -71,5 +74,24 @@ public class AbastecimentoControle {
             }
     }
         
-    
+        public Vector Pesquisar(String pesq) throws Exception {
+
+        Vector tb = new Vector(); // Instanciando um objeto Vector que tem a mesma funÃ§Ã£o que um vetor
+        String sentenca = "select * from abastecimento where placaVeiculo like'" + pesq + "%'"; //funÃ§Ã£o que pesquisa os NOMES dos motorista que estÃ£o no banco que comecem com a letra digitada
+        PreparedStatement ps = c.getConexao().prepareStatement(sentenca); // executa a sentenÃ§a
+
+        ResultSet rs = ps.executeQuery(); // comando que executa a busca
+
+        while (rs.next()) { // caminha sobre o vetor
+            Vector nl = new Vector();
+            nl.add(rs.getInt("codAbastecimento")); // adiciona a variavel no vetor
+            nl.add(rs.getString("placaVeiculo"));
+            nl.add(rs.getFloat("quantidadeAbastecida"));
+            nl.add(rs.getInt("quilometroAbastecido"));
+            nl.add(rs.getInt("quilometroDeAbastecimentoAnterior"));
+            nl.add(rs.getDate("dataAbastecimento"));
+            tb.add(nl); // adiciona o vetor com as variaveis em um outro vetor vazio
+        }
+        return tb; // retorna o vetor
+    }  
 }

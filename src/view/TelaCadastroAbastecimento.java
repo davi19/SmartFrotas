@@ -18,7 +18,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         textoCodigoAbastecimento.setVisible(false);
         labelCodigoDoAbastecimento.setVisible(false);
-        textoKmAbastecidoanteriormente.setEnabled(false);
+        textoKmAbastecidoAnteriormente.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -40,10 +40,9 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         labelCategoriaDaCnh = new javax.swing.JLabel();
         labelPlacaVeiculo = new javax.swing.JLabel();
         labelCodigoDoAbastecimento = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         textoQuantidadeAbastecida = new javax.swing.JTextField();
         labelNumeroDaCnh1 = new javax.swing.JLabel();
-        textoKmAbastecidoanteriormente = new javax.swing.JTextField();
+        textoKmAbastecidoAnteriormente = new javax.swing.JTextField();
 
         botaoNovoCadastro.setBackground(new java.awt.Color(204, 204, 204));
         botaoNovoCadastro.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,13 +149,6 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         labelCodigoDoAbastecimento.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         labelCodigoDoAbastecimento.setText("Código do Abastecimento:");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/pesquisar pequeno.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         textoQuantidadeAbastecida.setEnabled(false);
         textoQuantidadeAbastecida.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -167,15 +159,15 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         labelNumeroDaCnh1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         labelNumeroDaCnh1.setText("KM Abastecido Anteriormente");
 
-        textoKmAbastecidoanteriormente.setEnabled(false);
-        textoKmAbastecidoanteriormente.addActionListener(new java.awt.event.ActionListener() {
+        textoKmAbastecidoAnteriormente.setEnabled(false);
+        textoKmAbastecidoAnteriormente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoKmAbastecidoanteriormenteActionPerformed(evt);
+                textoKmAbastecidoAnteriormenteActionPerformed(evt);
             }
         });
-        textoKmAbastecidoanteriormente.addKeyListener(new java.awt.event.KeyAdapter() {
+        textoKmAbastecidoAnteriormente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                textoKmAbastecidoanteriormenteKeyTyped(evt);
+                textoKmAbastecidoAnteriormenteKeyTyped(evt);
             }
         });
 
@@ -198,35 +190,32 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
                         .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelEmissaoDaCNH)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(calendarioAbastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelCodigoDoAbastecimento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                                .addComponent(textoCodigoAbastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(labelPlacaVeiculo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(textoPlacaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelCategoriaDaCnh)
-                                    .addComponent(labelNumeroDaCnh))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textoKmAbastecido, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textoQuantidadeAbastecida, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelNumeroDaCnh1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(textoKmAbastecidoanteriormente, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(labelEmissaoDaCNH)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(calendarioAbastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(labelCodigoDoAbastecimento)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                            .addComponent(textoCodigoAbastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(labelPlacaVeiculo)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textoPlacaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelCategoriaDaCnh)
+                                .addComponent(labelNumeroDaCnh))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(textoKmAbastecido, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textoQuantidadeAbastecida, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(labelNumeroDaCnh1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textoKmAbastecidoAnteriormente, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,11 +233,9 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
                     .addComponent(textoCodigoAbastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelCodigoDoAbastecimento))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(textoPlacaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelPlacaVeiculo)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textoPlacaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPlacaVeiculo))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCategoriaDaCnh)
@@ -259,7 +246,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
                     .addComponent(labelNumeroDaCnh))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textoKmAbastecidoanteriormente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textoKmAbastecidoAnteriormente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelNumeroDaCnh1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -278,26 +265,31 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         textoKmAbastecido.setEnabled(true);
         calendarioAbastecimento.setEnabled(true);
         botaoSalvar.setEnabled(true);
-        textoKmAbastecidoanteriormente.setEnabled(true);
+        textoKmAbastecidoAnteriormente.setEnabled(true);
     }//GEN-LAST:event_botaoNovoCadastroActionPerformed
 
     private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
         PesquisaAbastecimento tela = new PesquisaAbastecimento(this, true);
         tela.setVisible(true);
-        
+
         //Date vencimento = tela.getCalendarioVencimento();
         textoCodigoAbastecimento.setText(tela.getCodAbastecimento());
         textoPlacaVeiculo.setText(tela.getPlacaVeiculo());
         textoQuantidadeAbastecida.setText(tela.getQuantidadeAbastecida());
         textoKmAbastecido.setText(tela.getQuilometroAbastecido());
+        textoKmAbastecidoAnteriormente.setText(tela.getQuilometroAbastecidoAnterior());
         calendarioAbastecimento.setDate(tela.getDataAbastecimento());
-
+        
         //calendarioVencimento.setDate(vencimento);
         //textoCodigoMotorista.setEnabled(true);
         textoPlacaVeiculo.setEnabled(true);
         textoQuantidadeAbastecida.setEnabled(true);
         textoKmAbastecido.setEnabled(true);
+        textoKmAbastecidoAnteriormente.setEnabled(true);
         calendarioAbastecimento.setEnabled(true);
+        
+        botaoSalvar.setEnabled(false);
+        
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
@@ -309,11 +301,11 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
 
         SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
         String data = dFormat.format(calendarioAbastecimento.getDate());
-        AbastecimentoModelo p = new AbastecimentoModelo(Integer.parseInt(textoCodigoAbastecimento.getText()), Integer.parseInt(textoKmAbastecido.getText()), Integer.parseInt(textoKmAbastecidoanteriormente.getText()),textoPlacaVeiculo.getText(), Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
+        AbastecimentoModelo p = new AbastecimentoModelo(Integer.parseInt(textoCodigoAbastecimento.getText()), Integer.parseInt(textoKmAbastecido.getText()), Integer.parseInt(textoKmAbastecidoAnteriormente.getText()),textoPlacaVeiculo.getText(), Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
 
         textoCodigoAbastecimento.setText("");
         textoQuantidadeAbastecida.setText("");
-        textoKmAbastecidoanteriormente.setText("");
+        textoKmAbastecidoAnteriormente.setText("");
         textoKmAbastecido.setText("");
         textoPlacaVeiculo.setText("");
         calendarioAbastecimento.setDate(null);
@@ -329,11 +321,11 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
         String data = dFormat.format(calendarioAbastecimento.getDate());
         
-        AbastecimentoModelo p = new AbastecimentoModelo(0, Integer.parseInt(textoKmAbastecido.getText()), Integer.parseInt(textoKmAbastecidoanteriormente.getText()),textoPlacaVeiculo.getText(), Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
+        AbastecimentoModelo p = new AbastecimentoModelo(0, Integer.parseInt(textoKmAbastecido.getText()), Integer.parseInt(textoKmAbastecidoAnteriormente.getText()),textoPlacaVeiculo.getText(), Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
 
         textoCodigoAbastecimento.setText("");
         textoQuantidadeAbastecida.setText("");
-        textoKmAbastecidoanteriormente.setText("");
+        textoKmAbastecidoAnteriormente.setText("");
         textoKmAbastecido.setText("");
         textoPlacaVeiculo.setText("");
         calendarioAbastecimento.setDate(null);
@@ -349,7 +341,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         
-      if(textoPlacaVeiculo.getText().equals("") || textoQuantidadeAbastecida.getText().equals("") || textoKmAbastecido.getText().equals("") || textoKmAbastecidoanteriormente.getText().equals("") || calendarioAbastecimento.getDate() == null) {
+      if(textoPlacaVeiculo.getText().equals("") || textoQuantidadeAbastecida.getText().equals("") || textoKmAbastecido.getText().equals("") || textoKmAbastecidoAnteriormente.getText().equals("") || calendarioAbastecimento.getDate() == null) {
           
          JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos", "ERRO", JOptionPane.ERROR_MESSAGE);
         
@@ -358,7 +350,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd"); // Usado para formatar o padrão da data dd/MM/yyyy para yyyy/MM/dd 
         String data = dFormat.format(calendarioAbastecimento.getDate()); // converte a data ja formatada para String
        
-        AbastecimentoModelo p = new AbastecimentoModelo(0, Integer.parseInt(textoKmAbastecido.getText()), Integer.parseInt(textoKmAbastecidoanteriormente.getText()),textoPlacaVeiculo.getText(), Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
+        AbastecimentoModelo p = new AbastecimentoModelo(0, Integer.parseInt(textoKmAbastecido.getText()), Integer.parseInt(textoKmAbastecidoAnteriormente.getText()),textoPlacaVeiculo.getText(), Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
              
         AbastecimentoControle abastecer = new AbastecimentoControle();
         
@@ -366,14 +358,14 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
 
         textoPlacaVeiculo.setText("");
         textoKmAbastecido.setText("");
-        textoKmAbastecidoanteriormente.setText("");
+        textoKmAbastecidoAnteriormente.setText("");
         textoQuantidadeAbastecida.setText("");
         calendarioAbastecimento.setDate(null);
         
         botaoSalvar.setEnabled(false);
         textoPlacaVeiculo.setEnabled(false);
         textoQuantidadeAbastecida.setEnabled(false);
-        textoKmAbastecidoanteriormente.setEnabled(false);
+        textoKmAbastecidoAnteriormente.setEnabled(false);
         textoKmAbastecido.setEnabled(false);
         calendarioAbastecimento.setEnabled(false);
         
@@ -388,13 +380,9 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textoKmAbastecidoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void textoKmAbastecidoAnteriormenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoKmAbastecidoAnteriormenteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void textoKmAbastecidoanteriormenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoKmAbastecidoanteriormenteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textoKmAbastecidoanteriormenteActionPerformed
+    }//GEN-LAST:event_textoKmAbastecidoAnteriormenteActionPerformed
 
     private void textoPlacaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoPlacaVeiculoActionPerformed
         // TODO add your handling code here:
@@ -454,7 +442,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
              if (!teclaCerta || comprimentoDeCampo == 10) { evt.consume(); }
     }//GEN-LAST:event_textoKmAbastecidoKeyTyped
 
-    private void textoKmAbastecidoanteriormenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoKmAbastecidoanteriormenteKeyTyped
+    private void textoKmAbastecidoAnteriormenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoKmAbastecidoAnteriormenteKeyTyped
        
         boolean teclaCerta = true;
         
@@ -466,10 +454,10 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
             
             }
             
-             int comprimentoDeCampo = textoKmAbastecidoanteriormente.getText().length();
+             int comprimentoDeCampo = textoKmAbastecidoAnteriormente.getText().length();
             
              if (!teclaCerta || comprimentoDeCampo == 10) { evt.consume(); }
-    }//GEN-LAST:event_textoKmAbastecidoanteriormenteKeyTyped
+    }//GEN-LAST:event_textoKmAbastecidoAnteriormenteKeyTyped
 
     private void calendarioAbastecimentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calendarioAbastecimentoKeyTyped
         
@@ -519,7 +507,6 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
     private javax.swing.JButton botaoSair;
     private javax.swing.JButton botaoSalvar;
     private com.toedter.calendar.JDateChooser calendarioAbastecimento;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel labelCategoriaDaCnh;
     private javax.swing.JLabel labelCodigoDoAbastecimento;
     private javax.swing.JLabel labelEmissaoDaCNH;
@@ -528,7 +515,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
     private javax.swing.JLabel labelPlacaVeiculo;
     public javax.swing.JTextField textoCodigoAbastecimento;
     public javax.swing.JTextField textoKmAbastecido;
-    public javax.swing.JTextField textoKmAbastecidoanteriormente;
+    public javax.swing.JTextField textoKmAbastecidoAnteriormente;
     public javax.swing.JTextField textoPlacaVeiculo;
     public javax.swing.JTextField textoQuantidadeAbastecida;
     // End of variables declaration//GEN-END:variables

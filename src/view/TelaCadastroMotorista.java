@@ -224,7 +224,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
                     .addComponent(labelCategoriaDaCnh)
                     .addComponent(comboBoxCategoriaCNH, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(textoNumeroCNH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelNumeroDaCnh))
                 .addGap(25, 25, 25)
@@ -264,7 +264,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         textoNome.setText(tela.getNomeMotorista());
         comboBoxCategoriaCNH.setSelectedItem(tela.getCategoriaCNH());
         textoNumeroCNH.setText(tela.getNumeroCNH());
-        calendarioVencimento.setDate(tela.getDataDeEmissaoCNH());
+        calendarioVencimento.setDate(tela.getDataDeVencimentoCNH());
 
         //calendarioVencimento.setDate(vencimento);
         //textoCodigoMotorista.setEnabled(true);

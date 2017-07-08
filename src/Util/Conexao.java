@@ -18,7 +18,7 @@ public class Conexao {
         
      String url="jdbc:mysql://localhost/frotas";
      String user="root";
-     String password="";
+     String password="12345";
 
             con = DriverManager.getConnection(url, user, password);
             stmt = con.createStatement();

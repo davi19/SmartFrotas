@@ -7,6 +7,9 @@ package view;
 
 import Controle.VeiculoControle;
 import Modelo.VeiculoModelo;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -89,6 +92,11 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         botaoEditar.setForeground(new java.awt.Color(255, 255, 255));
         botaoEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/edit-validated_40458.png"))); // NOI18N
         botaoEditar.setBorderPainted(false);
+        botaoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEditarActionPerformed(evt);
+            }
+        });
 
         botaoExcluir.setBackground(new java.awt.Color(204, 204, 204));
         botaoExcluir.setForeground(new java.awt.Color(255, 255, 255));
@@ -272,8 +280,34 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoNovoCadastroActionPerformed
 
     private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
-        TelaPesquisarVeiculo tela = new TelaPesquisarVeiculo();
+        
+        PesquisaVeiculo tela = new PesquisaVeiculo(this,true);
         tela.setVisible(true);
+        
+        textoPlaca.setText(tela.getPlacaVeiculo()); 
+        comboBoxTipoVeiculo.setSelectedItem(tela.getTipoVeiculo());
+        textoFabricante.setText(tela.getFabricante());
+        textoChassi.setText(tela.getNumeroChassi()); 
+        textoModelo.setText(tela.getModelo());
+        textoCor.setText(tela.getCor());
+        textoAnoFabricacao.setText(tela.getAnoFabricacao());
+        textoCapacidadeTanque.setText(tela.getCapacidadeTanque()); 
+        textoConsumoMedio.setText(tela.getMediaConsumo());
+       
+        textoPlaca.setEnabled(true); 
+        comboBoxTipoVeiculo.setEnabled(true);
+        textoFabricante.setEnabled(true);
+        textoChassi.setEnabled(true); 
+        textoModelo.setEnabled(true);
+        textoCor.setEnabled(true);
+        textoAnoFabricacao.setEnabled(true);
+        textoCapacidadeTanque.setEnabled(true); 
+        textoConsumoMedio.setEnabled(true);
+        
+        botaoSalvar.setEnabled(false);
+        botaoExcluir.setEnabled(true);
+        botaoEditar.setEnabled(true);
+        
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
@@ -287,17 +321,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         
-        VeiculoModelo p=new VeiculoModelo(); 
- 
-        p.setPlacaVeiculo(textoPlaca.getText()); 
-        p.setTipoVeiculo((String) comboBoxTipoVeiculo.getSelectedItem()); 
-        p.setFabricante(textoFabricante.getText()); 
-        p.setNumeroChassi(Integer.parseInt(textoChassi.getText())); 
-        p.setModelo(textoModelo.getText()); 
-        p.setCor(textoCor.getText()); 
-        p.setAnoFabricacao(Integer.parseInt(textoAnoFabricacao.getText())); 
-        p.setCapacidadeTanque(Integer.parseInt(textoCapacidadeTanque.getText())); 
-        p.setMediaConsumo(Float.parseFloat(textoConsumoMedio.getText())); 
+        VeiculoModelo p = new VeiculoModelo(textoPlaca.getText(), (String)comboBoxTipoVeiculo.getSelectedItem(), textoFabricante.getText(), textoModelo.getText(), textoCor.getText(), Integer.parseInt(textoAnoFabricacao.getText()), Integer.parseInt(textoChassi.getText()), Integer.parseInt(textoCapacidadeTanque.getText()), Float.parseFloat(textoConsumoMedio.getText()));
  
         VeiculoControle veiculo = new VeiculoControle(); 
         veiculo.inserir(p); 
@@ -316,7 +340,59 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
         
+        VeiculoModelo p = new VeiculoModelo(textoPlaca.getText(), (String)comboBoxTipoVeiculo.getSelectedItem(), textoFabricante.getText(), textoModelo.getText(), textoCor.getText(), Integer.parseInt(textoAnoFabricacao.getText()), Integer.parseInt(textoChassi.getText()), Integer.parseInt(textoCapacidadeTanque.getText()), Float.parseFloat(textoConsumoMedio.getText())); 
+
+        textoPlaca.setEnabled(false); 
+        comboBoxTipoVeiculo.setEnabled(false);
+        textoFabricante.setEnabled(false);
+        textoChassi.setEnabled(false); 
+        textoModelo.setEnabled(false);
+        textoCor.setEnabled(false);
+        textoAnoFabricacao.setEnabled(false);
+        textoCapacidadeTanque.setEnabled(false); 
+        textoConsumoMedio.setEnabled(false);
+       
+        //p.setCodMotorista(Integer.parseInt(textoCodigoMotorista.getText()));
+
+        VeiculoControle veiculo = new VeiculoControle();
+
+        veiculo.excluir(p.getPlacaVeiculo());
+        
     }//GEN-LAST:event_botaoExcluirActionPerformed
+
+    private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
+        
+        textoPlaca.setEnabled(true); 
+        comboBoxTipoVeiculo.setEnabled(true);
+        textoFabricante.setEnabled(true);
+        textoChassi.setEnabled(true); 
+        textoModelo.setEnabled(true);
+        textoCor.setEnabled(true);
+        textoAnoFabricacao.setEnabled(true);
+        textoCapacidadeTanque.setEnabled(true); 
+        textoConsumoMedio.setEnabled(true);
+
+        VeiculoModelo p = new VeiculoModelo(textoPlaca.getText(), (String)comboBoxTipoVeiculo.getSelectedItem(), textoFabricante.getText(), textoModelo.getText(), textoCor.getText(), Integer.parseInt(textoAnoFabricacao.getText()), Integer.parseInt(textoChassi.getText()), Integer.parseInt(textoCapacidadeTanque.getText()), Float.parseFloat(textoConsumoMedio.getText())); 
+
+        VeiculoControle veiculo = new VeiculoControle();
+
+        try {
+            veiculo.editar(p);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroVeiculo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        textoPlaca.setEnabled(false); 
+        comboBoxTipoVeiculo.setEnabled(false);
+        textoFabricante.setEnabled(false);
+        textoChassi.setEnabled(false); 
+        textoModelo.setEnabled(false);
+        textoCor.setEnabled(false);
+        textoAnoFabricacao.setEnabled(false);
+        textoCapacidadeTanque.setEnabled(false); 
+        textoConsumoMedio.setEnabled(false);
+
+    }//GEN-LAST:event_botaoEditarActionPerformed
 
     /**
      * @param args the command line arguments

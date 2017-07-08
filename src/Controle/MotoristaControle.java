@@ -112,7 +112,7 @@ public class MotoristaControle {
             nl.add(rs.getString("nomeMotorista"));
             nl.add(rs.getString("categoriaCNH"));
             nl.add(rs.getInt("numeroCNH"));
-            nl.add(rs.getDate("dataDeVencimento"));
+            nl.add(rs.getDate("dataDeVencimentoCNH"));
             tb.add(nl); // adiciona o vetor com as variaveis em um outro vetor vazio
         }
         return tb; // retorna o vetor
