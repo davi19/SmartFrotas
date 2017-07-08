@@ -6,11 +6,8 @@
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1000, 800]"/>
     </Property>
-    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[850, 570]"/>
-    </Property>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[900, 600]"/>
+    <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[660, 473]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -67,9 +64,9 @@
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="textoPlaca" pref="220" max="32767" attributes="0"/>
-                                  <Component id="textoKmSaida" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="textoKmEntrada" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="textoMotorista" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textoKmSaida" alignment="1" pref="220" max="32767" attributes="0"/>
+                                  <Component id="textoKmEntrada" alignment="1" pref="220" max="32767" attributes="0"/>
+                                  <Component id="textoMotorista" alignment="0" pref="220" max="32767" attributes="0"/>
                                   <Component id="calendarioDataSaida" alignment="0" max="32767" attributes="0"/>
                                   <Component id="calendarioDataEntrada" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -98,10 +95,10 @@
                   <Component id="botaoEditar" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                   <Component id="botaoSair" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="labelCodigo" min="-2" max="-2" attributes="0"/>
-                  <Component id="textoCodigo" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="textoCodigo" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -112,37 +109,37 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="textoMotorista" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="textoMotorista" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="PesquisaMotorista" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="textoPlaca" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="textoPlaca" min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="pesquisaVeiculo" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="textoKmSaida" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="textoKmSaida" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="labelKmSaida" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="textoKmEntrada" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="textoKmEntrada" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="labelKmEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="labelDataSaida" min="-2" max="-2" attributes="0"/>
-                  <Component id="calendarioDataSaida" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="calendarioDataSaida" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="labelDataEntrada" min="-2" max="-2" attributes="0"/>
-                  <Component id="calendarioDataEntrada" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="calendarioDataEntrada" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="47" max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

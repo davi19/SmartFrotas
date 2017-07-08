@@ -44,6 +44,8 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         textoKmAbastecidoAnteriormente = new javax.swing.JTextField();
         calendarioAbastecimento = new com.toedter.calendar.JDateChooser();
 
+        setSize(new java.awt.Dimension(660, 425));
+
         botaoNovoCadastro.setBackground(new java.awt.Color(204, 204, 204));
         botaoNovoCadastro.setForeground(new java.awt.Color(255, 255, 255));
         botaoNovoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/Add.png"))); // NOI18N
@@ -221,7 +223,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
                     .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textoCodigoAbastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelCodigoDoAbastecimento))
@@ -245,7 +247,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelEmissaoDaCNH)
                     .addComponent(calendarioAbastecimento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
