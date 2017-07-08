@@ -49,6 +49,8 @@ public class PesquisaAbastecimento extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
+        setLocationRelativeTo(null);
+        
      abastecimento = new AbastecimentoControle();
      telaCadastroAbastecimento = new TelaCadastroAbastecimento();
         
@@ -113,7 +115,7 @@ public class PesquisaAbastecimento extends javax.swing.JDialog {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelPesquisarMotorista)
-                        .addGap(0, 630, Short.MAX_VALUE))
+                        .addGap(0, 625, Short.MAX_VALUE))
                     .addComponent(textoPesquisaAbastecimento))
                 .addContainerGap())
         );

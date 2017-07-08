@@ -70,6 +70,8 @@ public class PesquisaVeiculo extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
+        setLocationRelativeTo(null);
+        
        veiculo = new VeiculoControle() ;
        telaCadastroVeiculo = new TelaCadastroVeiculo();
         

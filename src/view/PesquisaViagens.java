@@ -51,6 +51,8 @@ public class PesquisaViagens extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
+        setLocationRelativeTo(null);
+        
         controleDeViagemControle = new ControleDeViagemControle();
         telaAberturaViagem = new TelaAberturaViagem();
     }
@@ -113,7 +115,7 @@ public class PesquisaViagens extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelPesquisarViagens)
-                        .addGap(486, 486, Short.MAX_VALUE))
+                        .addGap(554, 622, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1)

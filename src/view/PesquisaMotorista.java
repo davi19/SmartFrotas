@@ -43,6 +43,8 @@ public class PesquisaMotorista extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
+        setLocationRelativeTo(null);
+        
         motorista = new  MotoristaControle();
         telaCadastroMotorista = new TelaCadastroMotorista();
         
@@ -112,7 +114,7 @@ public class PesquisaMotorista extends javax.swing.JDialog {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelPesquisarMotorista)
-                        .addGap(0, 538, Short.MAX_VALUE))
+                        .addGap(0, 612, Short.MAX_VALUE))
                     .addComponent(textoPesquisaMotorista))
                 .addContainerGap())
         );

@@ -39,6 +39,8 @@ public class PesquisaUsuario extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
+        setLocationRelativeTo(null);
+        
         usuario = new UsuarioControle();
         telaCadastroUsuario = new TelaCadastroUsuario();
    
@@ -107,7 +109,7 @@ public class PesquisaUsuario extends javax.swing.JDialog {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
                             .addComponent(textoPesquisaUsuario))
                         .addContainerGap())))
         );

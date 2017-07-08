@@ -43,7 +43,7 @@
                       <Component id="botaoSair" min="-2" pref="65" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
@@ -63,14 +63,14 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="textoNumeroCNH" alignment="0" max="32767" attributes="0"/>
                                   <Component id="comboBoxCategoriaCNH" alignment="0" pref="220" max="32767" attributes="0"/>
-                                  <Component id="calendarioVencimento" max="32767" attributes="0"/>
+                                  <Component id="calendarioVencimento" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="textoNome" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="109" max="32767" attributes="0"/>
+              <EmptySpace pref="90" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,14 +102,14 @@
                   <Component id="comboBoxCategoriaCNH" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="textoNumeroCNH" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="labelNumeroDaCnh" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="textoNumeroCNH" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="labelNumeroDaCnh" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="calendarioVencimento" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="labelEmissaoDaCNH" min="-2" max="-2" attributes="0"/>
+                  <Component id="calendarioVencimento" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="94" max="32767" attributes="0"/>
           </Group>
@@ -296,12 +296,6 @@
       </AuxValues>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="calendarioVencimento">
-      <Properties>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-      <Events>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="calendarioVencimentoKeyTyped"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>
