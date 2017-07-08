@@ -17,6 +17,8 @@ public class PesquisaVeiculo extends javax.swing.JDialog {
     public PesquisaVeiculo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        setLocationRelativeTo(null);
     }
 
     /**

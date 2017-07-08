@@ -18,6 +18,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         initComponents();
         this.comboBoxTipoVeiculo.addItem("Carro"); // Preenchimento das ComboBox 
         this.comboBoxTipoVeiculo.addItem("Caminhão"); 
+        setLocationRelativeTo(null);
     }
   
     @SuppressWarnings("unchecked")

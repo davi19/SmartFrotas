@@ -15,6 +15,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         botaoEditar.setEnabled(false);
         botaoExcluir.setEnabled(false);
         botaoSalvar.setEnabled(false);
+        setLocationRelativeTo(null);
         textoCodigoAbastecimento.setVisible(false);
         labelCodigoDoAbastecimento.setVisible(false);
         textoKmAbastecidoanteriormente.setEnabled(false);

@@ -16,6 +16,7 @@ public class TelaPesquisarUsuario extends javax.swing.JFrame {
      */
     public TelaPesquisarUsuario() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

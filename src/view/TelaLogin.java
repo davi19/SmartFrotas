@@ -18,9 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class TelaLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaLogin
-     */
+    
     public TelaLogin() {
         initComponents();
     }

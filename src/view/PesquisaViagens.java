@@ -17,6 +17,9 @@ public class PesquisaViagens extends javax.swing.JDialog {
     public PesquisaViagens(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        setLocationRelativeTo(null);
+        
     }
 
     /**

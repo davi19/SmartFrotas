@@ -27,6 +27,7 @@ public class TelaPesquisarMotorista extends javax.swing.JFrame{
         
         motorista = new MotoristaControle();
         telaCadastroMotorista = new TelaCadastroMotorista();
+        setLocationRelativeTo(null);
 
     }
 

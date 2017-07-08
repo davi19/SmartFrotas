@@ -43,6 +43,8 @@ public class PesquisaMotorista extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
+        setLocationRelativeTo(null);
+        
         motorista = new  MotoristaControle();
         telaCadastroMotorista = new TelaCadastroMotorista();
         

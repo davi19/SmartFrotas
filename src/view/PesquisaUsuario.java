@@ -17,6 +17,8 @@ public class PesquisaUsuario extends javax.swing.JDialog {
     public PesquisaUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        setLocationRelativeTo(null);
     }
 
     /**

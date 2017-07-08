@@ -16,6 +16,7 @@ public class TelaPesquisarViagens extends javax.swing.JFrame {
      */
     public TelaPesquisarViagens() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

@@ -29,6 +29,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         this.comboBoxCategoriaCNH.addItem("AC");
         this.comboBoxCategoriaCNH.addItem("AD");
         this.comboBoxCategoriaCNH.addItem("AE");
+        setLocationRelativeTo(null);
 
     }
 

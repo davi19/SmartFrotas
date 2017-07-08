@@ -16,6 +16,7 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
      */
     public TelaAberturaViagem() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
