@@ -44,8 +44,6 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         labelNumeroDaCnh1 = new javax.swing.JLabel();
         textoKmAbastecidoanteriormente = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         botaoNovoCadastro.setBackground(new java.awt.Color(204, 204, 204));
         botaoNovoCadastro.setForeground(new java.awt.Color(255, 255, 255));
         botaoNovoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/Add.png"))); // NOI18N
