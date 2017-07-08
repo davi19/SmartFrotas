@@ -6,17 +6,18 @@ import java.sql.Date;
 
 public class AbastecimentoModelo {
     
-	private int codAbastecimento, kmDeAbastecimento, kmDeAbastecimentoAnterior, codVeiculo;
+	private int codAbastecimento, kmDeAbastecimento, kmDeAbastecimentoAnterior;
+        String placaVeiculo;
 	private Date dataAbastecimento;
 	private float qtdAbastecida;
-	private VeiculoModelo veiculo;
     
-    public AbastecimentoModelo(int codAbastecimento, int kmDeAbastecimento, int codVeiculo,
+    public AbastecimentoModelo(int codAbastecimento, int kmDeAbastecimento, int kmDeAbastecimentoAnterior, String placaVeiculo,
     		Date dataAbastecimento, float qtdAbastecida)
     {
     	this.codAbastecimento = codAbastecimento;
     	this.kmDeAbastecimento = kmDeAbastecimento;
-    	this.codVeiculo = codVeiculo;
+        this.kmDeAbastecimentoAnterior = kmDeAbastecimentoAnterior;
+    	this.placaVeiculo = placaVeiculo;
     	this.dataAbastecimento = dataAbastecimento;
     	this.qtdAbastecida = qtdAbastecida;
     }
@@ -51,11 +52,11 @@ public class AbastecimentoModelo {
 	public void setQtdAbastecida(float qtdAbastecida) {
 		this.qtdAbastecida = qtdAbastecida;
 	}
-	public int getCodVeiculo() {
-		return veiculo.getCodVeiculo();
+	public String getplacaVeiculo() {
+		return placaVeiculo;
 	}
-	public void setCodVeiculo(VeiculoModelo veiculo) {
-		this.codVeiculo = veiculo.getCodVeiculo();
+	public void setplacaVeiculo(String placaVeiculo) {
+		this.placaVeiculo = placaVeiculo;
 	}
 
 }

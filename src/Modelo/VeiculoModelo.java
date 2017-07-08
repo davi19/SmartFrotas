@@ -104,6 +104,10 @@ public class VeiculoModelo {
     public void setCapacidadeTanque(int capacidadeTanque) {
         this.capacidadeTanque = capacidadeTanque;
     } 
+
+    int getplacaVeiculo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
 
 

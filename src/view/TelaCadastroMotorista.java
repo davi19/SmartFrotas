@@ -2,7 +2,6 @@ package view;
 
 import Controle.MotoristaControle;
 import Modelo.MotoristaModelo;
-import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -424,10 +423,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
     }//GEN-LAST:event_textoNomeKeyTyped
 
     private void calendarioVencimentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calendarioVencimentoKeyTyped
-            
-            char c = evt.getKeyChar();
-
-            if(c<'0' || c>'9'){evt.consume();}
+          
     }//GEN-LAST:event_calendarioVencimentoKeyTyped
 
     /**
