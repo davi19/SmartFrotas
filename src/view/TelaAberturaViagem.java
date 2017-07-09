@@ -21,6 +21,11 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
      */
     public TelaAberturaViagem() {
         initComponents();
+        
+        botaoSalvar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        botaoEditar.setEnabled(false);
+        
         setLocationRelativeTo(null);
         
     }
@@ -263,13 +268,14 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
     private void botaoNovoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoCadastroActionPerformed
         
-        textoCodigo.setVisible(true);
-        textoMotorista.setVisible(true);
-        textoPlaca.setVisible(true);
-        textoKmSaida.setVisible(true);
-        textoKmEntrada.setVisible(true);
-        calendarioDataSaida.setVisible(true);
-        calendarioDataEntrada.setVisible(true);
+        textoMotorista.setEnabled(true);
+        textoPlaca.setEnabled(true);
+        textoKmSaida.setEnabled(true);
+        textoKmEntrada.setEnabled(true);
+        calendarioDataSaida.setEnabled(true);
+        calendarioDataEntrada.setEnabled(true);
+        
+        botaoSalvar.setEnabled(true);
         
     }//GEN-LAST:event_botaoNovoCadastroActionPerformed
 
@@ -322,10 +328,12 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         
-         SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd"); // Usado para formatar o padrÃ£o da data dd/MM/yyyy para yyyy/MM/dd
+        SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd"); // Usado para formatar o padrÃ£o da data dd/MM/yyyy para yyyy/MM/dd
         String dataSaida = dFormat.format(calendarioDataSaida.getDate()); // converte a data ja formatada para String
         String dataEntrada = dFormat.format(calendarioDataEntrada.getDate());
-        ControleDeViagemModelo p = new ControleDeViagemModelo(Integer.parseInt(textoKmEntrada.getText()),  Integer.parseInt(textoKmSaida.getText()),  Integer.parseInt(textoCodigo.getText()), textoMotorista.getText(),Date.valueOf(dataEntrada),Date.valueOf(dataSaida), textoPlaca.getText());
+       
+        ControleDeViagemModelo p = new ControleDeViagemModelo(Integer.parseInt(textoKmSaida.getText()),  Integer.parseInt(textoCodigo.getText()), textoMotorista.getText(),Date.valueOf(dataEntrada),Date.valueOf(dataSaida), textoPlaca.getText());
+        
         ControleDeViagemControle controleDeViagemControle = new ControleDeViagemControle();
 
         controleDeViagemControle.inserir(p);

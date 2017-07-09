@@ -22,7 +22,7 @@ public class ControleDeViagemControle {
      public void inserir(ControleDeViagemModelo p){    
 
               
-        String sentenca = "INSERT INTO Controle VALUES('"+p.getCodControle()+"','"+p.getNomeMotorista()+"','"+p.getPlacaVeiculo()+"','"+p.getKmSaida()+"','"+p.getKmEntrada()+"','"+p.getDataSaida()+"','"+p.getDataEntrada()+"')";
+        String sentenca = "INSERT INTO Controle (nomeMotorista, placaVeiculo, KmEntrada, dataSaida, dataEntrada) VALUES('"+p.getNomeMotorista()+"','"+p.getPlacaVeiculo()+"','"+p.getKmSaida()+"','"+p.getKmEntrada()+"','"+p.getDataSaida()+"','"+p.getDataEntrada()+"')";
         
         try{
              

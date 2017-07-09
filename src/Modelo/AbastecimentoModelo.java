@@ -11,7 +11,8 @@ public class AbastecimentoModelo {
 	private Date dataAbastecimento;
 	private float qtdAbastecida;
     
-    public AbastecimentoModelo(int codAbastecimento, int kmDeAbastecimento, int kmDeAbastecimentoAnterior, String placaVeiculo,
+    public AbastecimentoModelo(int codAbastecimento, int kmDeAbastecimento, 
+            int kmDeAbastecimentoAnterior, String placaVeiculo,
     		Date dataAbastecimento, float qtdAbastecida)
     {
     	this.codAbastecimento = codAbastecimento;

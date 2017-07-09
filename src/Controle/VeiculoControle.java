@@ -28,19 +28,19 @@ public class VeiculoControle {
             }
     }
      
-     public void excluir(String placaVeiculo){
+     public void excluir(String placaVeiculo) throws SQLException{
          
     	String sentenca = "DELETE FROM Veiculo WHERE placaVeiculo="+placaVeiculo;
         
-    	try {
+    	//try {
 		c.stmt.execute(sentenca);
-                System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
+                //System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
 		
-              } catch (SQLException ex){
+          //    } catch (SQLException ex){
  
-                System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+            //    System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
         
-        }
+        //}
     }
     
      public void editar(VeiculoModelo p) throws SQLException{
@@ -55,7 +55,7 @@ public class VeiculoControle {
         
         }else{
             
-            String sentenca = "UPDATE veiculo set placaVeiculo = '" + p.getPlacaVeiculo() + "', tipoVeiculo = '" + p.getTipoVeiculo() + "', fabricante = '" + p.getFabricante() + "', modelo = '" + p.getModelo() + "', cor = '" + p.getCor()+ "', anoFabricacao = '" + p.getAnoFabricacao()+ "', numeroChassi = '" + p.getNumeroChassi()+ "', capacidaddeTanque = '" + p.getCapacidadeTanque()+ "', mediaConsumo = '" + p.getMediaConsumo() + "' WHERE placaVeiculo=" + p.getPlacaVeiculo();
+            String sentenca = "UPDATE veiculo set placaVeiculo = '" + p.getPlacaVeiculo() + "', tipoVeiculo = '" + p.getTipoVeiculo() + "', fabricante = '" + p.getFabricante() + "', modelo = '" + p.getModelo() + "', cor = '" + p.getCor()+ "', anoFabricacao = '" + p.getAnoFabricacao()+ "', numeroChassi = '" + p.getNumeroChassi()+ "', capacidadeTanque = '" + p.getCapacidadeTanque()+ "', mediaConsumo = '" + p.getMediaConsumo() + "' WHERE placaVeiculo=" + p.getPlacaVeiculo();
 
             try {
                 c.stmt.execute(sentenca);
