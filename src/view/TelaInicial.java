@@ -7,6 +7,7 @@ package view;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import javax.swing.ImageIcon;
 
@@ -38,6 +39,8 @@ public class TelaInicial extends javax.swing.JFrame {
         rodape = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        subMenuLogout = new javax.swing.JMenu();
+        subMenuSair = new javax.swing.JMenuItem();
         menuCadastrar = new javax.swing.JMenu();
         subMenuNovoMotorista = new javax.swing.JMenuItem();
         subMenuNovoVeiculo = new javax.swing.JMenuItem();
@@ -83,6 +86,19 @@ public class TelaInicial extends javax.swing.JFrame {
         jScrollPane1.setViewportView(rodape);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/caminhao_1.png"))); // NOI18N
+
+        subMenuLogout.setText("Arquivo");
+
+        subMenuSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
+        subMenuSair.setText("Sair");
+        subMenuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subMenuSairActionPerformed(evt);
+            }
+        });
+        subMenuLogout.add(subMenuSair);
+
+        jMenuBar1.add(subMenuLogout);
 
         menuCadastrar.setText("Cadastrar");
 
@@ -242,6 +258,15 @@ public class TelaInicial extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void subMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMenuSairActionPerformed
+        TelaLogin telaLogin = new TelaLogin();
+        telaLogin.setVisible(true);
+        
+        PrintStream out = System.out;
+        //
+        
+    }//GEN-LAST:event_subMenuSairActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -296,7 +321,9 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenu menuCadastrar;
     private javax.swing.JTextPane rodape;
+    private javax.swing.JMenu subMenuLogout;
     private javax.swing.JMenuItem subMenuNovoMotorista;
     private javax.swing.JMenuItem subMenuNovoVeiculo;
+    private javax.swing.JMenuItem subMenuSair;
     // End of variables declaration//GEN-END:variables
 }
