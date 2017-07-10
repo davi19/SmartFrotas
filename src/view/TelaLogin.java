@@ -140,6 +140,7 @@ public class TelaLogin extends javax.swing.JFrame {
                Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
            }
 
+            this.dispose();
             textoLogin.setText("");
             textoSenha.setText("");
                     

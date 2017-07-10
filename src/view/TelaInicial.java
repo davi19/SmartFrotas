@@ -262,7 +262,6 @@ public class TelaInicial extends javax.swing.JFrame {
         TelaLogin telaLogin = new TelaLogin();
         telaLogin.setVisible(true);
         
-        PrintStream out = System.out;
         //
         
     }//GEN-LAST:event_subMenuSairActionPerformed

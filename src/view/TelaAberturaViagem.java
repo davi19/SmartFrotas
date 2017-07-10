@@ -136,6 +136,11 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         botaoEditar.setForeground(new java.awt.Color(255, 255, 255));
         botaoEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/edit-validated_40458.png"))); // NOI18N
         botaoEditar.setBorderPainted(false);
+        botaoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEditarActionPerformed(evt);
+            }
+        });
 
         botaoSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/log_logout_door_1563.png"))); // NOI18N
         botaoSair.addActionListener(new java.awt.event.ActionListener() {
@@ -407,6 +412,10 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         
         
         
+        ControleDeViagemControle controleDeViagem = new ControleDeViagemControle();
+        
+        controleDeViagem.excluir(p.getCodControle());
+        
         textoCodigo.setEnabled(false);
         textoMotorista.setEnabled(false);
         textoPlaca.setEnabled(false);
@@ -427,9 +436,7 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         botaoExcluir.setEnabled(false);
         botaoSalvar.setEnabled(false);
         
-        ControleDeViagemControle controleDeViagem = new ControleDeViagemControle();
         
-        controleDeViagem.excluir(p.getCodControle());
         
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
