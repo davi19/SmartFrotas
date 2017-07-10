@@ -39,13 +39,13 @@ public class MotoristaControle {
                 try {
 
                     c.stmt.execute(sentenca);
-                    //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+                    System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< \n");
                     JOptionPane.showMessageDialog(null, "Motorista cadastrado com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
 
                 } catch (SQLException ex) {
 
                     System.out.print(ex.getMessage());
-                    //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+                    System.out.print(" >>>> ERRO AO INSERIR  <<<< \n");
                     JOptionPane.showMessageDialog(null, "Erro ao cadastrar Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
                 }
         
@@ -59,11 +59,11 @@ public class MotoristaControle {
 
         try {
             c.stmt.execute(sentenca);
-            //System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
+            System.out.print(" >>>> DELETADO COM SUCESSO  <<<< \n");
             JOptionPane.showMessageDialog(null, "Motorista excluido com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
 
-            //System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+            System.out.print(" >>>> ERRO AO DELETAR  <<<< \n");
             JOptionPane.showMessageDialog(null, "Erro ao excluir Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
 
         }
@@ -85,11 +85,13 @@ public class MotoristaControle {
 
             try {
                 c.stmt.execute(sentenca);
+                System.out.print(" >>>> EDITADO COM SUCESSO  <<<< \n");
                 JOptionPane.showMessageDialog(null, "Dados do Motorista atualizado com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
 
             } catch (SQLException ex) {
 
                 System.out.print(ex.getMessage());
+                System.out.print(" >>>> ERRO AO editar  <<<< \n");
                 JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
 
             }

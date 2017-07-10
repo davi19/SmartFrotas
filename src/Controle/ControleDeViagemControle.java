@@ -28,13 +28,13 @@ public class ControleDeViagemControle {
         try{
              
              c.stmt.execute(sentenca); 
-             //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+             System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< \n");
              JOptionPane.showMessageDialog(null, "Viagem cadastrada com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
             
         } catch (SQLException ex){
         
-             //System.out.print(ex.getMessage());  
-             //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+             System.out.print(ex.getMessage());  
+             System.out.print(" >>>> ERRO AO INSERIR  <<<< \n");
              JOptionPane.showMessageDialog(null, "Erro ao cadastrar Viagem!", "ERRO", JOptionPane.ERROR_MESSAGE);
              
             }
@@ -46,11 +46,11 @@ public class ControleDeViagemControle {
         
     	try {
 		c.stmt.execute(sentenca);
-                //System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
+                System.out.print(" >>>> DELETADO COM SUCESSO  <<<< \n");
                 JOptionPane.showMessageDialog(null, "Viagem excluida com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
 		
               } catch (SQLException ex){
-                 //System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+                 System.out.print(" >>>> ERRO AO DELETAR  <<<< \n");
                  JOptionPane.showMessageDialog(null, "Erro ao excluir Viagem!", "ERRO", JOptionPane.ERROR_MESSAGE);
         
         }
@@ -62,12 +62,12 @@ public class ControleDeViagemControle {
     	
         try {
 		c.stmt.execute(sentenca);
-                //System.out.print(" >>>> ALTERADO COM SUCESSO  <<<< ");
+                System.out.print(" >>>> ALTERADO COM SUCESSO  <<<< \n");
                 JOptionPane.showMessageDialog(null, "Dados da Viagem atualizados com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
                  
 		} catch (SQLException ex){
-                //System.out.print(ex.getMessage());
-                //System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
+                System.out.print(ex.getMessage());
+                System.out.print(" >>>> ERRO AO ALTERAR  <<<< \n");
                 JOptionPane.showMessageDialog(null, "Erro ao alterar dados da Viagem!", "ERRO", JOptionPane.ERROR_MESSAGE);
         
         }

@@ -28,14 +28,14 @@ public class AbastecimentoControle {
            try{
 
                  c.stmt.execute(sentenca); 
-                 //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+                 System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< \n");
                  JOptionPane.showMessageDialog(null, "Abastecimento inserido com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
 
 
             } catch (SQLException ex){
 
                  //System.out.print(ex.getMessage());  
-                 //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+                 System.out.print(" >>>> ERRO AO INSERIR  <<<< \n");
                  JOptionPane.showMessageDialog(null, "Erro ao inserir Abastecimento!", "ERRO", JOptionPane.ERROR_MESSAGE);
 
 
@@ -48,11 +48,11 @@ public class AbastecimentoControle {
     	
          try {
             c.stmt.execute(sentenca);
-            //System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
+            System.out.print(" >>>> DELETADO COM SUCESSO  <<<< \n");
             JOptionPane.showMessageDialog(null, "Abastecimento excluido com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
 
-            //System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+            System.out.print(" >>>> ERRO AO DELETAR  <<<< \n");
             JOptionPane.showMessageDialog(null, "Erro ao excluir Abastecimento!", "ERRO", JOptionPane.ERROR_MESSAGE);
 
         }
@@ -64,11 +64,13 @@ public class AbastecimentoControle {
     	
           try {
                 c.stmt.execute(sentenca);
+                System.out.print(" >>>> EDITADO COM SUCESSO  <<<< \n");
                 JOptionPane.showMessageDialog(null, "Dados do Abastecimento atualizado com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
 
             } catch (SQLException ex) {
 
                 System.out.print(ex.getMessage());
+                System.out.print(" >>>> ERRO AO editar  <<<< \n");
                 JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Abastecimento!", "ERRO", JOptionPane.ERROR_MESSAGE);
 
             }
