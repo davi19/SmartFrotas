@@ -8,7 +8,11 @@ package view;
 import Controle.ControleDeViagemControle;
 import Modelo.ControleDeViagemModelo;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,9 +26,17 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
     public TelaAberturaViagem() {
         initComponents();
         
-        botaoSalvar.setEnabled(false);
-        botaoExcluir.setEnabled(false);
+        textoCodigo.setEnabled(false);
+        textoMotorista.setEnabled(false);
+        textoPlaca.setEnabled(false);
+        textoKmSaida.setEnabled(false);
+        textoKmEntrada.setEnabled(false);
+        calendarioDataSaida.setEnabled(false);
+        calendarioDataEntrada.setEnabled(false);
+        
         botaoEditar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        botaoSalvar.setEnabled(false);
         
         setLocationRelativeTo(null);
         
@@ -124,6 +136,11 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         botaoEditar.setForeground(new java.awt.Color(255, 255, 255));
         botaoEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/edit-validated_40458.png"))); // NOI18N
         botaoEditar.setBorderPainted(false);
+        botaoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEditarActionPerformed(evt);
+            }
+        });
 
         botaoSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/log_logout_door_1563.png"))); // NOI18N
         botaoSair.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +153,11 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         botaoExcluir.setForeground(new java.awt.Color(255, 255, 255));
         botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/delete_4219.png"))); // NOI18N
         botaoExcluir.setBorderPainted(false);
+        botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirActionPerformed(evt);
+            }
+        });
 
         labelMotorista.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         labelMotorista.setText("Motorista");
@@ -273,7 +295,17 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         calendarioDataSaida.setEnabled(true);
         calendarioDataEntrada.setEnabled(true);
         
+        textoCodigo.setText("");
+        textoMotorista.setText("");
+        textoPlaca.setText("");
+        textoKmSaida.setText("");
+        textoKmEntrada.setText("");
+        calendarioDataSaida.setDate(null);
+        calendarioDataEntrada.setDate(null);
+        
         botaoSalvar.setEnabled(true);
+        botaoEditar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
         
     }//GEN-LAST:event_botaoNovoCadastroActionPerformed
 
@@ -290,7 +322,7 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         calendarioDataSaida.setDate(tela.getDataSaida());
         calendarioDataEntrada.setDate(tela.getDataEntrada());
         
-        textoCodigo.setEnabled(true);
+        textoCodigo.setEnabled(false);
         textoMotorista.setEnabled(true);
         textoPlaca.setEnabled(true);
         textoKmSaida.setEnabled(true);
@@ -299,6 +331,8 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         calendarioDataEntrada.setEnabled(true);
         
         botaoSalvar.setEnabled(false);
+        botaoEditar.setEnabled(true);
+        botaoExcluir.setEnabled(true);
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
@@ -326,11 +360,20 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         
+        if(textoKmEntrada.getText().equals("") || textoKmSaida.getText().equals("") || textoMotorista.getText().equals("") || 
+                textoPlaca.getText().equals("") || calendarioDataSaida.getDate() == null || calendarioDataEntrada.getDate() == null) {
+          
+         JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+        
+       } else { 
+        
         SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd"); // Usado para formatar o padrÃ£o da data dd/MM/yyyy para yyyy/MM/dd
         String dataSaida = dFormat.format(calendarioDataSaida.getDate()); // converte a data ja formatada para String
         String dataEntrada = dFormat.format(calendarioDataEntrada.getDate());
        
-        ControleDeViagemModelo p = new ControleDeViagemModelo(Integer.parseInt(textoKmSaida.getText()),  Integer.parseInt(textoCodigo.getText()), textoMotorista.getText(),Date.valueOf(dataEntrada),Date.valueOf(dataSaida), textoPlaca.getText());
+        ControleDeViagemModelo p = new ControleDeViagemModelo(Integer.parseInt(textoKmEntrada.getText()),
+                Integer.parseInt(textoKmSaida.getText()), textoMotorista.getText(),Date.valueOf(dataEntrada),
+                Date.valueOf(dataSaida), textoPlaca.getText());
         
         ControleDeViagemControle controleDeViagemControle = new ControleDeViagemControle();
 
@@ -343,7 +386,105 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         textoKmEntrada.setEnabled(false);
         calendarioDataSaida.setEnabled(false);
         calendarioDataEntrada.setEnabled(false);
+        
+        textoCodigo.setText("");
+        textoMotorista.setText("");
+        textoPlaca.setText("");
+        textoKmSaida.setText("");
+        textoKmEntrada.setText("");
+        calendarioDataSaida.setDate(null);
+        calendarioDataEntrada.setDate(null);
+        
+        botaoEditar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        botaoSalvar.setEnabled(false);
+        }
+        
     }//GEN-LAST:event_botaoSalvarActionPerformed
+
+    private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
+       
+        SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd"); // Usado para formatar o padrÃ£o da data dd/MM/yyyy para yyyy/MM/dd
+        String dataSaida = dFormat.format(calendarioDataSaida.getDate()); // converte a data ja formatada para String
+        String dataEntrada = dFormat.format(calendarioDataEntrada.getDate());
+        
+        ControleDeViagemModelo p = new ControleDeViagemModelo(Integer.parseInt(textoCodigo.getText()),
+                Integer.parseInt(textoKmEntrada.getText()),Integer.parseInt(textoKmSaida.getText()), 
+                textoMotorista.getText(),Date.valueOf(dataEntrada),Date.valueOf(dataSaida), textoPlaca.getText());
+        
+        
+        
+        textoCodigo.setEnabled(false);
+        textoMotorista.setEnabled(false);
+        textoPlaca.setEnabled(false);
+        textoKmSaida.setEnabled(false);
+        textoKmEntrada.setEnabled(false);
+        calendarioDataSaida.setEnabled(false);
+        calendarioDataEntrada.setEnabled(false);
+        
+        textoCodigo.setText("");
+        textoMotorista.setText("");
+        textoPlaca.setText("");
+        textoKmSaida.setText("");
+        textoKmEntrada.setText("");
+        calendarioDataSaida.setDate(null);
+        calendarioDataEntrada.setDate(null);
+        
+        botaoEditar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        botaoSalvar.setEnabled(false);
+        
+        ControleDeViagemControle controleDeViagem = new ControleDeViagemControle();
+        
+        controleDeViagem.excluir(p.getCodControle());
+        
+    }//GEN-LAST:event_botaoExcluirActionPerformed
+
+    private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
+        
+        textoCodigo.setEnabled(false);
+        textoMotorista.setEnabled(true);
+        textoPlaca.setEnabled(true);
+        textoKmSaida.setEnabled(true);
+        textoKmEntrada.setEnabled(true);
+        calendarioDataSaida.setEnabled(true);
+        calendarioDataEntrada.setEnabled(true);
+        
+        SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String dataSaida = dFormat.format(calendarioDataSaida.getDate()); // converte a data ja formatada para String
+        String dataEntrada = dFormat.format(calendarioDataEntrada.getDate());
+        
+        ControleDeViagemModelo p = new ControleDeViagemModelo(Integer.parseInt(textoCodigo.getText()),
+                Integer.parseInt(textoKmEntrada.getText()),Integer.parseInt(textoKmSaida.getText()), 
+                textoMotorista.getText(),Date.valueOf(dataEntrada),Date.valueOf(dataSaida), textoPlaca.getText());
+        
+        ControleDeViagemControle controleDeViagem = new ControleDeViagemControle();
+        
+
+        controleDeViagem.editar(p);
+
+        
+        textoCodigo.setEnabled(false);
+        textoMotorista.setEnabled(false);
+        textoPlaca.setEnabled(false);
+        textoKmSaida.setEnabled(false);
+        textoKmEntrada.setEnabled(false);
+        calendarioDataSaida.setEnabled(false);
+        calendarioDataEntrada.setEnabled(false);
+        
+        textoCodigo.setText("");
+        textoMotorista.setText("");
+        textoPlaca.setText("");
+        textoKmSaida.setText("");
+        textoKmEntrada.setText("");
+        calendarioDataSaida.setDate(null);
+        calendarioDataEntrada.setDate(null);
+        
+        botaoEditar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        botaoSalvar.setEnabled(false);
+        
+    }//GEN-LAST:event_botaoEditarActionPerformed
 
     /**
      * @param args the command line arguments

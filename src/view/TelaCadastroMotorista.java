@@ -331,6 +331,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         
         SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
         String data = dFormat.format(calendarioVencimento.getDate());
+        
         MotoristaModelo p = new MotoristaModelo(Integer.parseInt(textoCodigoMotorista.getText()), textoNumeroCNH.getText(), (String) comboBoxCategoriaCNH.getSelectedItem(), textoNome.getText(), Date.valueOf(data));
 
 

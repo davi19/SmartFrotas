@@ -40,13 +40,13 @@ public class MotoristaControle {
 
                     c.stmt.execute(sentenca);
                     //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
-                    JOptionPane.showMessageDialog(null, "Motorista inserido com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Motorista cadastrado com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
 
                 } catch (SQLException ex) {
 
                     System.out.print(ex.getMessage());
                     //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
-                    JOptionPane.showMessageDialog(null, "Erro ao inserir Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Erro ao cadastrar Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
                 }
         
         }

@@ -21,6 +21,18 @@ public class ControleDeViagemModelo implements IKmPercorridoModelo {
         this.dataSaida = dataSaida;
         this.placaVeiculo = placaVeiculo;
     }
+        
+        public ControleDeViagemModelo(int codControle, int kmEntrada, int kmSaida,
+            String nomeMotorista, Date dataEntrada, Date dataSaida, String placaVeiculo) {
+        
+        this.codControle = codControle;
+        this.kmEntrada = kmEntrada;
+        this.kmSaida = kmSaida;
+        this.nomeMotorista = nomeMotorista;
+        this.dataEntrada = dataEntrada;
+        this.dataSaida = dataSaida;
+        this.placaVeiculo = placaVeiculo;
+    }
 
     public int getKmEntrada() {
         return kmEntrada;

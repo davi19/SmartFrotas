@@ -10,6 +10,7 @@ import Util.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,48 +23,52 @@ public class ControleDeViagemControle {
      public void inserir(ControleDeViagemModelo p){    
 
               
-        String sentenca = "INSERT INTO Controle (nomeMotorista, placaVeiculo, KmEntrada, dataSaida, dataEntrada) VALUES('"+p.getNomeMotorista()+"','"+p.getPlacaVeiculo()+"','"+p.getKmSaida()+"','"+p.getKmEntrada()+"','"+p.getDataSaida()+"','"+p.getDataEntrada()+"')";
+        String sentenca = "INSERT INTO controle (nomeMotorista, placaVeiculo, KmEntrada, KmSaida, dataSaida, dataEntrada) VALUES('"+p.getNomeMotorista()+"','"+p.getPlacaVeiculo()+"','"+p.getKmEntrada()+"','"+p.getKmSaida()+"','"+p.getDataSaida()+"','"+p.getDataEntrada()+"')";
         
         try{
              
              c.stmt.execute(sentenca); 
-             System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+             //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+             JOptionPane.showMessageDialog(null, "Viagem cadastrada com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
             
         } catch (SQLException ex){
         
-             System.out.print(ex.getMessage());  
-             System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+             //System.out.print(ex.getMessage());  
+             //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+             JOptionPane.showMessageDialog(null, "Erro ao cadastrar Viagem!", "ERRO", JOptionPane.ERROR_MESSAGE);
              
             }
     }
      
      public void excluir(int codControle){
          
-    	String sentenca = "DELETE FROM Controle WHERE codControle="+codControle;
+    	String sentenca = "DELETE FROM controle WHERE codControle="+codControle;
         
     	try {
 		c.stmt.execute(sentenca);
-                System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
+                //System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
+                JOptionPane.showMessageDialog(null, "Viagem excluida com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
 		
               } catch (SQLException ex){
- 
-                System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+                 //System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+                 JOptionPane.showMessageDialog(null, "Erro ao excluir Viagem!", "ERRO", JOptionPane.ERROR_MESSAGE);
         
         }
     }
      
      public void editar(ControleDeViagemModelo p){
     
-        String sentenca = "UPDATE Controle set nomeMotorista = '"+p.getNomeMotorista()+"', placaVeiculo = '"+p.getPlacaVeiculo()+"', KmSaida = '"+p.getKmSaida()+"', KmEntrada = '"+p.getKmEntrada()+"', dataSaida = '"+p.getDataSaida()+"', dataEntrada = '"+p.getDataEntrada()+"' WHERE codControle="+p.getCodControle();
+        String sentenca = "UPDATE controle set nomeMotorista = '"+p.getNomeMotorista()+"', placaVeiculo = '"+p.getPlacaVeiculo()+"', KmSaida = '"+p.getKmSaida()+"', KmEntrada = '"+p.getKmEntrada()+"', dataSaida = '"+p.getDataSaida()+"', dataEntrada = '"+p.getDataEntrada()+"' WHERE codControle="+p.getCodControle();
     	
         try {
 		c.stmt.execute(sentenca);
-                System.out.print(" >>>> ALTERADO COM SUCESSO  <<<< ");
+                //System.out.print(" >>>> ALTERADO COM SUCESSO  <<<< ");
+                JOptionPane.showMessageDialog(null, "Dados da Viagem atualizados com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
                  
 		} catch (SQLException ex){
-        
-                System.out.print(ex.getMessage());
-                System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
+                //System.out.print(ex.getMessage());
+                //System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
+                JOptionPane.showMessageDialog(null, "Erro ao alterar dados da Viagem!", "ERRO", JOptionPane.ERROR_MESSAGE);
         
         }
     }
