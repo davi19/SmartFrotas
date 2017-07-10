@@ -96,28 +96,25 @@
                   <Component id="botaoSair" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="labelCodigo" min="-2" max="-2" attributes="0"/>
-                  <Component id="textoCodigo" min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="textoCodigo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="labelCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="labelMotorista" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="labelPlacaDoVeiculo" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="textoMotorista" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="labelMotorista" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="textoMotorista" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="PesquisaMotorista" min="-2" pref="25" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="textoPlaca" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="pesquisaVeiculo" min="-2" pref="25" max="-2" attributes="0"/>
-                      </Group>
+                  <Component id="PesquisaMotorista" min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                      <Component id="textoPlaca" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="labelPlacaDoVeiculo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="pesquisaVeiculo" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

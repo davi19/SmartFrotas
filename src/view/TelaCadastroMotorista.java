@@ -216,9 +216,9 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
                     .addComponent(labelCategoriaDaCnh)
                     .addComponent(comboBoxCategoriaCNH, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textoNumeroCNH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNumeroDaCnh, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textoNumeroCNH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNumeroDaCnh))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelEmissaoDaCNH)
@@ -237,6 +237,9 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         calendarioVencimento.setEnabled(true);
         comboBoxCategoriaCNH.setEnabled(true);
         textoNumeroCNH.setEnabled(true);
+        
+        botaoEditar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
         
         textoNumeroCNH.setText("");
         textoNome.setText("");
@@ -305,6 +308,8 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         textoNome.setText("");
         calendarioVencimento.setDate(null);
         comboBoxCategoriaCNH.setSelectedIndex(0);
+        
+        botaoSalvar.setEnabled(false);
         
         textoCodigoMotorista.setEnabled(false);
         textoNome.setEnabled(false);
