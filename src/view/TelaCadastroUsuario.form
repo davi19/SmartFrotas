@@ -55,23 +55,25 @@
                       <Component id="botaoExcluirUsuario" min="-2" pref="65" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="botaoSalvarUsuario" min="-2" pref="65" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="botaoSairUsuario" min="-2" pref="65" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="labelSenha" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelPremissao" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelLogin" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelCodigoUsuario" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="textoLogin" pref="220" max="32767" attributes="0"/>
-                          <Component id="textoSenha" pref="220" max="32767" attributes="0"/>
-                          <Component id="textoPermissao" alignment="0" pref="220" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="textoCodigoUsuario" max="32767" attributes="0"/>
+                          <Component id="textoLogin" alignment="1" pref="220" max="32767" attributes="0"/>
+                          <Component id="textoSenha" alignment="1" pref="220" max="32767" attributes="0"/>
+                          <Component id="comboBoxPermissao" alignment="0" pref="220" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="botaoSairUsuario" min="-2" pref="65" max="-2" attributes="0"/>
               <EmptySpace pref="90" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -88,7 +90,12 @@
                   <Component id="botaoEditarUsuario" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                   <Component id="botaoSairUsuario" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="textoCodigoUsuario" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="labelCodigoUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="textoLogin" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="labelLogin" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -101,9 +108,9 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelPremissao" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="textoPermissao" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="comboBoxPermissao" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -156,6 +163,9 @@
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoEditarUsuarioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoExcluirUsuario">
       <Properties>
@@ -241,7 +251,7 @@
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textoSenhaKeyTyped"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="textoPermissao">
+    <Component class="javax.swing.JComboBox" name="comboBoxPermissao">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
@@ -252,6 +262,19 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textoCodigoUsuario">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelCodigoUsuario">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

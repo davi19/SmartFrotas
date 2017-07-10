@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PesquisaVeiculo extends javax.swing.JDialog {
 
+    private String codVeiculo;   
     private String placaVeiculo;
     private String tipoVeiculo;
     private String fabricante;
@@ -26,6 +27,10 @@ public class PesquisaVeiculo extends javax.swing.JDialog {
     private String capacidadeTanque;
     private String mediaConsumo;
     
+     public String getCodVeiculo() {
+        return codVeiculo;
+    }
+     
     public String getPlacaVeiculo() {
         return placaVeiculo;
     }
@@ -95,14 +100,14 @@ public class PesquisaVeiculo extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Placa", "Tipo", "Fabricante", "Modelo", "Cor", "Ano Fabricação", "Nº Chassi", "Capacidade do Tanque", "Média Consumo"
+                "Código", "Placa", "Tipo", "Fabricante", "Modelo", "Cor", "Ano Fabricação", "Nº Chassi", "Capacidade do Tanque", "Média Consumo"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -159,15 +164,16 @@ public class PesquisaVeiculo extends javax.swing.JDialog {
 
         int indiceLinha = tabelaVeiculo.getSelectedRow();
         
-        placaVeiculo = tabelaVeiculo.getValueAt(indiceLinha, 0).toString();
-        tipoVeiculo = tabelaVeiculo.getValueAt(indiceLinha, 1).toString();
-        fabricante = tabelaVeiculo.getValueAt(indiceLinha, 2).toString();
-        modelo = tabelaVeiculo.getValueAt(indiceLinha, 3).toString();
-        cor = tabelaVeiculo.getValueAt(indiceLinha, 4).toString();
-        anoFabricacao = tabelaVeiculo.getValueAt(indiceLinha, 5).toString();
-        numeroChassi = tabelaVeiculo.getValueAt(indiceLinha, 6).toString();
-        capacidadeTanque = tabelaVeiculo.getValueAt(indiceLinha, 7).toString();
-        mediaConsumo = tabelaVeiculo.getValueAt(indiceLinha, 8).toString();
+        codVeiculo = tabelaVeiculo.getValueAt(indiceLinha, 0).toString();
+        placaVeiculo = tabelaVeiculo.getValueAt(indiceLinha, 1).toString();
+        tipoVeiculo = tabelaVeiculo.getValueAt(indiceLinha, 2).toString();
+        fabricante = tabelaVeiculo.getValueAt(indiceLinha, 3).toString();
+        modelo = tabelaVeiculo.getValueAt(indiceLinha, 4).toString();
+        cor = tabelaVeiculo.getValueAt(indiceLinha, 5).toString();
+        anoFabricacao = tabelaVeiculo.getValueAt(indiceLinha, 6).toString();
+        numeroChassi = tabelaVeiculo.getValueAt(indiceLinha, 7).toString();
+        capacidadeTanque = tabelaVeiculo.getValueAt(indiceLinha, 8).toString();
+        mediaConsumo = tabelaVeiculo.getValueAt(indiceLinha, 9).toString();
         
         dispose();
     }//GEN-LAST:event_tabelaVeiculoMouseClicked
@@ -176,6 +182,7 @@ public class PesquisaVeiculo extends javax.swing.JDialog {
         try{
 
             Vector cabecalho = new Vector();
+            cabecalho.add("codVeiculo");
             cabecalho.add("placaVeiculo");
             cabecalho.add("tipoVeiculo");
             cabecalho.add("fabricante");

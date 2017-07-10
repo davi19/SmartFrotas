@@ -16,10 +16,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PesquisaUsuario extends javax.swing.JDialog {
 
-   private String login;
-   private String senha;
-   private String nivelPermissao;
-   
+    private String codUsuario;
+    private String login;
+    private String senha;
+    private String nivelPermissao;
+
+    public String getCodUsuario() {
+        return codUsuario;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -31,23 +36,21 @@ public class PesquisaUsuario extends javax.swing.JDialog {
     public String getNivelPermissao() {
         return nivelPermissao;
     }
-   
+
     UsuarioControle usuario;
     TelaCadastroUsuario telaCadastroUsuario;
-       
+
     public PesquisaUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+
         setLocationRelativeTo(null);
-        
+
         usuario = new UsuarioControle();
         telaCadastroUsuario = new TelaCadastroUsuario();
-   
+
     }
 
-   
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -66,14 +69,14 @@ public class PesquisaUsuario extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Login", "Senha", "Nivel de Permissão"
+                "Código", "Login", "Senha", "Nivel de Permissão"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -134,30 +137,31 @@ public class PesquisaUsuario extends javax.swing.JDialog {
 
         int indiceLinha = tabelaUsuario.getSelectedRow();
         //jTextField1.setText(tabelaMotorista.getValueAt(indiceLinha, 1).toString());
+        codUsuario = tabelaUsuario.getValueAt(indiceLinha, 0).toString();
+        login = tabelaUsuario.getValueAt(indiceLinha, 1).toString();
+        senha = tabelaUsuario.getValueAt(indiceLinha, 2).toString();
+        nivelPermissao = tabelaUsuario.getValueAt(indiceLinha, 3).toString();
 
-        login = tabelaUsuario.getValueAt(indiceLinha, 0).toString();
-        senha = tabelaUsuario.getValueAt(indiceLinha, 1).toString();
-        nivelPermissao = tabelaUsuario.getValueAt(indiceLinha, 2).toString();
-        
         dispose();
     }//GEN-LAST:event_tabelaUsuarioMouseClicked
 
     private void textoPesquisaUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoPesquisaUsuarioKeyReleased
-        try{
+        try {
 
             Vector cabecalho = new Vector();
+            cabecalho.add("codUsuario");
             cabecalho.add("login");
             cabecalho.add("senha");
             cabecalho.add("nivelPermissao");
-            
-            if(!textoPesquisaUsuario.getText().equals("")){
-                DefaultTableModel nv = new DefaultTableModel(usuario.Pesquisar(textoPesquisaUsuario.getText()),cabecalho);
+
+            if (!textoPesquisaUsuario.getText().equals("")) {
+                DefaultTableModel nv = new DefaultTableModel(usuario.Pesquisar(textoPesquisaUsuario.getText()), cabecalho);
                 tabelaUsuario.setModel(nv);
-            }else{
-                DefaultTableModel nv = new DefaultTableModel(new Vector(),cabecalho);
+            } else {
+                DefaultTableModel nv = new DefaultTableModel(new Vector(), cabecalho);
                 tabelaUsuario.setModel(nv);
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "ERRO AO PESQUISAR" + ex.getMessage());
         }
     }//GEN-LAST:event_textoPesquisaUsuarioKeyReleased

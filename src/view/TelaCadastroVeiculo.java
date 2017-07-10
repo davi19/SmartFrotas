@@ -11,10 +11,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author otavio
- */
+
 public class TelaCadastroVeiculo extends javax.swing.JFrame {
 
     public TelaCadastroVeiculo() {
@@ -52,6 +49,8 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         textoFabricante = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         textoModelo = new javax.swing.JTextField();
+        textoCodigoVeiculo = new javax.swing.JTextField();
+        labelCodigoVeiculo = new javax.swing.JLabel();
 
         setTitle("Cadastro de Veículos");
         setMaximumSize(new java.awt.Dimension(1000, 800));
@@ -164,6 +163,11 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
 
         textoModelo.setEnabled(false);
 
+        textoCodigoVeiculo.setEnabled(false);
+
+        labelCodigoVeiculo.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        labelCodigoVeiculo.setText("Código:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -182,19 +186,20 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                             .addComponent(labelCor)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(labelConsumoMedio)))
+                                .addComponent(labelConsumoMedio))
+                            .addComponent(labelCodigoVeiculo))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(textoPlaca, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textoFabricante, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textoModelo, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textoAnoFabricacao, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textoChassi)
-                                .addComponent(textoCor)
-                                .addComponent(textoCapacidadeTanque, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
-                                .addComponent(comboBoxTipoVeiculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(textoConsumoMedio, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textoPlaca)
+                            .addComponent(textoFabricante)
+                            .addComponent(textoModelo)
+                            .addComponent(textoAnoFabricacao)
+                            .addComponent(textoChassi, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(textoCor, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(textoCapacidadeTanque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                            .addComponent(comboBoxTipoVeiculo, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textoConsumoMedio, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                            .addComponent(textoCodigoVeiculo)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botaoNovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -220,7 +225,11 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                     .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textoCodigoVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCodigoVeiculo))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textoPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -256,7 +265,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textoConsumoMedio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelConsumoMedio))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -275,6 +284,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         textoCapacidadeTanque.setEnabled(true); 
         textoConsumoMedio.setEnabled(true);
         
+        botaoSalvar.setEnabled(true);
         
     }//GEN-LAST:event_botaoNovoCadastroActionPerformed
 
@@ -283,6 +293,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         PesquisaVeiculo tela = new PesquisaVeiculo(this,true);
         tela.setVisible(true);
         
+        textoCodigoVeiculo.setText(tela.getCodVeiculo());
         textoPlaca.setText(tela.getPlacaVeiculo()); 
         comboBoxTipoVeiculo.setSelectedItem(tela.getTipoVeiculo());
         textoFabricante.setText(tela.getFabricante());
@@ -320,10 +331,14 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         
-        VeiculoModelo p = new VeiculoModelo(textoPlaca.getText(), (String)comboBoxTipoVeiculo.getSelectedItem(), textoFabricante.getText(), textoModelo.getText(), textoCor.getText(), Integer.parseInt(textoAnoFabricacao.getText()), Integer.parseInt(textoChassi.getText()), Integer.parseInt(textoCapacidadeTanque.getText()), Float.parseFloat(textoConsumoMedio.getText()));
+        VeiculoModelo p = new VeiculoModelo(0, textoPlaca.getText(), (String)comboBoxTipoVeiculo.getSelectedItem(), textoFabricante.getText(), textoModelo.getText(), textoCor.getText(), Integer.parseInt(textoAnoFabricacao.getText()), Integer.parseInt(textoChassi.getText()), Integer.parseInt(textoCapacidadeTanque.getText()), Float.parseFloat(textoConsumoMedio.getText()));
  
         VeiculoControle veiculo = new VeiculoControle(); 
-        veiculo.inserir(p); 
+        try { 
+            veiculo.inserir(p);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroVeiculo.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         textoPlaca.setEnabled(false); 
         comboBoxTipoVeiculo.setEnabled(false);
@@ -339,8 +354,19 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
         
-        VeiculoModelo p = new VeiculoModelo(textoPlaca.getText(), (String)comboBoxTipoVeiculo.getSelectedItem(), textoFabricante.getText(), textoModelo.getText(), textoCor.getText(), Integer.parseInt(textoAnoFabricacao.getText()), Integer.parseInt(textoChassi.getText()), Integer.parseInt(textoCapacidadeTanque.getText()), Float.parseFloat(textoConsumoMedio.getText())); 
+        VeiculoModelo p = new VeiculoModelo(Integer.parseInt(textoCodigoVeiculo.getText()),textoPlaca.getText(), (String)comboBoxTipoVeiculo.getSelectedItem(), textoFabricante.getText(), textoModelo.getText(), textoCor.getText(), Integer.parseInt(textoAnoFabricacao.getText()), Integer.parseInt(textoChassi.getText()), Integer.parseInt(textoCapacidadeTanque.getText()), Float.parseFloat(textoConsumoMedio.getText())); 
 
+        textoCodigoVeiculo.setText("");
+        textoPlaca.setText("");
+        comboBoxTipoVeiculo.setSelectedIndex(0);
+        textoFabricante.setEnabled(false);
+        textoChassi.setText("");
+        textoModelo.setText("");
+        textoCor.setText("");
+        textoAnoFabricacao.setText("");
+        textoCapacidadeTanque.setText("");
+        textoConsumoMedio.setText("");
+        
         textoPlaca.setEnabled(false); 
         comboBoxTipoVeiculo.setEnabled(false);
         textoFabricante.setEnabled(false);
@@ -355,7 +381,9 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
 
         VeiculoControle veiculo = new VeiculoControle();
 
-        veiculo.excluir(p.getPlacaVeiculo());
+     
+        veiculo.excluir(p.getCodVeiculo());
+       
         
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
@@ -371,7 +399,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         textoCapacidadeTanque.setEnabled(true); 
         textoConsumoMedio.setEnabled(true);
 
-        VeiculoModelo p = new VeiculoModelo(textoPlaca.getText(), (String)comboBoxTipoVeiculo.getSelectedItem(), textoFabricante.getText(), textoModelo.getText(), textoCor.getText(), Integer.parseInt(textoAnoFabricacao.getText()), Integer.parseInt(textoChassi.getText()), Integer.parseInt(textoCapacidadeTanque.getText()), Float.parseFloat(textoConsumoMedio.getText())); 
+        VeiculoModelo p = new VeiculoModelo(Integer.parseInt(textoCodigoVeiculo.getText()), textoPlaca.getText(), (String)comboBoxTipoVeiculo.getSelectedItem(), textoFabricante.getText(), textoModelo.getText(), textoCor.getText(), Integer.parseInt(textoAnoFabricacao.getText()), Integer.parseInt(textoChassi.getText()), Integer.parseInt(textoCapacidadeTanque.getText()), Float.parseFloat(textoConsumoMedio.getText())); 
 
         VeiculoControle veiculo = new VeiculoControle();
 
@@ -441,6 +469,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel labelAnoDeFabricacao;
+    private javax.swing.JLabel labelCodigoVeiculo;
     private javax.swing.JLabel labelConsumoMedio;
     private javax.swing.JLabel labelCor;
     private javax.swing.JLabel labelFabricante;
@@ -448,6 +477,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     private javax.swing.JTextField textoAnoFabricacao;
     private javax.swing.JTextField textoCapacidadeTanque;
     private javax.swing.JTextField textoChassi;
+    private javax.swing.JTextField textoCodigoVeiculo;
     private javax.swing.JTextField textoConsumoMedio;
     private javax.swing.JTextField textoCor;
     private javax.swing.JTextField textoFabricante;

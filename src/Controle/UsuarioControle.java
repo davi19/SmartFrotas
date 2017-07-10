@@ -74,9 +74,9 @@ public class UsuarioControle {
         }
     } 
    
-   public void excluir(String login){
+   public void excluir(int codUsuario){
        
-    	String sentenca = "DELETE FROM UsuarioSistema WHERE login="+login;
+    	String sentenca = "DELETE FROM UsuarioSistema WHERE codUsuario="+codUsuario;
         
     	try {
 		c.stmt.execute(sentenca);
@@ -92,7 +92,7 @@ public class UsuarioControle {
    
     public void editar(UsuarioModelo p) throws SQLException{
     
-        String sentenca_consulta = "SELECT * FROM usuariosistema WHERE login = '" + p.getLogin() + "'";
+        String sentenca_consulta = "SELECT * FROM usuariosistema WHERE codUsuario = '" + p.getCodUsuario() + "'";
         PreparedStatement ps = c.getConexao().prepareStatement(sentenca_consulta); // executa a sentença
         ResultSet rs = ps.executeQuery();
         
@@ -102,7 +102,7 @@ public class UsuarioControle {
 
             }else{ 
 
-                String sentenca = "UPDATE UsuarioSistema set senha = '"+p.getSenha()+"', nivelPermissao = '"+p.getNivelPermissao()+"' WHERE login="+p.getLogin();
+                String sentenca = "UPDATE usuarioSistema set senha = '"+p.getSenha()+"', nivelPermissao = '"+p.getNivelPermissao()+"' WHERE codUsuario="+p.getCodUsuario();
 
                 try {
                         c.stmt.execute(sentenca);
@@ -130,6 +130,7 @@ public class UsuarioControle {
 
         while (rs.next()) { // caminha sobre o vetor
             Vector nl = new Vector();
+            nl.add(rs.getInt("codUsuario"));
             nl.add(rs.getString("login")); // adiciona a variavel no vetor
             nl.add(rs.getString("senha"));
             nl.add(rs.getString("nivelPermissao"));

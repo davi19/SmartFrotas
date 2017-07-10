@@ -130,7 +130,7 @@ public class TelaLogin extends javax.swing.JFrame {
         
        } else { 
     
-            UsuarioModelo p = new UsuarioModelo(String.valueOf(textoSenha.getPassword()), textoLogin.getText(),null);     
+            UsuarioModelo p = new UsuarioModelo(0,String.valueOf(textoSenha.getPassword()), textoLogin.getText(),null);     
 
             UsuarioControle usuario = new UsuarioControle();
               

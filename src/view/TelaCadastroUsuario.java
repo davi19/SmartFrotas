@@ -23,8 +23,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
        botaoSalvarUsuario.setEnabled(false);
        setLocationRelativeTo(null);
        
-       this.textoPermissao.addItem("PARCIAL"); // Preenchimento das ComboBox
-       this.textoPermissao.addItem("TOTAL"); // Preenchimento das ComboBox
+       this.comboBoxPermissao.addItem("PARCIAL"); // Preenchimento das ComboBox
+       this.comboBoxPermissao.addItem("TOTAL"); // Preenchimento das ComboBox
  
                 
     }
@@ -45,7 +45,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         labelSenha = new javax.swing.JLabel();
         labelPremissao = new javax.swing.JLabel();
         textoSenha = new javax.swing.JPasswordField();
-        textoPermissao = new javax.swing.JComboBox<>();
+        comboBoxPermissao = new javax.swing.JComboBox<>();
+        textoCodigoUsuario = new javax.swing.JTextField();
+        labelCodigoUsuario = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -75,6 +77,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         botaoEditarUsuario.setForeground(new java.awt.Color(255, 255, 255));
         botaoEditarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/edit-validated_40458.png"))); // NOI18N
         botaoEditarUsuario.setBorderPainted(false);
+        botaoEditarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoEditarUsuarioActionPerformed(evt);
+            }
+        });
 
         botaoExcluirUsuario.setBackground(new java.awt.Color(204, 204, 204));
         botaoExcluirUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,7 +133,12 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             }
         });
 
-        textoPermissao.setEnabled(false);
+        comboBoxPermissao.setEnabled(false);
+
+        textoCodigoUsuario.setEnabled(false);
+
+        labelCodigoUsuario.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        labelCodigoUsuario.setText("Código");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,19 +156,21 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(botaoExcluirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(botaoSalvarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoSairUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(botaoSalvarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelSenha)
                             .addComponent(labelPremissao)
-                            .addComponent(labelLogin))
+                            .addComponent(labelLogin)
+                            .addComponent(labelCodigoUsuario))
                         .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(textoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(textoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(textoPermissao, javax.swing.GroupLayout.Alignment.LEADING, 0, 220, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textoCodigoUsuario)
+                            .addComponent(textoLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(textoSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                            .addComponent(comboBoxPermissao, 0, 220, Short.MAX_VALUE))))
+                .addGap(18, 18, 18)
+                .addComponent(botaoSairUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -170,7 +184,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                     .addComponent(botaoSalvarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoEditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoSairUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textoCodigoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCodigoUsuario))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelLogin))
@@ -181,8 +199,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPremissao)
-                    .addComponent(textoPermissao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(comboBoxPermissao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -192,7 +210,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         
         textoLogin.setEnabled(true);
         textoSenha.setEnabled(true);
-        textoPermissao.setEnabled(true);
+        comboBoxPermissao.setEnabled(true);
+        
         botaoSalvarUsuario.setEnabled(true);
         
     }//GEN-LAST:event_botaoNovoUsuarioActionPerformed
@@ -201,13 +220,14 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         PesquisaUsuario tela = new PesquisaUsuario(this,true);
         tela.setVisible(true);
         
+        
         textoLogin.setText(tela.getLogin());
         textoSenha.setText(tela.getSenha());
-        textoPermissao.setSelectedItem(tela.getNivelPermissao());
+        comboBoxPermissao.setSelectedItem(tela.getNivelPermissao());
         
         textoLogin.setEnabled(true);
         textoSenha.setEnabled(true);
-        textoPermissao.setEnabled(true);
+        comboBoxPermissao.setEnabled(true);
         
         botaoSalvarUsuario.setEnabled(false);
         botaoExcluirUsuario.setEnabled(true);
@@ -232,7 +252,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         
        } else { 
     
-            UsuarioModelo p = new UsuarioModelo(String.valueOf(textoSenha.getPassword()), textoLogin.getText(), (String) textoPermissao.getSelectedItem());     
+            UsuarioModelo p = new UsuarioModelo(0,String.valueOf(textoSenha.getPassword()), textoLogin.getText(), (String) comboBoxPermissao.getSelectedItem());     
 
             UsuarioControle usuario = new UsuarioControle();
               
@@ -244,36 +264,36 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
             textoLogin.setText("");
             textoSenha.setText("");
-            textoPermissao.setSelectedIndex(0);
+            comboBoxPermissao.setSelectedIndex(0);
 
             textoLogin.setEnabled(false);
             textoSenha.setEnabled(false);
-            textoPermissao.setEnabled(false);
+            comboBoxPermissao.setEnabled(false);
                     
       }
-
-
-        
        
     }//GEN-LAST:event_botaoSalvarUsuarioActionPerformed
 
     private void botaoExcluirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirUsuarioActionPerformed
+       
+        UsuarioModelo p = new UsuarioModelo(Integer.parseInt(textoCodigoUsuario.getText()),String.valueOf(textoSenha.getPassword()), textoLogin.getText(), (String) comboBoxPermissao.getSelectedItem());     
         
+        textoCodigoUsuario.setText("");
         textoLogin.setText("");
         textoSenha.setText("");
-        textoPermissao.setSelectedIndex(0);
+        comboBoxPermissao.setSelectedIndex(0);
         
         textoLogin.setEnabled(false);
         textoSenha.setEnabled(false);
-        textoPermissao.setEnabled(false);
+        comboBoxPermissao.setEnabled(false);
         botaoExcluirUsuario.setEnabled(false);
         botaoEditarUsuario.setEnabled(false);
         
-        UsuarioModelo p = new UsuarioModelo(String.valueOf(textoSenha.getPassword()), textoLogin.getText(), (String) textoPermissao.getSelectedItem());     
+        
 
         UsuarioControle usuario = new UsuarioControle();
 
-        usuario.excluir(p.getLogin());
+        usuario.excluir(p.getCodUsuario());
         
         
     }//GEN-LAST:event_botaoExcluirUsuarioActionPerformed
@@ -302,6 +322,37 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             
              if (comprimentoDeCampo == 20) { evt.consume(); }
     }//GEN-LAST:event_textoLoginKeyTyped
+
+    private void botaoEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarUsuarioActionPerformed
+        
+        textoLogin.setEnabled(true);
+        textoSenha.setEnabled(true);
+        comboBoxPermissao.setEnabled(true);
+        
+        UsuarioModelo p = new UsuarioModelo(Integer.parseInt(textoCodigoUsuario.getText()),String.valueOf(textoSenha.getPassword()), textoLogin.getText(), (String) comboBoxPermissao.getSelectedItem());     
+
+        textoCodigoUsuario.setText("");
+        textoLogin.setText("");
+        textoSenha.setText("");
+        comboBoxPermissao.setSelectedIndex(0);
+        
+        UsuarioControle usuario = new UsuarioControle();
+        
+        try {
+            usuario.editar(p);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroMotorista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        textoLogin.setEnabled(false);
+        textoSenha.setEnabled(false);
+        comboBoxPermissao.setEnabled(false);
+        
+        botaoExcluirUsuario.setEnabled(false);
+        botaoEditarUsuario.setEnabled(false);
+        
+        
+    }//GEN-LAST:event_botaoEditarUsuarioActionPerformed
 
    /**
      * @param args the command line arguments
@@ -345,12 +396,14 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JButton botaoPesquisarUsuario;
     private javax.swing.JButton botaoSairUsuario;
     private javax.swing.JButton botaoSalvarUsuario;
+    public javax.swing.JComboBox<String> comboBoxPermissao;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel labelCodigoUsuario;
     private javax.swing.JLabel labelLogin;
     private javax.swing.JLabel labelPremissao;
     private javax.swing.JLabel labelSenha;
+    private javax.swing.JTextField textoCodigoUsuario;
     private javax.swing.JTextField textoLogin;
-    public javax.swing.JComboBox<String> textoPermissao;
     private javax.swing.JPasswordField textoSenha;
     // End of variables declaration//GEN-END:variables
 }

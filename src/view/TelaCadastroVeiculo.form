@@ -45,20 +45,20 @@
                               <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="labelConsumoMedio" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="labelCodigoVeiculo" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="textoPlaca" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textoFabricante" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textoModelo" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textoAnoFabricacao" alignment="0" max="32767" attributes="0"/>
-                              <Component id="textoChassi" alignment="1" max="32767" attributes="0"/>
-                              <Component id="textoCor" alignment="1" max="32767" attributes="0"/>
-                              <Component id="textoCapacidadeTanque" alignment="1" pref="253" max="32767" attributes="0"/>
-                              <Component id="comboBoxTipoVeiculo" alignment="1" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="textoConsumoMedio" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="textoPlaca" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textoFabricante" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textoModelo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textoAnoFabricacao" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textoChassi" alignment="1" max="32767" attributes="0"/>
+                          <Component id="textoCor" alignment="1" max="32767" attributes="0"/>
+                          <Component id="textoCapacidadeTanque" alignment="1" pref="253" max="32767" attributes="0"/>
+                          <Component id="comboBoxTipoVeiculo" alignment="1" max="32767" attributes="0"/>
+                          <Component id="textoConsumoMedio" alignment="0" pref="253" max="32767" attributes="0"/>
+                          <Component id="textoCodigoVeiculo" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -91,7 +91,12 @@
                   <Component id="botaoEditar" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                   <Component id="botaoSair" min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="textoCodigoVeiculo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="labelCodigoVeiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="textoPlaca" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -136,7 +141,7 @@
                   <Component id="textoConsumoMedio" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="labelConsumoMedio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -361,6 +366,19 @@
     <Component class="javax.swing.JTextField" name="textoModelo">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="textoCodigoVeiculo">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelCodigoVeiculo">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial" size="14" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
       </Properties>
     </Component>
   </SubComponents>

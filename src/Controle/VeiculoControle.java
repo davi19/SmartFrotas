@@ -11,51 +11,44 @@ public class VeiculoControle {
     
     Conexao c = new Conexao();
     
-     public void inserir(VeiculoModelo p){    
+     public void inserir(VeiculoModelo p)throws SQLException{    
       
-        String sentenca = "INSERT INTO Veiculo VALUES('"+p.getPlacaVeiculo()+"','"+p.getTipoVeiculo()+"','"+p.getFabricante()+"','"+p.getModelo()+"','"+p.getCor()+"','"+p.getAnoFabricacao()+"','"+p.getNumeroChassi()+"','"+p.getCapacidadeTanque()+"','"+p.getMediaConsumo()+"')";
-        
-        try{
-             
-             c.stmt.execute(sentenca); 
-             System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
-            
-        } catch (SQLException ex){
-        
-             System.out.print(ex.getMessage());  
-             System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
-             
-            }
+         String sentenca = "INSERT INTO veiculo (placaVeiculo, tipoVeiculo, fabricante, modelo, cor, anoFabricacao, numeroChassi, capacidadeTanque, mediaConsumo) VALUES('"+p.getPlacaVeiculo()+"','"+p.getTipoVeiculo()+"','"+p.getFabricante()+"','"+p.getModelo()+"','"+p.getCor()+"','"+p.getAnoFabricacao()+"','"+p.getNumeroChassi()+"','"+p.getCapacidadeTanque()+"','"+p.getMediaConsumo()+"')";
+
+                try {
+
+                    c.stmt.execute(sentenca);
+                    //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+                    JOptionPane.showMessageDialog(null, "Veiculo inserido com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
+
+                } catch (SQLException ex) {
+
+                    System.out.print(ex.getMessage());
+                    //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+                    JOptionPane.showMessageDialog(null, "Erro ao inserir Veiculo!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                }
+       
     }
      
-     public void excluir(String placaVeiculo) throws SQLException{
+     public void excluir(int codVeiculo){
          
-    	String sentenca = "DELETE FROM Veiculo WHERE placaVeiculo="+placaVeiculo;
-        
-    	//try {
-		c.stmt.execute(sentenca);
-                //System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
-		
-          //    } catch (SQLException ex){
- 
-            //    System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
-        
-        //}
+    	String sentenca = "DELETE FROM veiculo WHERE codVeiculo=" + codVeiculo;
+
+        try {
+            c.stmt.execute(sentenca);
+            //System.out.print(" >>>> DELETADO COM SUCESSO  <<<< ");
+            JOptionPane.showMessageDialog(null, "Veiculo excluido com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException ex) {
+
+            //System.out.print(" >>>> ERRO AO DELETAR  <<<< ");
+            JOptionPane.showMessageDialog(null, "Erro ao excluir Veiculo!", "ERRO", JOptionPane.ERROR_MESSAGE);
+
+        }
     }
     
      public void editar(VeiculoModelo p) throws SQLException{
      
-        String sentenca_consulta = "SELECT * FROM veiculo WHERE placaVeiculo = '" + p.getPlacaVeiculo()+ "'";
-        PreparedStatement ps = c.getConexao().prepareStatement(sentenca_consulta); // executa a sentença
-        ResultSet rs = ps.executeQuery();
-        
-        if(rs.next()){ //existe 
-            
-            JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Veiculo!", "ERRO", JOptionPane.ERROR_MESSAGE);
-        
-        }else{
-            
-            String sentenca = "UPDATE veiculo set placaVeiculo = '" + p.getPlacaVeiculo() + "', tipoVeiculo = '" + p.getTipoVeiculo() + "', fabricante = '" + p.getFabricante() + "', modelo = '" + p.getModelo() + "', cor = '" + p.getCor()+ "', anoFabricacao = '" + p.getAnoFabricacao()+ "', numeroChassi = '" + p.getNumeroChassi()+ "', capacidadeTanque = '" + p.getCapacidadeTanque()+ "', mediaConsumo = '" + p.getMediaConsumo() + "' WHERE placaVeiculo=" + p.getPlacaVeiculo();
+        String sentenca = "UPDATE veiculo set placaVeiculo = '" + p.getPlacaVeiculo() + "', tipoVeiculo = '" + p.getTipoVeiculo() + "', fabricante = '" + p.getFabricante() + "', modelo = '" + p.getModelo() +"', cor = '" + p.getCor() +"', anoFabricacao = '" + p.getAnoFabricacao() +"', numeroChassi = '" + p.getNumeroChassi() +"', capacidadeTanque = '" + p.getCapacidadeTanque() +"', mediaConsumo = '" + p.getMediaConsumo() + "' WHERE codVeiculo=" + p.getCodVeiculo();
 
             try {
                 c.stmt.execute(sentenca);
@@ -71,7 +64,7 @@ public class VeiculoControle {
         }
 
      
-     }
+     
      public Vector Pesquisar(String pesq) throws Exception {
 
         Vector tb = new Vector(); // Instanciando um objeto Vector que tem a mesma funÃ§Ã£o que um vetor
@@ -82,6 +75,7 @@ public class VeiculoControle {
 
         while (rs.next()) { // caminha sobre o vetor
             Vector nl = new Vector();
+            nl.add(rs.getInt("codVeiculo"));
             nl.add(rs.getString("placaVeiculo")); // adiciona a variavel no vetor
             nl.add(rs.getString("tipoVeiculo"));
             nl.add(rs.getString("fabricante"));

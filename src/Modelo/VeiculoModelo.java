@@ -4,15 +4,16 @@ package Modelo;
 public class VeiculoModelo {
     
 	private  String placaVeiculo, tipoVeiculo, fabricante, modelo, cor;
-	private int anoFabricacao, numeroChassi, capacidadeTanque;
+	private int anoFabricacao, numeroChassi, capacidadeTanque, codVeiculo;
 	private float mediaConsumo;
     
     
-    public VeiculoModelo(String placaVeiculo, String tipoVeiculo,
+    public VeiculoModelo(int codVeiculo, String placaVeiculo, String tipoVeiculo,
 			String fabricante, String modelo, String cor,
 			int anoFabricacao, int numeroChassi, int capacidadeTanque,
 			float mediaConsumo) 
-    {
+    {           
+                this.codVeiculo = codVeiculo;
 		this.placaVeiculo = placaVeiculo;
 		this.tipoVeiculo = tipoVeiculo;
 		this.fabricante = fabricante;
@@ -23,8 +24,7 @@ public class VeiculoModelo {
 		this.capacidadeTanque = capacidadeTanque;
 		this.mediaConsumo = mediaConsumo;
 	}
-
-	public String getPlacaVeiculo() {
+     public String getPlacaVeiculo() {
         return placaVeiculo;
     }
 
@@ -80,6 +80,22 @@ public class VeiculoModelo {
         this.numeroChassi = numeroChassi;
     }
 
+    public int getCapacidadeTanque() {
+        return capacidadeTanque;
+    }
+
+    public void setCapacidadeTanque(int capacidadeTanque) {
+        this.capacidadeTanque = capacidadeTanque;
+    }
+
+    public int getCodVeiculo() {
+        return codVeiculo;
+    }
+
+    public void setCodVeiculo(int codVeiculo) {
+        this.codVeiculo = codVeiculo;
+    }
+
     public float getMediaConsumo() {
         return mediaConsumo;
     }
@@ -88,15 +104,4 @@ public class VeiculoModelo {
         this.mediaConsumo = mediaConsumo;
     }
 
-    public float getCapacidadeTanque() {
-        return capacidadeTanque;
-    }
-
-    public void setCapacidadeTanque(int capacidadeTanque) {
-        this.capacidadeTanque = capacidadeTanque;
-    } 
-
-    
 }
-
-
