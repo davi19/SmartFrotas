@@ -299,6 +299,14 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
 
+        if(textoPlacaVeiculo.getText().equals("") || textoQuantidadeAbastecida.getText().equals("") || textoKmAbastecido.getText().equals("") 
+              || textoKmAbastecidoAnteriormente.getText().equals("") || calendarioAbastecimento.getDate() == null) {
+          
+         JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+         botaoSalvar.setEnabled(true);
+        
+       } else { 
+        
         textoPlacaVeiculo.setEnabled(false);
         textoQuantidadeAbastecida.setEnabled(false);
         textoKmAbastecido.setEnabled(false);
@@ -324,6 +332,8 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         AbastecimentoControle abastecimento = new AbastecimentoControle();
 
         abastecimento.editar(p);
+        
+        } 
 
     }//GEN-LAST:event_botaoEditarActionPerformed
 
@@ -363,9 +373,11 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         
-      if(textoPlacaVeiculo.getText().equals("") || textoQuantidadeAbastecida.getText().equals("") || textoKmAbastecido.getText().equals("") || textoKmAbastecidoAnteriormente.getText().equals("") || calendarioAbastecimento.getDate() == null) {
+      if(textoPlacaVeiculo.getText().equals("") || textoQuantidadeAbastecida.getText().equals("") || textoKmAbastecido.getText().equals("") 
+              || textoKmAbastecidoAnteriormente.getText().equals("") || calendarioAbastecimento.getDate() == null) {
           
          JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+         botaoSalvar.setEnabled(true);
         
        } else { 
        

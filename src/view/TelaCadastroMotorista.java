@@ -285,6 +285,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
       if(textoNome.getText().equals("") || textoNumeroCNH.getText().equals("") || calendarioVencimento.getDate() == null) {
           
          JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+         botaoSalvar.setEnabled(true);
         
        } else { 
     
@@ -319,6 +320,13 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
 
+        if(textoNome.getText().equals("") || textoNumeroCNH.getText().equals("") || calendarioVencimento.getDate() == null) {
+          
+         JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+         botaoSalvar.setEnabled(true);
+        
+       } else { 
+        
         textoNome.setEnabled(true);
         calendarioVencimento.setEnabled(true);
         comboBoxCategoriaCNH.setEnabled(true);
@@ -349,6 +357,8 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         textoNumeroCNH.setEnabled(false);
         botaoExcluir.setEnabled(false);
         botaoEditar.setEnabled(false);
+        
+        }
                 
     }//GEN-LAST:event_botaoEditarActionPerformed
 

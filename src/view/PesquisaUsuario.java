@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import Controle.UsuarioControle;
@@ -10,10 +5,7 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Informatica_004
- */
+
 public class PesquisaUsuario extends javax.swing.JDialog {
 
     private String codUsuario;

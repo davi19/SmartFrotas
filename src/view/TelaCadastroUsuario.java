@@ -213,14 +213,15 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         comboBoxPermissao.setEnabled(true);
         
         botaoSalvarUsuario.setEnabled(true);
-        
+        botaoEditarUsuario.setEnabled(false);
+        botaoExcluirUsuario.setEnabled(false);
     }//GEN-LAST:event_botaoNovoUsuarioActionPerformed
 
     private void botaoPesquisarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarUsuarioActionPerformed
         PesquisaUsuario tela = new PesquisaUsuario(this,true);
         tela.setVisible(true);
         
-        
+        textoCodigoUsuario.setText(tela.getCodUsuario());
         textoLogin.setText(tela.getLogin());
         textoSenha.setText(tela.getSenha());
         comboBoxPermissao.setSelectedItem(tela.getNivelPermissao());
@@ -269,6 +270,10 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
             textoLogin.setEnabled(false);
             textoSenha.setEnabled(false);
             comboBoxPermissao.setEnabled(false);
+            
+            botaoSalvarUsuario.setEnabled(false);
+            botaoEditarUsuario.setEnabled(false);
+            botaoExcluirUsuario.setEnabled(false);
                     
       }
        
@@ -286,8 +291,10 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         textoLogin.setEnabled(false);
         textoSenha.setEnabled(false);
         comboBoxPermissao.setEnabled(false);
+        
         botaoExcluirUsuario.setEnabled(false);
         botaoEditarUsuario.setEnabled(false);
+        botaoSalvarUsuario.setEnabled(false);
         
         
 
@@ -324,11 +331,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_textoLoginKeyTyped
 
     private void botaoEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarUsuarioActionPerformed
-        
-        textoLogin.setEnabled(true);
-        textoSenha.setEnabled(true);
-        comboBoxPermissao.setEnabled(true);
-        
+
         UsuarioModelo p = new UsuarioModelo(Integer.parseInt(textoCodigoUsuario.getText()),String.valueOf(textoSenha.getPassword()), textoLogin.getText(), (String) comboBoxPermissao.getSelectedItem());     
 
         textoCodigoUsuario.setText("");
@@ -348,6 +351,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         textoSenha.setEnabled(false);
         comboBoxPermissao.setEnabled(false);
         
+        botaoSalvarUsuario.setEnabled(false);
         botaoExcluirUsuario.setEnabled(false);
         botaoEditarUsuario.setEnabled(false);
         

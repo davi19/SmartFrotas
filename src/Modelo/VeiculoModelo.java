@@ -24,6 +24,23 @@ public class VeiculoModelo {
 		this.capacidadeTanque = capacidadeTanque;
 		this.mediaConsumo = mediaConsumo;
 	}
+    
+    public VeiculoModelo(String placaVeiculo, String tipoVeiculo,
+			String fabricante, String modelo, String cor,
+			int anoFabricacao, int numeroChassi, int capacidadeTanque,
+			float mediaConsumo) 
+    {           
+		this.placaVeiculo = placaVeiculo;
+		this.tipoVeiculo = tipoVeiculo;
+		this.fabricante = fabricante;
+		this.modelo = modelo;
+		this.cor = cor;
+		this.anoFabricacao = anoFabricacao;
+		this.numeroChassi = numeroChassi;
+		this.capacidadeTanque = capacidadeTanque;
+		this.mediaConsumo = mediaConsumo;
+	}
+    
      public String getPlacaVeiculo() {
         return placaVeiculo;
     }

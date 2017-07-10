@@ -10,6 +10,7 @@ import Modelo.VeiculoModelo;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class TelaCadastroVeiculo extends javax.swing.JFrame {
@@ -284,7 +285,19 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         textoCapacidadeTanque.setEnabled(true); 
         textoConsumoMedio.setEnabled(true);
         
+        textoPlaca.setText("");
+        comboBoxTipoVeiculo.setSelectedIndex(0);
+        textoFabricante.setText("");
+        textoChassi.setText("");
+        textoModelo.setText("");
+        textoCor.setText("");
+        textoAnoFabricacao.setText("");
+        textoCapacidadeTanque.setText("");
+        textoConsumoMedio.setText("");
+        
         botaoSalvar.setEnabled(true);
+        botaoEditar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
         
     }//GEN-LAST:event_botaoNovoCadastroActionPerformed
 
@@ -331,7 +344,16 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         
-        VeiculoModelo p = new VeiculoModelo(0, textoPlaca.getText(), (String)comboBoxTipoVeiculo.getSelectedItem(), textoFabricante.getText(), textoModelo.getText(), textoCor.getText(), Integer.parseInt(textoAnoFabricacao.getText()), Integer.parseInt(textoChassi.getText()), Integer.parseInt(textoCapacidadeTanque.getText()), Float.parseFloat(textoConsumoMedio.getText()));
+        if(textoPlaca.getText().equals("") || textoFabricante.getText().equals("") || textoChassi.getText().equals("") || 
+                textoModelo.getText().equals("") || textoCor.getText().equals("") || textoAnoFabricacao.getText().equals("")
+                || textoCapacidadeTanque.getText().equals("") || textoConsumoMedio.getText().equals("")) {
+          
+         JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+         botaoSalvar.setEnabled(true);
+        
+       } else { 
+        
+        VeiculoModelo p = new VeiculoModelo(textoPlaca.getText(), (String)comboBoxTipoVeiculo.getSelectedItem(), textoFabricante.getText(), textoModelo.getText(), textoCor.getText(), Integer.parseInt(textoAnoFabricacao.getText()), Integer.parseInt(textoChassi.getText()), Integer.parseInt(textoCapacidadeTanque.getText()), Float.parseFloat(textoConsumoMedio.getText()));
  
         VeiculoControle veiculo = new VeiculoControle(); 
         try { 
@@ -349,6 +371,21 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         textoAnoFabricacao.setEnabled(false);
         textoCapacidadeTanque.setEnabled(false); 
         textoConsumoMedio.setEnabled(false);
+        }
+        
+        textoPlaca.setText("");
+        comboBoxTipoVeiculo.setSelectedIndex(0);
+        textoFabricante.setText("");
+        textoChassi.setText("");
+        textoModelo.setText("");
+        textoCor.setText("");
+        textoAnoFabricacao.setText("");
+        textoCapacidadeTanque.setText("");
+        textoConsumoMedio.setText("");
+        
+        botaoSalvar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        botaoEditar.setEnabled(false);
         
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
@@ -359,7 +396,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         textoCodigoVeiculo.setText("");
         textoPlaca.setText("");
         comboBoxTipoVeiculo.setSelectedIndex(0);
-        textoFabricante.setEnabled(false);
+        textoFabricante.setText("");
         textoChassi.setText("");
         textoModelo.setText("");
         textoCor.setText("");
@@ -376,29 +413,31 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         textoAnoFabricacao.setEnabled(false);
         textoCapacidadeTanque.setEnabled(false); 
         textoConsumoMedio.setEnabled(false);
+        
+        botaoSalvar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        botaoEditar.setEnabled(false);
        
         //p.setCodMotorista(Integer.parseInt(textoCodigoMotorista.getText()));
 
         VeiculoControle veiculo = new VeiculoControle();
 
-     
-        veiculo.excluir(p.getCodVeiculo());
-       
+
+            veiculo.excluir(p.getCodVeiculo());
         
     }//GEN-LAST:event_botaoExcluirActionPerformed
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
         
-        textoPlaca.setEnabled(true); 
-        comboBoxTipoVeiculo.setEnabled(true);
-        textoFabricante.setEnabled(true);
-        textoChassi.setEnabled(true); 
-        textoModelo.setEnabled(true);
-        textoCor.setEnabled(true);
-        textoAnoFabricacao.setEnabled(true);
-        textoCapacidadeTanque.setEnabled(true); 
-        textoConsumoMedio.setEnabled(true);
-
+        if(textoPlaca.getText().equals("") || textoFabricante.getText().equals("") || textoChassi.getText().equals("") || 
+                textoModelo.getText().equals("") || textoCor.getText().equals("") || textoAnoFabricacao.getText().equals("")
+                || textoCapacidadeTanque.getText().equals("") || textoConsumoMedio.getText().equals("")) {
+          
+         JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+         botaoSalvar.setEnabled(true);
+        
+       } else {
+        
         VeiculoModelo p = new VeiculoModelo(Integer.parseInt(textoCodigoVeiculo.getText()), textoPlaca.getText(), (String)comboBoxTipoVeiculo.getSelectedItem(), textoFabricante.getText(), textoModelo.getText(), textoCor.getText(), Integer.parseInt(textoAnoFabricacao.getText()), Integer.parseInt(textoChassi.getText()), Integer.parseInt(textoCapacidadeTanque.getText()), Float.parseFloat(textoConsumoMedio.getText())); 
 
         VeiculoControle veiculo = new VeiculoControle();
@@ -418,6 +457,23 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         textoAnoFabricacao.setEnabled(false);
         textoCapacidadeTanque.setEnabled(false); 
         textoConsumoMedio.setEnabled(false);
+        
+        textoCodigoVeiculo.setText("");
+        textoPlaca.setText("");
+        comboBoxTipoVeiculo.setSelectedIndex(0);
+        textoFabricante.setText("");
+        textoChassi.setText("");
+        textoModelo.setText("");
+        textoCor.setText("");
+        textoAnoFabricacao.setText("");
+        textoCapacidadeTanque.setText("");
+        textoConsumoMedio.setText("");
+        
+        botaoSalvar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        botaoEditar.setEnabled(false);
+        
+        }
 
     }//GEN-LAST:event_botaoEditarActionPerformed
 

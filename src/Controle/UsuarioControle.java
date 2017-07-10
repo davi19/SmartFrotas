@@ -76,7 +76,7 @@ public class UsuarioControle {
    
    public void excluir(int codUsuario){
        
-    	String sentenca = "DELETE FROM UsuarioSistema WHERE codUsuario="+codUsuario;
+    	String sentenca = "DELETE FROM usuarioSistema WHERE codUsuario="+codUsuario;
         
     	try {
 		c.stmt.execute(sentenca);
@@ -92,7 +92,8 @@ public class UsuarioControle {
    
     public void editar(UsuarioModelo p) throws SQLException{
     
-        String sentenca_consulta = "SELECT * FROM usuariosistema WHERE codUsuario = '" + p.getCodUsuario() + "'";
+        /*
+        String sentenca_consulta = "SELECT * FROM usuariosistema WHERE login = '" + p.getLogin() + "'";
         PreparedStatement ps = c.getConexao().prepareStatement(sentenca_consulta); // executa a sentença
         ResultSet rs = ps.executeQuery();
         
@@ -101,8 +102,8 @@ public class UsuarioControle {
             JOptionPane.showMessageDialog(null, "Erro ao inserir Usuario!", "ERRO", JOptionPane.ERROR_MESSAGE); // Necessita desse erro para o usuario
 
             }else{ 
-
-                String sentenca = "UPDATE usuarioSistema set senha = '"+p.getSenha()+"', nivelPermissao = '"+p.getNivelPermissao()+"' WHERE codUsuario="+p.getCodUsuario();
+        */
+                String sentenca = "UPDATE usuarioSistema set login = '"+p.getLogin()+"', senha = '"+p.getSenha()+"', nivelPermissao = '"+p.getNivelPermissao()+"' WHERE codUsuario="+p.getCodUsuario();
 
                 try {
                         c.stmt.execute(sentenca);
@@ -110,15 +111,15 @@ public class UsuarioControle {
                         JOptionPane.showMessageDialog(null, "Dados do Usuário atualizado com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
                         
                         } catch (SQLException ex){
-
+                        
                         //System.out.print(ex.getMessage());
-                        //System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
-                        JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Usuário!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                        System.out.print(" >>>> ERRO AO ALTERAR  <<<< ");
+                        //JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Usuário!", "ERRO", JOptionPane.ERROR_MESSAGE);
                 }
             
     }
             
-    }
+    //}
     
     public Vector Pesquisar(String pesq) throws Exception {
 
