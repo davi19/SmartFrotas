@@ -262,6 +262,13 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         botaoSalvar.setEnabled(true);
         textoKmAbastecidoAnteriormente.setEnabled(true);
         
+        textoCodigoAbastecimento.setText("");
+        textoQuantidadeAbastecida.setText("");
+        textoKmAbastecidoAnteriormente.setText("");
+        textoKmAbastecido.setText("");
+        textoPlacaVeiculo.setText("");
+        calendarioAbastecimento.setDate(null);
+        
     }//GEN-LAST:event_botaoNovoCadastroActionPerformed
 
     private void botaoPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarActionPerformed
@@ -292,15 +299,21 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
 
-        textoPlacaVeiculo.setEnabled(true);
-        textoQuantidadeAbastecida.setEnabled(true);
-        textoKmAbastecido.setEnabled(true);
-        calendarioAbastecimento.setEnabled(true);
+        textoPlacaVeiculo.setEnabled(false);
+        textoQuantidadeAbastecida.setEnabled(false);
+        textoKmAbastecido.setEnabled(false);
+        calendarioAbastecimento.setEnabled(false);
+        textoKmAbastecidoAnteriormente.setEnabled(false);
 
         SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
         String data = dFormat.format(calendarioAbastecimento.getDate());
         AbastecimentoModelo p = new AbastecimentoModelo(Integer.parseInt(textoCodigoAbastecimento.getText()), Integer.parseInt(textoKmAbastecido.getText()), Integer.parseInt(textoKmAbastecidoAnteriormente.getText()),textoPlacaVeiculo.getText(), Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
 
+        
+        botaoSalvar.setEnabled(false);
+        botaoEditar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        
         textoCodigoAbastecimento.setText("");
         textoQuantidadeAbastecida.setText("");
         textoKmAbastecidoAnteriormente.setText("");
@@ -327,6 +340,17 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         textoKmAbastecido.setText("");
         textoPlacaVeiculo.setText("");
         calendarioAbastecimento.setDate(null);
+        
+        
+        botaoSalvar.setEnabled(false);
+        botaoEditar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
+        
+        textoPlacaVeiculo.setEnabled(false);
+        textoQuantidadeAbastecida.setEnabled(false);
+        textoKmAbastecidoAnteriormente.setEnabled(false);
+        textoKmAbastecido.setEnabled(false);
+        calendarioAbastecimento.setEnabled(false);
        
         //p.setCodMotorista(Integer.parseInt(textoCodigoMotorista.getText()));
 
@@ -361,6 +385,8 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         calendarioAbastecimento.setDate(null);
         
         botaoSalvar.setEnabled(false);
+        botaoEditar.setEnabled(false);
+        botaoExcluir.setEnabled(false);
         textoPlacaVeiculo.setEnabled(false);
         textoQuantidadeAbastecida.setEnabled(false);
         textoKmAbastecidoAnteriormente.setEnabled(false);
