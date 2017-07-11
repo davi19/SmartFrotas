@@ -24,8 +24,14 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
     /**
      * Creates new form TelaAberturaViagem
      */
+    PesquisaVeiculo telaPesquisaVeiculo;
+    PesquisaMotorista telaPesquisaMotorista;
+     
     public TelaAberturaViagem() {
         initComponents();
+        
+        telaPesquisaVeiculo = new PesquisaVeiculo(this,true);
+        telaPesquisaMotorista = new PesquisaMotorista(this,true);
         
         textoCodigo.setEnabled(false);
         textoMotorista.setEnabled(false);
@@ -378,7 +384,7 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
     private void PesquisaMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaMotoristaActionPerformed
         
-        PesquisaMotorista telaPesquisaMotorista = new PesquisaMotorista(this,true);
+       
         telaPesquisaMotorista.setVisible(true);
         
         textoMotorista.setText(telaPesquisaMotorista.getNomeMotorista());
@@ -387,7 +393,7 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
     private void pesquisaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaVeiculoActionPerformed
         
-        PesquisaVeiculo telaPesquisaVeiculo = new PesquisaVeiculo(this,true);
+       
         telaPesquisaVeiculo.setVisible(true);
         
         textoPlaca.setText(telaPesquisaVeiculo.getPlacaVeiculo());
@@ -395,6 +401,9 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
     }//GEN-LAST:event_pesquisaVeiculoActionPerformed
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+        
+         Date dataHoje = new java.sql.Date(new java.util.Date().getTime());
+        Date dataAux = telaPesquisaMotorista.getDataDeVencimentoCNH();
         
         if(textoKmEntrada.getText().equals("") || textoKmSaida.getText().equals("") || textoMotorista.getText().equals("") || 
                 textoPlaca.getText().equals("") || calendarioDataSaida.getDate() == null || calendarioDataEntrada.getDate() == null) {
@@ -414,11 +423,22 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         
         ControleDeViagemControle controleDeViagemControle = new ControleDeViagemControle();
 
+         if (dataHoje.after(dataAux)) {
+                JOptionPane.showMessageDialog(null, "Motorista com CNH Vencida");
+
+            } else if (dataHoje.equals(dataAux)) {
+                JOptionPane.showMessageDialog(null, "Motorista com CNH Vencida");
+
+            } else {
+      
+        
             try {
                 controleDeViagemControle.inserir(p);
             } catch (SQLException ex) {
                 Logger.getLogger(TelaAberturaViagem.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            
 
         textoCodigo.setEnabled(false);
         textoMotorista.setEnabled(false);
@@ -439,6 +459,8 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         botaoEditar.setEnabled(false);
         botaoExcluir.setEnabled(false);
         botaoSalvar.setEnabled(false);
+        }
+         
         }
         
     }//GEN-LAST:event_botaoSalvarActionPerformed
