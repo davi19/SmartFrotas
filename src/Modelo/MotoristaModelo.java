@@ -4,7 +4,8 @@ package Modelo;
 import java.sql.Date;
 
 public class MotoristaModelo {
-    private int codMotorista;
+    
+	private int codMotorista;
     private String numeroCNH, categoriaCNH, nome;
     private Date dataDeVencimentoCNH;
     
@@ -18,10 +19,6 @@ public class MotoristaModelo {
 		this.nome = nome;
 		this.dataDeVencimentoCNH = dataDeVencimentoCNH;
 	}
-
-    public MotoristaModelo() {
-    }
-    
 
 	public String getNumeroCNH() {
         return numeroCNH;

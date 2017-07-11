@@ -130,20 +130,15 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         });
 
         labelLogin.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        labelLogin.setText("Login:");
+        labelLogin.setText("Login");
 
         labelSenha.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        labelSenha.setText("Senha:");
+        labelSenha.setText("Senha");
 
         labelPremissao.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        labelPremissao.setText("Nivel de Permissão:");
+        labelPremissao.setText("Nivel de Permissão");
 
         textoSenha.setEnabled(false);
-        textoSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoSenhaActionPerformed(evt);
-            }
-        });
         textoSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textoSenhaKeyTyped(evt);
@@ -160,7 +155,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         });
 
         labelCodigoUsuario.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        labelCodigoUsuario.setText("Código:");
+        labelCodigoUsuario.setText("Código");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,19 +165,6 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 .addGap(90, 90, 90)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelSenha)
-                            .addComponent(labelPremissao)
-                            .addComponent(labelLogin)
-                            .addComponent(labelCodigoUsuario))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(textoSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textoLogin, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textoCodigoUsuario)
-                            .addComponent(comboBoxPermissao, 0, 231, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(botaoNovoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(botaoPesquisarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,10 +173,22 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(botaoExcluirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(botaoSalvarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoSairUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 90, Short.MAX_VALUE))))
+                        .addComponent(botaoSalvarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelSenha)
+                            .addComponent(labelPremissao)
+                            .addComponent(labelLogin)
+                            .addComponent(labelCodigoUsuario))
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textoLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                            .addComponent(textoSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                            .addComponent(comboBoxPermissao, 0, 234, Short.MAX_VALUE)
+                            .addComponent(textoCodigoUsuario))))
+                .addGap(18, 18, 18)
+                .addComponent(botaoSairUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,17 +202,17 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                     .addComponent(botaoEditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoSairUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelCodigoUsuario)
-                    .addComponent(textoCodigoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textoCodigoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCodigoUsuario))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelLogin))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelSenha))
+                    .addComponent(labelSenha)
+                    .addComponent(textoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPremissao)
@@ -394,10 +388,6 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void textoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoLoginActionPerformed
-
-    private void textoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textoSenhaActionPerformed
 
    /**
      * @param args the command line arguments

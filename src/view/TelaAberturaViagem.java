@@ -31,14 +31,14 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         calendarioDataSaida.setEnabled(false);
         calendarioDataEntrada.setEnabled(false);
         
-        PesquisaMotorista.setEnabled(false);
-        pesquisaVeiculo.setEnabled(false);
         botaoEditar.setEnabled(false);
         botaoExcluir.setEnabled(false);
         botaoSalvar.setEnabled(false);
         
         labelCodigo.setVisible(false);
         textoCodigo.setVisible(false);
+        PesquisaMotorista.setEnabled(false);
+        pesquisaVeiculo.setEnabled(false);
         
         setLocationRelativeTo(null);
         
@@ -211,35 +211,35 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
                     .addComponent(labelCodigo)
                     .addComponent(labelMotorista)
                     .addComponent(labelKmSaida)
+                    .addComponent(labelKmEntrada)
                     .addComponent(labelDataSaida)
                     .addComponent(labelDataEntrada)
-                    .addComponent(labelKmEntrada)
                     .addComponent(labelPlacaDoVeiculo))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(calendarioDataSaida, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                            .addComponent(textoKmEntrada, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textoKmSaida, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textoPlaca, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textoMotorista)
+                            .addComponent(calendarioDataEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(PesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pesquisaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(textoCodigo, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(calendarioDataEntrada, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                            .addComponent(calendarioDataSaida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textoKmEntrada, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textoKmSaida, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textoPlaca, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textoMotorista, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pesquisaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -256,38 +256,39 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelMotorista)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textoMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(PesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelPlacaDoVeiculo)
-                            .addComponent(textoPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pesquisaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textoKmSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelKmSaida))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textoKmEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelKmEntrada)))
+                        .addComponent(textoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(25, 25, 25)
                         .addComponent(labelCodigo)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(textoMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelMotorista))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(textoPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelPlacaDoVeiculo))
+                    .addComponent(pesquisaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textoKmSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelKmSaida))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textoKmEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelKmEntrada))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(calendarioDataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelDataSaida))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(calendarioDataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelDataEntrada))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -300,6 +301,8 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
     private void botaoNovoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoCadastroActionPerformed
         
+        textoMotorista.setEnabled(true);
+        textoPlaca.setEnabled(true);
         textoKmSaida.setEnabled(true);
         textoKmEntrada.setEnabled(true);
         calendarioDataSaida.setEnabled(true);
@@ -335,13 +338,13 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         calendarioDataEntrada.setDate(tela.getDataEntrada());
         
         textoCodigo.setEnabled(false);
+        textoMotorista.setEnabled(true);
+        textoPlaca.setEnabled(true);
         textoKmSaida.setEnabled(true);
         textoKmEntrada.setEnabled(true);
         calendarioDataSaida.setEnabled(true);
         calendarioDataEntrada.setEnabled(true);
         
-        PesquisaMotorista.setEnabled(true);
-        pesquisaVeiculo.setEnabled(true);
         botaoSalvar.setEnabled(false);
         botaoEditar.setEnabled(true);
         botaoExcluir.setEnabled(true);
@@ -393,6 +396,8 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         controleDeViagemControle.inserir(p);
 
         textoCodigo.setEnabled(false);
+        textoMotorista.setEnabled(false);
+        textoPlaca.setEnabled(false);
         textoKmSaida.setEnabled(false);
         textoKmEntrada.setEnabled(false);
         calendarioDataSaida.setEnabled(false);
@@ -406,8 +411,6 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         calendarioDataSaida.setDate(null);
         calendarioDataEntrada.setDate(null);
         
-        PesquisaMotorista.setEnabled(false);
-        pesquisaVeiculo.setEnabled(false);
         botaoEditar.setEnabled(false);
         botaoExcluir.setEnabled(false);
         botaoSalvar.setEnabled(false);
@@ -423,13 +426,17 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         
         ControleDeViagemModelo p = new ControleDeViagemModelo(Integer.parseInt(textoCodigo.getText()),
                 Integer.parseInt(textoKmEntrada.getText()),Integer.parseInt(textoKmSaida.getText()), 
-                textoMotorista.getText(),Date.valueOf(dataEntrada),Date.valueOf(dataSaida), textoPlaca.getText());     
+                textoMotorista.getText(),Date.valueOf(dataEntrada),Date.valueOf(dataSaida), textoPlaca.getText());
+        
+        
         
         ControleDeViagemControle controleDeViagem = new ControleDeViagemControle();
         
         controleDeViagem.excluir(p.getCodControle());
         
         textoCodigo.setEnabled(false);
+        textoMotorista.setEnabled(false);
+        textoPlaca.setEnabled(false);
         textoKmSaida.setEnabled(false);
         textoKmEntrada.setEnabled(false);
         calendarioDataSaida.setEnabled(false);
@@ -443,8 +450,6 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         calendarioDataSaida.setDate(null);
         calendarioDataEntrada.setDate(null);
         
-        PesquisaMotorista.setEnabled(false);
-        pesquisaVeiculo.setEnabled(false);
         botaoEditar.setEnabled(false);
         botaoExcluir.setEnabled(false);
         botaoSalvar.setEnabled(false);
@@ -464,6 +469,8 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
        } else { 
         
         textoCodigo.setEnabled(false);
+        textoMotorista.setEnabled(true);
+        textoPlaca.setEnabled(true);
         textoKmSaida.setEnabled(true);
         textoKmEntrada.setEnabled(true);
         calendarioDataSaida.setEnabled(true);
@@ -484,6 +491,8 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
         
         textoCodigo.setEnabled(false);
+        textoMotorista.setEnabled(false);
+        textoPlaca.setEnabled(false);
         textoKmSaida.setEnabled(false);
         textoKmEntrada.setEnabled(false);
         calendarioDataSaida.setEnabled(false);
@@ -497,8 +506,6 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         calendarioDataSaida.setDate(null);
         calendarioDataEntrada.setDate(null);
         
-        PesquisaMotorista.setEnabled(false);
-        pesquisaVeiculo.setEnabled(false);
         botaoEditar.setEnabled(false);
         botaoExcluir.setEnabled(false);
         botaoSalvar.setEnabled(false);

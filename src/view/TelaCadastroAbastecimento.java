@@ -20,7 +20,6 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         labelCodigoDoAbastecimento.setVisible(false);
         textoKmAbastecidoAnteriormente.setEnabled(false);
         pesquisaVeiculo.setEnabled(false);
-        textoPlacaVeiculo.setEnabled(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -135,16 +134,16 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         });
 
         labelEmissaoDaCNH.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        labelEmissaoDaCNH.setText("Data do Abastecimento:");
+        labelEmissaoDaCNH.setText("Data do Abastecimento");
 
         labelNumeroDaCnh.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        labelNumeroDaCnh.setText("KM Abastecido:");
+        labelNumeroDaCnh.setText("KM Abastecido");
 
         labelCategoriaDaCnh.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        labelCategoriaDaCnh.setText("Quantidade Abastecida:");
+        labelCategoriaDaCnh.setText("Quantidade Abastecida");
 
         labelPlacaVeiculo.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        labelPlacaVeiculo.setText("Placa Veículo:");
+        labelPlacaVeiculo.setText("Placa Veículo");
 
         labelCodigoDoAbastecimento.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         labelCodigoDoAbastecimento.setText("Código do Abastecimento:");
@@ -157,7 +156,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         });
 
         labelNumeroDaCnh1.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        labelNumeroDaCnh1.setText("KM Abastecido Anteriormente:");
+        labelNumeroDaCnh1.setText("KM Abastecido Anteriormente");
 
         textoKmAbastecidoAnteriormente.setEnabled(false);
         textoKmAbastecidoAnteriormente.addActionListener(new java.awt.event.ActionListener() {
@@ -225,7 +224,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
                                     .addComponent(calendarioAbastecimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pesquisaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,12 +271,13 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
 
     private void botaoNovoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoNovoCadastroActionPerformed
 
+        textoPlacaVeiculo.setEnabled(true);
         textoQuantidadeAbastecida.setEnabled(true);
         textoKmAbastecido.setEnabled(true);
         calendarioAbastecimento.setEnabled(true);
         botaoSalvar.setEnabled(true);
         textoKmAbastecidoAnteriormente.setEnabled(true);
-        pesquisaVeiculo.setEnabled(true);
+          pesquisaVeiculo.setEnabled(true);
         
         textoCodigoAbastecimento.setText("");
         textoQuantidadeAbastecida.setText("");
@@ -306,6 +306,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         
         //calendarioVencimento.setDate(vencimento);
         //textoCodigoMotorista.setEnabled(true);
+        textoPlacaVeiculo.setEnabled(true);
         textoQuantidadeAbastecida.setEnabled(true);
         textoKmAbastecido.setEnabled(true);
         textoKmAbastecidoAnteriormente.setEnabled(true);
@@ -327,6 +328,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         
        } else { 
         
+        textoPlacaVeiculo.setEnabled(false);
         textoQuantidadeAbastecida.setEnabled(false);
         textoKmAbastecido.setEnabled(false);
         calendarioAbastecimento.setEnabled(false);
@@ -334,15 +336,12 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
 
         SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
         String data = dFormat.format(calendarioAbastecimento.getDate());
-        AbastecimentoModelo p = new AbastecimentoModelo(Integer.parseInt(textoCodigoAbastecimento.getText()),
-                Integer.parseInt(textoKmAbastecido.getText()), Integer.parseInt(textoKmAbastecidoAnteriormente.getText()),
-                textoPlacaVeiculo.getText(), Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
+        AbastecimentoModelo p = new AbastecimentoModelo(Integer.parseInt(textoCodigoAbastecimento.getText()), Integer.parseInt(textoKmAbastecido.getText()), Integer.parseInt(textoKmAbastecidoAnteriormente.getText()),textoPlacaVeiculo.getText(), Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
 
         
         botaoSalvar.setEnabled(false);
         botaoEditar.setEnabled(false);
         botaoExcluir.setEnabled(false);
-        pesquisaVeiculo.setEnabled(false);
         
         textoCodigoAbastecimento.setText("");
         textoQuantidadeAbastecida.setText("");
@@ -364,9 +363,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd");
         String data = dFormat.format(calendarioAbastecimento.getDate());
         
-        AbastecimentoModelo p = new AbastecimentoModelo(Integer.parseInt(textoCodigoAbastecimento.getText()),
-                Integer.parseInt(textoKmAbastecido.getText()), Integer.parseInt(textoKmAbastecidoAnteriormente.getText()),
-                textoPlacaVeiculo.getText(), Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
+        AbastecimentoModelo p = new AbastecimentoModelo(Integer.parseInt(textoCodigoAbastecimento.getText()), Integer.parseInt(textoKmAbastecido.getText()), Integer.parseInt(textoKmAbastecidoAnteriormente.getText()),textoPlacaVeiculo.getText(), Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
 
         textoCodigoAbastecimento.setText("");
         textoQuantidadeAbastecida.setText("");
@@ -379,8 +376,8 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         botaoSalvar.setEnabled(false);
         botaoEditar.setEnabled(false);
         botaoExcluir.setEnabled(false);
-        pesquisaVeiculo.setEnabled(false);
         
+        textoPlacaVeiculo.setEnabled(false);
         textoQuantidadeAbastecida.setEnabled(false);
         textoKmAbastecidoAnteriormente.setEnabled(false);
         textoKmAbastecido.setEnabled(false);
@@ -408,9 +405,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd"); // Usado para formatar o padrão da data dd/MM/yyyy para yyyy/MM/dd 
         String data = dFormat.format(calendarioAbastecimento.getDate()); // converte a data ja formatada para String
        
-        AbastecimentoModelo p = new AbastecimentoModelo(0, Integer.parseInt(textoKmAbastecido.getText()),
-                Integer.parseInt(textoKmAbastecidoAnteriormente.getText()),textoPlacaVeiculo.getText(),
-                Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
+        AbastecimentoModelo p = new AbastecimentoModelo(0, Integer.parseInt(textoKmAbastecido.getText()), Integer.parseInt(textoKmAbastecidoAnteriormente.getText()),textoPlacaVeiculo.getText(), Date.valueOf(data),  Float.parseFloat(textoQuantidadeAbastecida.getText()));
              
         AbastecimentoControle abastecer = new AbastecimentoControle();
         
@@ -425,8 +420,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         botaoSalvar.setEnabled(false);
         botaoEditar.setEnabled(false);
         botaoExcluir.setEnabled(false);
-        pesquisaVeiculo.setEnabled(false);
-        
+        textoPlacaVeiculo.setEnabled(false);
         textoQuantidadeAbastecida.setEnabled(false);
         textoKmAbastecidoAnteriormente.setEnabled(false);
         textoKmAbastecido.setEnabled(false);

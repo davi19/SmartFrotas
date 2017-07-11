@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import view.TelaInicial;
+import view.TelaLogin;
 
 /**
  *
@@ -19,7 +20,7 @@ import view.TelaInicial;
  */
 public class UsuarioControle {
     
-     Conexao c = new Conexao();
+     Conexao c = new Conexao(); 
      
      public void login(UsuarioModelo p) throws SQLException{
      
@@ -29,6 +30,8 @@ public class UsuarioControle {
         
         if(rs.next()){ //existe 
             
+           Sessao sessao = Sessao.getInstance();
+           sessao.setnivelPermissao(rs.getString("nivelPermissao"));
            TelaInicial frame = new TelaInicial();
            frame.setVisible(true);
                
@@ -76,7 +79,7 @@ public class UsuarioControle {
    
    public void excluir(int codUsuario){
        
-    	String sentenca = "DELETE FROM usuarioSistema WHERE codUsuario="+codUsuario;
+    	String sentenca = "DELETE FROM usuariosistema WHERE codUsuario="+codUsuario;
         
     	try {
 		c.stmt.execute(sentenca);
@@ -103,7 +106,7 @@ public class UsuarioControle {
 
             }else{ 
         */
-                String sentenca = "UPDATE usuarioSistema set login = '"+p.getLogin()+"', senha = '"+p.getSenha()+"', nivelPermissao = '"+p.getNivelPermissao()+"' WHERE codUsuario="+p.getCodUsuario();
+                String sentenca = "UPDATE usuariosistema set login = '"+p.getLogin()+"', senha = '"+p.getSenha()+"', nivelPermissao = '"+p.getNivelPermissao()+"' WHERE codUsuario="+p.getCodUsuario();
 
                 try {
                         c.stmt.execute(sentenca);

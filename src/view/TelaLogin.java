@@ -22,8 +22,8 @@ public class TelaLogin extends javax.swing.JFrame {
     
     public TelaLogin() {
         initComponents();
-        
-        setLocationRelativeTo(null);
+      
+         setLocationRelativeTo(null);
     }
 
     /**
@@ -58,9 +58,6 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         botaoEntrar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                botaoEntrarKeyTyped(evt);
-            }
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 botaoEntrarKeyPressed(evt);
             }
@@ -73,10 +70,26 @@ public class TelaLogin extends javax.swing.JFrame {
                 botaoSairActionPerformed(evt);
             }
         });
+        botaoSair.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                botaoSairKeyPressed(evt);
+            }
+        });
+
+        textoSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textoSenhaKeyPressed(evt);
+            }
+        });
 
         textoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textoLoginActionPerformed(evt);
+            }
+        });
+        textoLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textoLoginKeyPressed(evt);
             }
         });
 
@@ -151,8 +164,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_textoLoginActionPerformed
 
     private void botaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEntrarActionPerformed
-       
-       
+             
          char[] password = textoSenha.getPassword();  
            String senha = new String(password);  
                      
@@ -186,18 +198,84 @@ public class TelaLogin extends javax.swing.JFrame {
          this.dispose();
     }//GEN-LAST:event_botaoSairActionPerformed
 
-    private void botaoEntrarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_botaoEntrarKeyTyped
+    private void botaoSairKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_botaoSairKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botaoEntrarKeyTyped
+    }//GEN-LAST:event_botaoSairKeyPressed
 
     private void botaoEntrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_botaoEntrarKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-        
-            botaoEntrar.doLayout();
-            JOptionPane.showMessageDialog(null, "Teste");
-        
-        }
+
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            botaoEntrar.doClick();
+        }        JOptionPane.showMessageDialog(this,"Testetst");
     }//GEN-LAST:event_botaoEntrarKeyPressed
+
+    private void textoLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoLoginKeyPressed
+         
+            if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            
+                     
+                    char[] password = textoSenha.getPassword();  
+                      String senha = new String(password);  
+
+                  if(textoLogin.getText().equals("") || senha.equals("")) {
+
+                       JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+
+                  } else { 
+
+                       UsuarioModelo p = new UsuarioModelo(0,String.valueOf(textoSenha.getPassword()), textoLogin.getText(),null);     
+
+                       UsuarioControle usuario = new UsuarioControle();
+
+                      try {
+                          usuario.login(p);
+                      } catch (SQLException ex) {
+                          Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                      }
+
+                       this.dispose();
+                       textoLogin.setText("");
+                       textoSenha.setText("");
+
+                 }
+
+            
+            }
+    }//GEN-LAST:event_textoLoginKeyPressed
+
+    private void textoSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoSenhaKeyPressed
+                    
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            
+                     
+                    char[] password = textoSenha.getPassword();  
+                      String senha = new String(password);  
+
+                  if(textoLogin.getText().equals("") || senha.equals("")) {
+
+                       JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos", "ERRO", JOptionPane.ERROR_MESSAGE);
+
+                  } else { 
+
+                       UsuarioModelo p = new UsuarioModelo(0,String.valueOf(textoSenha.getPassword()), textoLogin.getText(),null);     
+
+                       UsuarioControle usuario = new UsuarioControle();
+
+                      try {
+                          usuario.login(p);
+                      } catch (SQLException ex) {
+                          Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                      }
+
+                       this.dispose();
+                       textoLogin.setText("");
+                       textoSenha.setText("");
+
+                  }
+                  
+        }
+
+    }//GEN-LAST:event_textoSenhaKeyPressed
 
     /**
      * @param args the command line arguments
@@ -234,6 +312,7 @@ public class TelaLogin extends javax.swing.JFrame {
         });
     }
 
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoEntrar;
     private javax.swing.JButton botaoSair;

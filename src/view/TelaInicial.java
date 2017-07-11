@@ -5,11 +5,9 @@
  */
 package view;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import java.io.PrintStream;
+import Controle.Sessao;
 import java.text.SimpleDateFormat;
-import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +20,8 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     public TelaInicial() {
         initComponents();
+        
+
     }
 
     /**
@@ -69,13 +69,14 @@ public class TelaInicial extends javax.swing.JFrame {
         setTitle("Sistema Smart Frotas");
         setExtendedState(6);
         setIconImages(null);
+        setMaximumSize(new java.awt.Dimension(2000, 2000));
         setMinimumSize(new java.awt.Dimension(600, 600));
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowIconified(java.awt.event.WindowEvent evt) {
-                formWindowIconified(evt);
-            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
+            }
+            public void windowIconified(java.awt.event.WindowEvent evt) {
+                formWindowIconified(evt);
             }
         });
 
@@ -244,8 +245,18 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5MousePressed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+       
+        if(Sessao.getInstance().getnivelPermissao().equals("TOTAL")){
+        
         TelaCadastroUsuario telaCadastroUsuario = new TelaCadastroUsuario();
         telaCadastroUsuario.setVisible(true);
+        
+        } else {
+        
+            JOptionPane.showMessageDialog(null, "Solicitação negada!\nVocê não tem permissão para acessar essa opção", "ERRO", JOptionPane.ERROR_MESSAGE);
+        
+        
+        }
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -258,13 +269,10 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void subMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMenuSairActionPerformed
+        
         TelaLogin telaLogin = new TelaLogin();
-        TelaCadastroUsuario telausuario = new TelaCadastroUsuario(); 
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        telausuario.dispose();
         telaLogin.setVisible(true);
-        
-        
+        System.exit(EXIT_ON_CLOSE);
         
         //
         
