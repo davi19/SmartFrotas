@@ -6,6 +6,7 @@
 package view;
 
 import Controle.ControleDeViagemControle;
+import Controle.Sessao;
 import Modelo.ControleDeViagemModelo;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -347,7 +348,13 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         
         botaoSalvar.setEnabled(false);
         botaoEditar.setEnabled(true);
-        botaoExcluir.setEnabled(true);
+        
+        
+        if(Sessao.getInstance().getnivelPermissao().equals("TOTAL")){
+        
+          botaoExcluir.setEnabled(true);
+        
+        }        
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed

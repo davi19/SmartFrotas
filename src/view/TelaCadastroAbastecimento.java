@@ -1,6 +1,7 @@
 package view;
 
 import Controle.AbastecimentoControle;
+import Controle.Sessao;
 import Modelo.AbastecimentoModelo;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -314,8 +315,13 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         
         botaoSalvar.setEnabled(false);
         botaoEditar.setEnabled(true);
-        botaoExcluir.setEnabled(true);
         
+        
+        if(Sessao.getInstance().getnivelPermissao().equals("TOTAL")){
+   
+            botaoExcluir.setEnabled(true);
+        
+        }         
     }//GEN-LAST:event_botaoPesquisarActionPerformed
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
