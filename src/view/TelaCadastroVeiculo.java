@@ -133,7 +133,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel2.setText("Placa:");
 
         jLabel4.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel4.setText("Capacidade do Tanque");
+        jLabel4.setText("Capacidade do Tanque:");
 
         jLabel3.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel3.setText("Tipo de Veículo:");
@@ -265,9 +265,11 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                             .addComponent(textoModelo, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textoChassi, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textoFabricante, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboBoxTipoVeiculo, javax.swing.GroupLayout.Alignment.LEADING, 0, 231, Short.MAX_VALUE)
+                            .addComponent(comboBoxTipoVeiculo, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(textoPlaca, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textoCodigoVeiculo)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(textoCodigoVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(textoConsumoMedio)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botaoNovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)

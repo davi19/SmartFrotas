@@ -82,7 +82,7 @@
                       <Component id="pesquisaVeiculo" min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="109" max="32767" attributes="0"/>
+              <EmptySpace pref="90" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -269,7 +269,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Data do Abastecimento"/>
+        <Property name="text" type="java.lang.String" value="Data do Abastecimento:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelNumeroDaCnh">
@@ -277,7 +277,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="KM Abastecido"/>
+        <Property name="text" type="java.lang.String" value="KM Abastecido:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelCategoriaDaCnh">
@@ -285,7 +285,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Quantidade Abastecida"/>
+        <Property name="text" type="java.lang.String" value="Quantidade Abastecida:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelPlacaVeiculo">
@@ -293,7 +293,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Placa Ve&#xed;culo"/>
+        <Property name="text" type="java.lang.String" value="Placa Ve&#xed;culo:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelCodigoDoAbastecimento">
@@ -320,7 +320,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="14" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="KM Abastecido Anteriormente"/>
+        <Property name="text" type="java.lang.String" value="KM Abastecido Anteriormente:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="textoKmAbastecidoAnteriormente">

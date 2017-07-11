@@ -69,14 +69,13 @@ public class TelaInicial extends javax.swing.JFrame {
         setTitle("Sistema Smart Frotas");
         setExtendedState(6);
         setIconImages(null);
-        setMaximumSize(new java.awt.Dimension(2000, 2000));
         setMinimumSize(new java.awt.Dimension(600, 600));
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
             public void windowIconified(java.awt.event.WindowEvent evt) {
                 formWindowIconified(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -261,8 +260,11 @@ public class TelaInicial extends javax.swing.JFrame {
     private void subMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMenuSairActionPerformed
         TelaLogin telaLogin = new TelaLogin();
         TelaCadastroUsuario telausuario = new TelaCadastroUsuario(); 
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         telausuario.dispose();
         telaLogin.setVisible(true);
+        
+        
         
         //
         

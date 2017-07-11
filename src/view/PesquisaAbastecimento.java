@@ -154,12 +154,12 @@ public class PesquisaAbastecimento extends javax.swing.JDialog {
         try{
 
             Vector cabecalho = new Vector();
-            cabecalho.add("codAbastecimento");
-            cabecalho.add("placaVeiculo");
-            cabecalho.add("quantidadeAbastecida");
-            cabecalho.add("quilometroAbastecido");
-            cabecalho.add("quilometroAbastecidoAnterior");
-            cabecalho.add("dataAbastecimento");
+            cabecalho.add("Código");
+            cabecalho.add("Placa Veiculo");
+            cabecalho.add("Quantidade Abastecida");
+            cabecalho.add("Km Abastecido");
+            cabecalho.add("Km Abastecido Anterior");
+            cabecalho.add("Data Abastecimento");
 
             if(!textoPesquisaAbastecimento.getText().equals("")){
                 DefaultTableModel nv = new DefaultTableModel(abastecimento.Pesquisar(textoPesquisaAbastecimento.getText()),cabecalho);
