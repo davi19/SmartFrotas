@@ -577,7 +577,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         
         char c = evt.getKeyChar();
 
-            if((c<'a' || c>'z') && (c<'A' || c>'Z')){
+            if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c!=(char)KeyEvent.VK_SPACE)){
                 
                 teclaCerta = false;
             
@@ -609,7 +609,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         
         char c = evt.getKeyChar();
 
-            if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<'0' || c>'9')){
+            if((c<'a' || c>'z') && (c<'A' || c>'Z') && (c<'0' || c>'9') && (c!=(char)KeyEvent.VK_SPACE)){
                 
                 teclaCerta = false;
             
@@ -672,7 +672,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
             
              int comprimentoDeCampo = textoCapacidadeTanque.getText().length();
             
-             if (!teclaCerta || comprimentoDeCampo == 3) { evt.consume(); }
+             if (!teclaCerta || comprimentoDeCampo == 4) { evt.consume(); }
     }//GEN-LAST:event_textoCapacidadeTanqueKeyTyped
 
     private void textoConsumoMedioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoConsumoMedioKeyTyped

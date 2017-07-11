@@ -71,7 +71,7 @@ public class MotoristaControle {
 
     public void editar(MotoristaModelo p) throws SQLException {
         
-        /*String sentenca_consulta = "SELECT * FROM motorista WHERE numeroCNH = '" + p.getNumeroCNH()+ "'";
+        String sentenca_consulta = "SELECT * FROM motorista WHERE numeroCNH = '" + p.getNumeroCNH()+ "' AND codMotorista != '" + p.getCodMotorista()+ "'";
         PreparedStatement ps = c.getConexao().prepareStatement(sentenca_consulta); // executa a sentença
         ResultSet rs = ps.executeQuery();
         
@@ -80,7 +80,7 @@ public class MotoristaControle {
             JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Motorista!\nEssa CNH já está cadastrada no sistema", "ERRO", JOptionPane.ERROR_MESSAGE);
         
         }else{
-        */
+        
             String sentenca = "UPDATE motorista set nomeMotorista = '" + p.getNome() + "', categoriaCNH = '" + p.getCategoriaCNH() + "', numeroCNH = '" + p.getNumeroCNH() + "', dataDeVencimentoCNH = '" + p.getDataDeVencimentoCNH() + "' WHERE codMotorista=" + p.getCodMotorista();
 
             try {
@@ -96,7 +96,7 @@ public class MotoristaControle {
         
         }
 
-   // }
+   }
 
     public Vector Pesquisar(String pesq) throws Exception {
 

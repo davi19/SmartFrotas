@@ -95,17 +95,17 @@ public class UsuarioControle {
    
     public void editar(UsuarioModelo p) throws SQLException{
     
-        /*
-        String sentenca_consulta = "SELECT * FROM usuariosistema WHERE login = '" + p.getLogin() + "'";
+        
+        String sentenca_consulta = "SELECT * FROM usuariosistema WHERE login = '" + p.getLogin() + "' AND codUsuario != '" + p.getCodUsuario()+ "'";
         PreparedStatement ps = c.getConexao().prepareStatement(sentenca_consulta); // executa a sentença
         ResultSet rs = ps.executeQuery();
         
         if(rs.next()){ //existe 
             
-            JOptionPane.showMessageDialog(null, "Erro ao inserir Usuario!", "ERRO", JOptionPane.ERROR_MESSAGE); // Necessita desse erro para o usuario
+            JOptionPane.showMessageDialog(null, "Erro ao alterar Usuario!\nJá existe um usuário com esse login.", "ERRO", JOptionPane.ERROR_MESSAGE); // Necessita desse erro para o usuario
 
             }else{ 
-        */
+        
                 String sentenca = "UPDATE usuariosistema set login = '"+p.getLogin()+"', senha = '"+p.getSenha()+"', nivelPermissao = '"+p.getNivelPermissao()+"' WHERE codUsuario="+p.getCodUsuario();
 
                 try {
@@ -122,7 +122,7 @@ public class UsuarioControle {
             
     }
             
-    //}
+   }
     
     public Vector Pesquisar(String pesq) throws Exception {
 

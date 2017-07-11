@@ -69,7 +69,6 @@ public class TelaInicial extends javax.swing.JFrame {
         setTitle("Sistema Smart Frotas");
         setExtendedState(6);
         setIconImages(null);
-        setMaximumSize(new java.awt.Dimension(2000, 2000));
         setMinimumSize(new java.awt.Dimension(600, 600));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -157,6 +156,11 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenu2.setText("Relatório");
 
         jMenuItem2.setText("Viagem");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuItem3.setText("Abastecimento");
@@ -277,6 +281,10 @@ public class TelaInicial extends javax.swing.JFrame {
         //
         
     }//GEN-LAST:event_subMenuSairActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

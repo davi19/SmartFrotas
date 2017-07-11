@@ -13,21 +13,32 @@ public class VeiculoControle {
     
      public void inserir(VeiculoModelo p)throws SQLException{    
       
-         String sentenca = "INSERT INTO veiculo (placaVeiculo, tipoVeiculo, fabricante, modelo, cor, anoFabricacao, numeroChassi, capacidadeTanque, mediaConsumo) VALUES('"+p.getPlacaVeiculo()+"','"+p.getTipoVeiculo()+"','"+p.getFabricante()+"','"+p.getModelo()+"','"+p.getCor()+"','"+p.getAnoFabricacao()+"','"+p.getNumeroChassi()+"','"+p.getCapacidadeTanque()+"','"+p.getMediaConsumo()+"')";
+        String sentenca_consulta = "SELECT * FROM veiculo WHERE placaVeiculo = '" +p.getPlacaVeiculo()+ "'";
+        PreparedStatement ps = c.getConexao().prepareStatement(sentenca_consulta); // executa a sentença
+        ResultSet rs = ps.executeQuery();
+        
+        if(rs.next()){ //existe 
+            
+            JOptionPane.showMessageDialog(null, "Erro ao inserir Veículo!\nJá existe um Veículo com essa placa.", "ERRO", JOptionPane.ERROR_MESSAGE); // Necessita desse erro para o usuario
 
-                try {
+            }else{ 
 
-                    c.stmt.execute(sentenca);
-                    //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
-                    JOptionPane.showMessageDialog(null, "Veiculo inserido com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
 
-                } catch (SQLException ex) {
+                    String sentenca = "INSERT INTO veiculo (placaVeiculo, tipoVeiculo, fabricante, modelo, cor, anoFabricacao, numeroChassi, capacidadeTanque, mediaConsumo) VALUES('"+p.getPlacaVeiculo()+"','"+p.getTipoVeiculo()+"','"+p.getFabricante()+"','"+p.getModelo()+"','"+p.getCor()+"','"+p.getAnoFabricacao()+"','"+p.getNumeroChassi()+"','"+p.getCapacidadeTanque()+"','"+p.getMediaConsumo()+"')";
 
-                    System.out.print(ex.getMessage());
-                    System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
-                    JOptionPane.showMessageDialog(null, "Erro ao inserir Veiculo!", "ERRO", JOptionPane.ERROR_MESSAGE);
-                }
-       
+                       try {
+
+                           c.stmt.execute(sentenca);
+                           //System.out.print(" >>>> INSERIDO COM SUCESSO  <<<< ");
+                           JOptionPane.showMessageDialog(null, "Veiculo inserido com Sucesso!","CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
+
+                       } catch (SQLException ex) {
+
+                           System.out.print(ex.getMessage());
+                           System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+                           JOptionPane.showMessageDialog(null, "Erro ao inserir Veiculo!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                       }
+        }
     }
      
      public void excluir(int codVeiculo){
@@ -47,20 +58,31 @@ public class VeiculoControle {
     }
     
      public void editar(VeiculoModelo p) throws SQLException{
-     
-        String sentenca = "UPDATE veiculo set placaVeiculo = '" + p.getPlacaVeiculo() + "', tipoVeiculo = '" + p.getTipoVeiculo() + "', fabricante = '" + p.getFabricante() + "', modelo = '" + p.getModelo() +"', cor = '" + p.getCor() +"', anoFabricacao = '" + p.getAnoFabricacao() +"', numeroChassi = '" + p.getNumeroChassi() +"', capacidadeTanque = '" + p.getCapacidadeTanque() +"', mediaConsumo = '" + p.getMediaConsumo() + "' WHERE codVeiculo=" + p.getCodVeiculo();
-
-            try {
-                c.stmt.execute(sentenca);
-                JOptionPane.showMessageDialog(null, "Dados do Veiculo atualizado com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
-
-            } catch (SQLException ex) {
-
-                System.out.print(ex.getMessage());
-                JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Veiculo!", "ERRO", JOptionPane.ERROR_MESSAGE);
-
-            }
+         
+         
+         String sentenca_consulta = "SELECT * FROM veiculo WHERE placaVeiculo = '" + p.getPlacaVeiculo() + "' AND codVeiculo != '" + p.getCodVeiculo()+ "'";
+        PreparedStatement ps = c.getConexao().prepareStatement(sentenca_consulta); // executa a sentença
+        ResultSet rs = ps.executeQuery();
         
+        if(rs.next()){ //existe 
+            
+            JOptionPane.showMessageDialog(null, "Erro ao alterar Veículo!\nJá existe um Veículo com essa placa.", "ERRO", JOptionPane.ERROR_MESSAGE); // Necessita desse erro para o usuario
+
+            }else{ 
+     
+                    String sentenca = "UPDATE veiculo set placaVeiculo = '" + p.getPlacaVeiculo() + "', tipoVeiculo = '" + p.getTipoVeiculo() + "', fabricante = '" + p.getFabricante() + "', modelo = '" + p.getModelo() +"', cor = '" + p.getCor() +"', anoFabricacao = '" + p.getAnoFabricacao() +"', numeroChassi = '" + p.getNumeroChassi() +"', capacidadeTanque = '" + p.getCapacidadeTanque() +"', mediaConsumo = '" + p.getMediaConsumo() + "' WHERE codVeiculo=" + p.getCodVeiculo();
+
+                    try {
+                        c.stmt.execute(sentenca);
+                        JOptionPane.showMessageDialog(null, "Dados do Veiculo atualizado com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
+
+                    } catch (SQLException ex) {
+
+                        System.out.print(ex.getMessage());
+                        JOptionPane.showMessageDialog(null, "Erro ao alterar dados do Veiculo!", "ERRO", JOptionPane.ERROR_MESSAGE);
+
+                    }
+            }
         }
 
      
