@@ -216,6 +216,11 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         });
 
         textoFabricante.setEnabled(false);
+        textoFabricante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoFabricanteActionPerformed(evt);
+            }
+        });
         textoFabricante.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textoFabricanteKeyTyped(evt);
@@ -572,7 +577,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         
         char c = evt.getKeyChar();
 
-            if((c<'a' || c>'z')){
+            if((c<'a' || c>'z') && (c<'A' || c>'Z')){
                 
                 teclaCerta = false;
             
@@ -694,6 +699,10 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     private void textoCapacidadeTanqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoCapacidadeTanqueActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoCapacidadeTanqueActionPerformed
+
+    private void textoFabricanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoFabricanteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoFabricanteActionPerformed
 
     /**
      * @param args the command line arguments

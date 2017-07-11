@@ -9,7 +9,10 @@ import Controle.ControleDeViagemControle;
 import Controle.Sessao;
 import Modelo.ControleDeViagemModelo;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -183,6 +186,11 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         textoCodigo.setEnabled(false);
 
         textoMotorista.setEnabled(false);
+        textoMotorista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoMotoristaActionPerformed(evt);
+            }
+        });
 
         PesquisaMotorista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/pesquisar pequeno.png"))); // NOI18N
         PesquisaMotorista.addActionListener(new java.awt.event.ActionListener() {
@@ -314,8 +322,12 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         textoPlaca.setText("");
         textoKmSaida.setText("");
         textoKmEntrada.setText("");
+        
         calendarioDataSaida.setDate(null);
         calendarioDataEntrada.setDate(null);
+               
+        textoMotorista.setFocusable(false);
+        textoPlaca.setFocusable(false);
         
         PesquisaMotorista.setEnabled(true);
         pesquisaVeiculo.setEnabled(true);
@@ -346,6 +358,8 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         calendarioDataSaida.setEnabled(true);
         calendarioDataEntrada.setEnabled(true);
         
+        PesquisaMotorista.setEnabled(true);
+        pesquisaVeiculo.setEnabled(true);
         botaoSalvar.setEnabled(false);
         botaoEditar.setEnabled(true);
         
@@ -400,7 +414,11 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         
         ControleDeViagemControle controleDeViagemControle = new ControleDeViagemControle();
 
-        controleDeViagemControle.inserir(p);
+            try {
+                controleDeViagemControle.inserir(p);
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaAberturaViagem.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         textoCodigo.setEnabled(false);
         textoMotorista.setEnabled(false);
@@ -553,6 +571,10 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
             
              if (!teclaCerta || comprimentoDeCampo == 6) { evt.consume(); }
     }//GEN-LAST:event_textoKmEntradaKeyTyped
+
+    private void textoMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoMotoristaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoMotoristaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -287,6 +287,7 @@ public class TelaCadastroAbastecimento extends javax.swing.JFrame {
         textoPlacaVeiculo.setText("");
         calendarioAbastecimento.setDate(null);
         
+        textoPlacaVeiculo.setFocusable(false);
 
         botaoEditar.setEnabled(false);
         botaoExcluir.setEnabled(false);

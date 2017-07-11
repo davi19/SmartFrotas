@@ -5,15 +5,11 @@
  */
 package Controle;
 import Modelo.ControleDeViagemModelo;
-import Modelo.MotoristaModelo;
-import Modelo.NotificacoesModelo;
 import java.sql.SQLException;
 import Util.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,10 +20,9 @@ public class ControleDeViagemControle {
     
     Conexao c = new Conexao();
     
-     public void inserir(ControleDeViagemModelo p){    
+     public void inserir(ControleDeViagemModelo p) throws SQLException{    
        
-              
-        String sentenca = "INSERT INTO controle (nomeMotorista, placaVeiculo, KmEntrada, KmSaida, dataSaida, dataEntrada) VALUES('"+p.getNomeMotorista()+"','"+p.getPlacaVeiculo()+"','"+p.getKmEntrada()+"','"+p.getKmSaida()+"','"+p.getDataSaida()+"','"+p.getDataEntrada()+"')";
+           String sentenca = "INSERT INTO controle (nomeMotorista, placaVeiculo, KmEntrada, KmSaida, dataSaida, dataEntrada) VALUES('"+p.getNomeMotorista()+"','"+p.getPlacaVeiculo()+"','"+p.getKmEntrada()+"','"+p.getKmSaida()+"','"+p.getDataSaida()+"','"+p.getDataEntrada()+"')";
         
         try{
              

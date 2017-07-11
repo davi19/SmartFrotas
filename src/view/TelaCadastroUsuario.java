@@ -229,6 +229,9 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         textoSenha.setEnabled(true);
         comboBoxPermissao.setEnabled(true);
         
+        textoLogin.setText("");
+        textoSenha.setText("");
+        
         botaoSalvarUsuario.setEnabled(true);
         botaoEditarUsuario.setEnabled(false);
         botaoExcluirUsuario.setEnabled(false);
