@@ -65,6 +65,7 @@ public class PesquisaMotorista extends javax.swing.JDialog {
         labelPesquisarMotorista = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pesquisar Motorista");
 
         tabelaMotorista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -75,7 +76,7 @@ public class PesquisaMotorista extends javax.swing.JDialog {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -116,7 +117,7 @@ public class PesquisaMotorista extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelPesquisarMotorista)
                             .addComponent(textoPesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 190, Short.MAX_VALUE)))
+                        .addGap(0, 308, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -162,11 +163,11 @@ public class PesquisaMotorista extends javax.swing.JDialog {
         try{
 
             Vector cabecalho = new Vector();
-            cabecalho.add("codMotorista");
-            cabecalho.add("nomeMotorista");
-            cabecalho.add("categoriaCNH");
-            cabecalho.add("numeroCNH");
-            cabecalho.add("dataDeVencimentoCNH");
+            cabecalho.add("Código");
+            cabecalho.add("Nome");
+            cabecalho.add("Categoria da CNH");
+            cabecalho.add("Número CNH");
+            cabecalho.add("Data de Vencimento CNH");
 
             if(!textoPesquisaMotorista.getText().equals("")){
                 DefaultTableModel nv = new DefaultTableModel(motorista.Pesquisar(textoPesquisaMotorista.getText()),cabecalho);

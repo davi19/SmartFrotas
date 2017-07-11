@@ -3,14 +3,14 @@ package Modelo;
 
 public class VeiculoModelo {
     
-	private  String placaVeiculo, tipoVeiculo, fabricante, modelo, cor;
-	private int anoFabricacao, numeroChassi, capacidadeTanque, codVeiculo;
+	private  String placaVeiculo, tipoVeiculo, fabricante, modelo, cor, numeroChassi;
+	private int anoFabricacao, capacidadeTanque, codVeiculo;
 	private float mediaConsumo;
     
     
     public VeiculoModelo(int codVeiculo, String placaVeiculo, String tipoVeiculo,
 			String fabricante, String modelo, String cor,
-			int anoFabricacao, int numeroChassi, int capacidadeTanque,
+			int anoFabricacao, String numeroChassi, int capacidadeTanque,
 			float mediaConsumo) 
     {           
                 this.codVeiculo = codVeiculo;
@@ -27,7 +27,7 @@ public class VeiculoModelo {
     
     public VeiculoModelo(String placaVeiculo, String tipoVeiculo,
 			String fabricante, String modelo, String cor,
-			int anoFabricacao, int numeroChassi, int capacidadeTanque,
+			int anoFabricacao, String numeroChassi, int capacidadeTanque,
 			float mediaConsumo) 
     {           
 		this.placaVeiculo = placaVeiculo;
@@ -89,11 +89,11 @@ public class VeiculoModelo {
         this.anoFabricacao = anoFabricacao;
     }
 
-    public int getNumeroChassi() {
+    public String getNumeroChassi() {
         return numeroChassi;
     }
 
-    public void setNumeroChassi(int numeroChassi) {
+    public void setNumeroChassi(String numeroChassi) {
         this.numeroChassi = numeroChassi;
     }
 

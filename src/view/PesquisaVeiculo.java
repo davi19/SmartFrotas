@@ -94,6 +94,7 @@ public class PesquisaVeiculo extends javax.swing.JDialog {
         labelPesquisarVeiculo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pesquisar Veículo");
 
         tabelaVeiculo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -182,16 +183,16 @@ public class PesquisaVeiculo extends javax.swing.JDialog {
         try{
 
             Vector cabecalho = new Vector();
-            cabecalho.add("codVeiculo");
-            cabecalho.add("placaVeiculo");
-            cabecalho.add("tipoVeiculo");
-            cabecalho.add("fabricante");
-            cabecalho.add("modelo");
-            cabecalho.add("cor");
-            cabecalho.add("anoFabricacao");
-            cabecalho.add("numeroChassi");
-            cabecalho.add("capacidadeTanque");
-            cabecalho.add("mediaConsumo");
+            cabecalho.add("Código");
+            cabecalho.add("Placa");
+            cabecalho.add("Tipo");
+            cabecalho.add("Fabricante");
+            cabecalho.add("Modelo");
+            cabecalho.add("Cor");
+            cabecalho.add("Ano Fabricacao");
+            cabecalho.add("Nº Chassi");
+            cabecalho.add("Capacidade do Tanque");
+            cabecalho.add("Média Consumo");
             
             if(!textoPesquisaVeiculo.getText().equals("")){
                 DefaultTableModel nv = new DefaultTableModel(veiculo.Pesquisar(textoPesquisaVeiculo.getText()),cabecalho);

@@ -46,6 +46,7 @@ public class ControleDeViagemControle {
      
      public void excluir(int codControle){
          
+      
     	String sentenca = "DELETE FROM controle WHERE codControle="+codControle;
         
     	try {
@@ -54,6 +55,7 @@ public class ControleDeViagemControle {
                 JOptionPane.showMessageDialog(null, "Viagem excluida com sucesso!", "CONFIRMAÇÃO", JOptionPane.INFORMATION_MESSAGE);
 		
               } catch (SQLException ex){
+                 System.out.print(ex.getMessage()); 
                  System.out.print(" >>>> ERRO AO DELETAR  <<<< \n");
                  JOptionPane.showMessageDialog(null, "Erro ao excluir Viagem!", "ERRO", JOptionPane.ERROR_MESSAGE);
         

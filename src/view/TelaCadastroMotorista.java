@@ -17,6 +17,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         initComponents();
         labelCodigoDoMotorista.setVisible(false);
         textoCodigoMotorista.setVisible(false);
+        calendarioVencimento.setEnabled(false);
         botaoSalvar.setEnabled(false);
         botaoExcluir.setEnabled(false);
         botaoEditar.setEnabled(false);
@@ -55,7 +56,8 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         comboBoxCategoriaCNH = new javax.swing.JComboBox<>();
         calendarioVencimento = new com.toedter.calendar.JDateChooser();
 
-        setTitle("Cadastro de Motorista");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Tela de Motorista");
         setSize(new java.awt.Dimension(660, 387));
 
         botaoNovoCadastro.setBackground(new java.awt.Color(204, 204, 204));
@@ -142,6 +144,11 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         });
 
         textoNome.setEnabled(false);
+        textoNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoNomeActionPerformed(evt);
+            }
+        });
         textoNome.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textoNomeKeyTyped(evt);
@@ -164,32 +171,36 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
                         .addComponent(botaoNovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(botaoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelCodigoDoMotorista)
-                                .addGap(40, 40, 40)
-                                .addComponent(textoCodigoMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(labelNome, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(labelCodigoDoMotorista)
+                            .addGap(29, 29, 29))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelNome)
                                 .addComponent(labelEmissaoDaCNH)
                                 .addComponent(labelCategoriaDaCnh)
                                 .addComponent(labelNumeroDaCnh))
-                            .addGap(39, 39, 39)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(textoNumeroCNH)
-                                .addComponent(comboBoxCategoriaCNH, 0, 220, Short.MAX_VALUE)
-                                .addComponent(calendarioVencimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(textoNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(28, 28, 28))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(textoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(textoCodigoMotorista, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(calendarioVencimento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                        .addComponent(textoNumeroCNH, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(comboBoxCategoriaCNH, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -203,7 +214,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
                     .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textoCodigoMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelCodigoDoMotorista))
@@ -223,7 +234,7 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(labelEmissaoDaCNH)
                     .addComponent(calendarioVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -237,6 +248,9 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
         calendarioVencimento.setEnabled(true);
         comboBoxCategoriaCNH.setEnabled(true);
         textoNumeroCNH.setEnabled(true);
+        
+        botaoExcluir.setEnabled(false);
+        botaoEditar.setEnabled(false);
         
         textoNumeroCNH.setText("");
         textoNome.setText("");
@@ -428,6 +442,10 @@ public class TelaCadastroMotorista extends javax.swing.JFrame {
     private void calendarioVencimentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_calendarioVencimentoKeyTyped
           
     }//GEN-LAST:event_calendarioVencimentoKeyTyped
+
+    private void textoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoNomeActionPerformed
 
     /**
      * @param args the command line arguments

@@ -8,10 +8,7 @@ package view;
 import Controle.ControleDeViagemControle;
 import Modelo.ControleDeViagemModelo;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,6 +34,9 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         botaoEditar.setEnabled(false);
         botaoExcluir.setEnabled(false);
         botaoSalvar.setEnabled(false);
+        
+        labelCodigo.setVisible(false);
+        textoCodigo.setVisible(false);
         
         setLocationRelativeTo(null);
         
@@ -74,19 +74,29 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         calendarioDataSaida = new com.toedter.calendar.JDateChooser();
         calendarioDataEntrada = new com.toedter.calendar.JDateChooser();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Abertura de Viagens");
-        setMaximumSize(new java.awt.Dimension(1000, 800));
         setSize(new java.awt.Dimension(660, 473));
 
         labelKmEntrada.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         labelKmEntrada.setText("KM Entrada:");
 
         textoKmSaida.setEnabled(false);
+        textoKmSaida.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoKmSaidaKeyTyped(evt);
+            }
+        });
 
         textoKmEntrada.setEnabled(false);
         textoKmEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textoKmEntradaActionPerformed(evt);
+            }
+        });
+        textoKmEntrada.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoKmEntradaKeyTyped(evt);
             }
         });
 
@@ -153,6 +163,11 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         botaoExcluir.setForeground(new java.awt.Color(255, 255, 255));
         botaoExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/Icones/delete_4219.png"))); // NOI18N
         botaoExcluir.setBorderPainted(false);
+        botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirActionPerformed(evt);
+            }
+        });
 
         labelMotorista.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         labelMotorista.setText("Motorista");
@@ -190,41 +205,39 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botaoNovoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(botaoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(botaoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelCodigo)
+                    .addComponent(labelMotorista)
+                    .addComponent(labelKmSaida)
+                    .addComponent(labelKmEntrada)
+                    .addComponent(labelDataSaida)
+                    .addComponent(labelDataEntrada)
+                    .addComponent(labelPlacaDoVeiculo))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(labelCodigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
-                                .addComponent(textoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelMotorista)
-                                    .addComponent(labelKmSaida)
-                                    .addComponent(labelKmEntrada)
-                                    .addComponent(labelDataSaida)
-                                    .addComponent(labelDataEntrada)
-                                    .addComponent(labelPlacaDoVeiculo))
-                                .addGap(37, 37, 37)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textoPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(textoKmSaida, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(textoKmEntrada, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(textoMotorista, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(calendarioDataSaida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(calendarioDataEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(18, 18, 18)
+                            .addComponent(calendarioDataSaida, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                            .addComponent(textoKmEntrada, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textoKmSaida, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textoPlaca, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textoMotorista)
+                            .addComponent(calendarioDataEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(PesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pesquisaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                            .addComponent(pesquisaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(textoCodigo, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botaoExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -238,41 +251,42 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
                     .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelCodigo)
-                    .addComponent(textoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(labelCodigo)
+                        .addGap(18, 18, 18)
                         .addComponent(labelMotorista)
-                        .addGap(22, 22, 22)
-                        .addComponent(labelPlacaDoVeiculo))
+                        .addGap(38, 38, 38)
+                        .addComponent(labelPlacaDoVeiculo)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelKmSaida)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelKmEntrada)
+                        .addGap(38, 38, 38)
+                        .addComponent(labelDataSaida)
+                        .addGap(31, 31, 31)
+                        .addComponent(labelDataEntrada))
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(textoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textoMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PesquisaMotorista, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(textoPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pesquisaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textoKmSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelKmSaida))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textoKmEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelKmEntrada))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelDataSaida)
-                    .addComponent(calendarioDataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelDataEntrada)
-                    .addComponent(calendarioDataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                            .addComponent(pesquisaVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(textoKmSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(textoKmEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(calendarioDataSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(calendarioDataEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -495,6 +509,39 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
          }
         
     }//GEN-LAST:event_botaoEditarActionPerformed
+
+    private void textoKmSaidaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoKmSaidaKeyTyped
+        
+        boolean teclaCerta = true;
+        
+        char c = evt.getKeyChar();
+
+            if((c<'0' || c>'9')){
+                
+                teclaCerta = false;
+            
+            }
+            
+             int comprimentoDeCampo = textoKmSaida.getText().length();
+            
+             if (!teclaCerta || comprimentoDeCampo == 6) { evt.consume(); }
+    }//GEN-LAST:event_textoKmSaidaKeyTyped
+
+    private void textoKmEntradaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoKmEntradaKeyTyped
+        boolean teclaCerta = true;
+        
+        char c = evt.getKeyChar();
+
+            if((c<'0' || c>'9')){
+                
+                teclaCerta = false;
+            
+            }
+            
+             int comprimentoDeCampo = textoKmEntrada.getText().length();
+            
+             if (!teclaCerta || comprimentoDeCampo == 6) { evt.consume(); }
+    }//GEN-LAST:event_textoKmEntradaKeyTyped
 
     /**
      * @param args the command line arguments

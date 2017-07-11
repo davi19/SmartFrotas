@@ -24,7 +24,7 @@ public class VeiculoControle {
                 } catch (SQLException ex) {
 
                     System.out.print(ex.getMessage());
-                    //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+                    System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
                     JOptionPane.showMessageDialog(null, "Erro ao inserir Veiculo!", "ERRO", JOptionPane.ERROR_MESSAGE);
                 }
        
@@ -82,7 +82,7 @@ public class VeiculoControle {
             nl.add(rs.getString("modelo"));
             nl.add(rs.getString("cor"));
             nl.add(rs.getInt("anoFabricacao"));
-            nl.add(rs.getInt("numeroChassi"));
+            nl.add(rs.getString("numeroChassi"));
             nl.add(rs.getInt("capacidadeTanque"));
             nl.add(rs.getFloat("mediaConsumo"));
             tb.add(nl); // adiciona o vetor com as variaveis em um outro vetor vazio

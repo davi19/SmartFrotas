@@ -67,6 +67,7 @@ public class PesquisaViagens extends javax.swing.JDialog {
         textoPesquisaControle = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pesquisar Viagem");
 
         labelPesquisarViagens.setText("Digite o nome do Motorista");
 
@@ -158,13 +159,13 @@ public class PesquisaViagens extends javax.swing.JDialog {
         try{
 
             Vector cabecalho = new Vector();
-            cabecalho.add("codControle");
-            cabecalho.add("nomeMotorista");
-            cabecalho.add("placaVeiculo");
-            cabecalho.add("kmSaida");
-            cabecalho.add("kmEntrada");
-            cabecalho.add("dataSaida");
-            cabecalho.add("dataEntrada");
+            cabecalho.add("Código");
+            cabecalho.add("Motorista");
+            cabecalho.add("Placa Veículo");
+            cabecalho.add("km Saida");
+            cabecalho.add("km Entrada");
+            cabecalho.add("Data Saida");
+            cabecalho.add("Data Entrada");
             
 
             if(!textoPesquisaControle.getText().equals("")){

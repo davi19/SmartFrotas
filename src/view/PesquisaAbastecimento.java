@@ -66,6 +66,7 @@ public class PesquisaAbastecimento extends javax.swing.JDialog {
         labelPesquisarMotorista = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Pesquisar Abastecimento");
 
         tabelaAbastecimento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

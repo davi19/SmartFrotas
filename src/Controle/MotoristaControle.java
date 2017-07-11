@@ -45,7 +45,7 @@ public class MotoristaControle {
                 } catch (SQLException ex) {
 
                     System.out.print(ex.getMessage());
-                    //System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
+                    System.out.print(" >>>> ERRO AO INSERIR  <<<< ");
                     JOptionPane.showMessageDialog(null, "Erro ao inserir Motorista!", "ERRO", JOptionPane.ERROR_MESSAGE);
                 }
         
@@ -111,7 +111,7 @@ public class MotoristaControle {
             nl.add(rs.getInt("codMotorista")); // adiciona a variavel no vetor
             nl.add(rs.getString("nomeMotorista"));
             nl.add(rs.getString("categoriaCNH"));
-            nl.add(rs.getInt("numeroCNH"));
+            nl.add(rs.getString("numeroCNH"));
             nl.add(rs.getDate("dataDeVencimentoCNH"));
             tb.add(nl); // adiciona o vetor com as variaveis em um outro vetor vazio
         }

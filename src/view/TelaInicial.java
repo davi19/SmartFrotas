@@ -65,18 +65,18 @@ public class TelaInicial extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Abertura de Viagem");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema Smart Frotas");
         setExtendedState(6);
         setIconImages(null);
         setMaximumSize(new java.awt.Dimension(2000, 2000));
         setMinimumSize(new java.awt.Dimension(600, 600));
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowIconified(java.awt.event.WindowEvent evt) {
-                formWindowIconified(evt);
-            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
+            }
+            public void windowIconified(java.awt.event.WindowEvent evt) {
+                formWindowIconified(evt);
             }
         });
 
@@ -260,6 +260,8 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void subMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subMenuSairActionPerformed
         TelaLogin telaLogin = new TelaLogin();
+        TelaCadastroUsuario telausuario = new TelaCadastroUsuario(); 
+        telausuario.dispose();
         telaLogin.setVisible(true);
         
         //
