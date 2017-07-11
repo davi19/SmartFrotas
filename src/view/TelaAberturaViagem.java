@@ -24,9 +24,10 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
     /**
      * Creates new form TelaAberturaViagem
      */
+    PesquisaMotorista telaPesquisaMotorista;
     public TelaAberturaViagem() {
         initComponents();
-        
+        telaPesquisaMotorista = new PesquisaMotorista(this,true);
         textoCodigo.setEnabled(false);
         textoMotorista.setEnabled(false);
         textoPlaca.setEnabled(false);
@@ -378,7 +379,6 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
 
     private void PesquisaMotoristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisaMotoristaActionPerformed
         
-        PesquisaMotorista telaPesquisaMotorista = new PesquisaMotorista(this,true);
         telaPesquisaMotorista.setVisible(true);
         
         textoMotorista.setText(telaPesquisaMotorista.getNomeMotorista());
@@ -395,6 +395,9 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
     }//GEN-LAST:event_pesquisaVeiculoActionPerformed
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+        Date dataHoje = new java.sql.Date(new java.util.Date().getTime());
+        Date dataAux = telaPesquisaMotorista.getDataDeVencimentoCNH();
+
         
         if(textoKmEntrada.getText().equals("") || textoKmSaida.getText().equals("") || textoMotorista.getText().equals("") || 
                 textoPlaca.getText().equals("") || calendarioDataSaida.getDate() == null || calendarioDataEntrada.getDate() == null) {
@@ -413,6 +416,13 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
                 Date.valueOf(dataSaida), textoPlaca.getText());
         
         ControleDeViagemControle controleDeViagemControle = new ControleDeViagemControle();
+        if (dataHoje.after(dataAux)) {
+                JOptionPane.showMessageDialog(null, "Motorista com CNH Vencida");
+                
+            } else if (dataHoje.equals(dataAux)) {
+                JOptionPane.showMessageDialog(null, "Motorista com CNH Vencida");
+                
+            } else {
 
             try {
                 controleDeViagemControle.inserir(p);
@@ -440,7 +450,7 @@ public class TelaAberturaViagem extends javax.swing.JFrame {
         botaoExcluir.setEnabled(false);
         botaoSalvar.setEnabled(false);
         }
-        
+        }
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
