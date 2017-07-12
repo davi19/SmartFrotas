@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="77f5d5ed-a190-470b-ba4f-5d7b5b0e3ee7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT nomeMotorista,categoriaCNH,numeroCNH,dataDeVencimentoCNH, if( year(NOW())-year(dataDeVencimentoCNH) >=5,"Vencida","Em dia") as Vencida FROM smartfrotas.motorista;]]>
+	</queryString>
+	<field name="nomeMotorista" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="categoriaCNH" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeroCNH" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataDeVencimentoCNH" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Vencida" class="java.lang.String"/>
+	<group name="nomeMotorista">
+		<groupExpression><![CDATA[$F{nomeMotorista}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#FFFFFF" uuid="2ab83679-3cce-4b9d-8de5-984479bf7391"/>
+					<textElement>
+						<font fontName="Arial" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nome:]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#003399" backcolor="#FFFFFF" uuid="6dc92bbb-66b4-4cd2-80b0-6d3365f5461a"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nomeMotorista}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="19c2267e-7221-4cb1-abb0-e6c7b159d26c"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="categoriaCNH">
+		<groupExpression><![CDATA[$F{categoriaCNH}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#003399" uuid="987c78d2-3e5e-4e94-9022-1474a9b7a81e"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{categoriaCNH}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="926a4063-7407-458d-8311-2bee692d0a4e"/>
+					<textElement>
+						<font fontName="Arial" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Categoria:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="numeroCNH">
+		<groupExpression><![CDATA[$F{numeroCNH}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#003399" uuid="b226a102-881d-42c8-9906-dbf743838c55"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{numeroCNH}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="f95ca610-9f49-4449-94de-0a196c7750c8"/>
+					<textElement>
+						<font fontName="Arial" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nº CNH:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Vencida">
+		<groupExpression><![CDATA[$F{Vencida}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="0" width="455" height="32" forecolor="#003399" uuid="ff2906d3-e33f-43aa-9b88-68b468de440b"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Vencida}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" forecolor="#666666" uuid="8a246876-6aea-41f8-ad3c-bb3ccc187a41"/>
+					<textElement>
+						<font fontName="Arial" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Status:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="9dd561e1-d303-4903-89f9-057e7c438c82"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="48ab0bb1-ebbd-4906-8fe4-b2236ddfb8a2"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Motorista]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="10370ba6-ca72-4d5d-ad2f-fed6da61949d"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Relatório]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="f22945f9-afc9-468d-a01d-539259fb7a00"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="68">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="ffbc824f-82a8-4e63-9a00-45e273220442"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="4" width="100" height="20" uuid="8af5d2cc-7c14-4839-a82f-9fa5d1737245"/>
+				<textElement>
+					<font fontName="Arial" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vencimento:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="100" y="4" width="455" height="20" forecolor="#003399" uuid="7aaeccb5-6541-4f5e-846c-171f42785f2b"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataDeVencimentoCNH}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="54" width="555" height="1" uuid="cfddecbf-2ebc-47bd-afde-f8522979366f"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="9fd5684d-0472-41e1-b28d-599ac8a84b93"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="ab67c652-21ee-487e-a63f-6f78f6a8b7bc"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="e1f7c448-19fd-4402-a8a7-b958ce761dd6"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

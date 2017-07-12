@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="985fd98e-c9e1-411a-8c07-b7dfbdefa44a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM frotas.abastecimento;]]>
+	</queryString>
+	<field name="placaVeiculo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quantidadeAbastecida" class="java.lang.Float">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quilometroDeAbastecimentoAnterior" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataAbastecimento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="placaVeiculo">
+		<groupExpression><![CDATA[$F{placaVeiculo}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="152" height="32" forecolor="#3300CC" backcolor="#FFFFFF" uuid="d1ea08e7-fa44-4bd8-bc38-09c5f13ff51d"/>
+					<textElement>
+						<font fontName="Arial" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Placa:]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="152" y="0" width="455" height="32" forecolor="#006699" backcolor="#FFFFFF" uuid="7ceeff0f-e5ad-4506-b5ea-818f5f99e18d"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{placaVeiculo}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="4b3832f7-862d-4776-9918-148782183de1"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="quantidadeAbastecida">
+		<groupExpression><![CDATA[$F{quantidadeAbastecida}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="152" y="0" width="455" height="32" forecolor="#006699" uuid="6984fd9c-0e15-467d-9124-6a35c6828ce1"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{quantidadeAbastecida}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="152" height="20" forecolor="#3300CC" uuid="e102ad19-bbb2-4b2e-a7a0-a2b1f166f420"/>
+					<textElement>
+						<font fontName="Arial" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Qtde. Abastecida:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="quilometroDeAbastecimentoAnterior">
+		<groupExpression><![CDATA[$F{quilometroDeAbastecimentoAnterior}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="152" y="0" width="455" height="32" forecolor="#006699" uuid="c988aaaa-1d1e-493a-b0a2-4dec45566c5d"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{quilometroDeAbastecimentoAnterior}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="152" height="20" forecolor="#3300CC" uuid="ee4bc1ee-efbe-4f2f-ad2c-028219da8ec1"/>
+					<textElement>
+						<font fontName="Arial" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Km de Abastecimento:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="dataAbastecimento">
+		<groupExpression><![CDATA[$F{dataAbastecimento}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<textField>
+					<reportElement x="152" y="0" width="455" height="32" forecolor="#006699" uuid="f6cec3be-72a2-4a15-9e84-8c31b4009400"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dataAbastecimento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="152" height="20" forecolor="#3300CC" uuid="75d3a936-da73-435f-bc2d-8cd1c4042bbd"/>
+					<textElement>
+						<font fontName="Arial" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data do abastecimento:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="18ca4012-88d5-4409-889c-43e081478b84"/>
+				<staticText>
+					<reportElement x="20" y="20" width="271" height="43" forecolor="#FFFFFF" uuid="409e1972-3779-409c-8647-f8a9956468d1"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Abastecimento]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="f5cd042a-a4bc-4cfe-8cd9-c56e94b0edec"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Relatório]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="83b51486-636c-44a0-b09e-9b7e58a61e67"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="78">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="a68e2f99-a0f7-4571-8278-11bb6635b492"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="65665e30-28fd-4f71-a6c0-8de937513066"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="1642d625-8103-4571-929e-4931aa0bf204"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="71dd4ab2-e00b-4ff9-bf32-bde1acdc6d02"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
